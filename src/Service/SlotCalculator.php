@@ -116,7 +116,10 @@ final class SlotCalculator
             'limit'      => -1,
             'return'     => 'ids',
             'status'     => ['wc-pending', 'wc-processing', 'wc-on-hold', 'wc-completed'],
-            'meta_query' => [
+            // This is a wc_get_orders() argument (HPOS-aware), not a raw WP_Query
+            // meta_query; the lookup is bounded to a single location/date/slot and
+            // runs only while building the checkout slot grid.
+            'meta_query' => [ // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- bounded order lookup via the documented wc_get_orders API.
                 'relation' => 'AND',
                 [
                     'key'   => self::META_LOCATION,
