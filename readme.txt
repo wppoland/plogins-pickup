@@ -19,26 +19,33 @@ WooCommerce **Local Pickup**, the customer chooses a pickup **location** and a
 order, and shown in the admin order screen and in the order emails.
 
 Slots are generated from the weekly opening windows you define, using your chosen
-slot length, minimum lead time and booking horizon. Each slot has a capacity, so
-once a location + time is fully booked it stops being offered — no double-booking.
+slot length, minimum lead time and booking horizon. Each slot has a capacity: once
+a location and time reaches that number of orders, it drops off the list so it
+cannot be booked twice over.
 
-Everything is stored as order meta, so there is no custom database table and the
-plugin stays light. The checkout fields only appear when Local Pickup is selected;
-for every other shipping method they stay hidden and are never required.
+Everything is stored as order meta, so there is no custom database table to
+maintain. The checkout fields only appear when Local Pickup is selected; for
+every other shipping method they stay hidden and are never required.
+
+The picker lives on the classic checkout. With the block-based Cart and Checkout
+the plugin declares compatibility and saved pickup details still show on the order,
+emails and account pages, but the in-checkout field UI is the classic one.
+
+Source code and bug reports: https://github.com/wppoland/pickup
 
 = Features =
 
 * Pickup location chooser at checkout (admin-defined list, enable/disable each).
 * Date + time-slot picker driven by your weekly opening hours.
 * Configurable slot length, per-slot capacity, lead time and booking horizon.
-* Live slot availability — full or past-lead-time slots are hidden automatically.
-* Selection validated server-side and saved to the order.
-* Pickup details shown in the admin order screen, order emails and the customer's
-  order/thank-you pages.
-* Store-timezone aware; respects your WordPress date format.
-* Self-contained: no custom tables, no external services.
-* Translation ready (POT included) and clean uninstall.
-* HPOS and cart/checkout blocks compatible.
+* Times that are full or inside the lead-time window are dropped from the list.
+* The selection is checked again on the server before the order is created.
+* Pickup details shown on the admin order screen, in order emails, and on the
+  customer's order and thank-you pages.
+* Uses your store timezone and WordPress date format when showing the date.
+* No custom tables and no calls to outside services.
+* Ships with a POT file for translation and removes its settings on uninstall.
+* Declares HPOS compatibility and works alongside the Cart and Checkout blocks.
 
 == Installation ==
 
