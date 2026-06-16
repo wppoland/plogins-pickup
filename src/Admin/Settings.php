@@ -108,7 +108,7 @@ final class Settings implements HasHooks
                 <div class="pickup-card">
                     <h2><?php esc_html_e('General', 'pickup'); ?></h2>
                     <p class="description">
-                        <?php esc_html_e('Slot length sets how often slots repeat (30 means 09:00, 09:30, 10:00…). Capacity is how many orders may book the same location and time before it is shown as full. Lead time is the minimum notice before the earliest bookable slot. Booking horizon is how many days ahead customers may book.', 'pickup'); ?>
+                        <?php esc_html_e('The booking rules that shape which time slots customers can pick. The defaults work for most shops — adjust only if your pickup desk needs tighter or looser timing.', 'pickup'); ?>
                     </p>
                     <table class="form-table" role="presentation">
                         <tbody>
@@ -121,13 +121,44 @@ final class Settings implements HasHooks
                                         <input type="checkbox" id="pickup_enabled" name="enabled" value="1" <?php checked($s->isEnabled(), true); ?> />
                                         <?php esc_html_e('Show pickup fields when Local Pickup is selected.', 'pickup'); ?>
                                     </label>
+                                    <p class="description pickup-help">
+                                        <?php esc_html_e('Turn this off to keep your locations and hours saved but stop showing the time picker at checkout.', 'pickup'); ?>
+                                    </p>
                                 </td>
                             </tr>
                             <?php
-                            $this->numberRow('slot_minutes', __('Slot length (minutes)', 'pickup'), $s->slotMinutes(), 5);
-                            $this->numberRow('capacity', __('Capacity per slot', 'pickup'), $s->capacity(), 1);
-                            $this->numberRow('lead_hours', __('Lead time (hours)', 'pickup'), $s->leadHours(), 0);
-                            $this->numberRow('horizon_days', __('Booking horizon (days)', 'pickup'), $s->horizonDays(), 1);
+                            $this->numberRow(
+                                'slot_minutes',
+                                __('Slot length (minutes)', 'pickup'),
+                                $s->slotMinutes(),
+                                5,
+                                __('How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, 10:00 and so on.', 'pickup'),
+                                __('Default: 30', 'pickup'),
+                            );
+                            $this->numberRow(
+                                'capacity',
+                                __('Capacity per slot', 'pickup'),
+                                $s->capacity(),
+                                1,
+                                __('How many orders may book the same location and time before that slot shows as full and is hidden.', 'pickup'),
+                                __('Default: 5', 'pickup'),
+                            );
+                            $this->numberRow(
+                                'lead_hours',
+                                __('Lead time (hours)', 'pickup'),
+                                $s->leadHours(),
+                                0,
+                                __('The minimum notice before the earliest bookable slot, so staff have time to prepare. 2 hides any slot less than two hours away.', 'pickup'),
+                                __('Default: 2', 'pickup'),
+                            );
+                            $this->numberRow(
+                                'horizon_days',
+                                __('Booking horizon (days)', 'pickup'),
+                                $s->horizonDays(),
+                                1,
+                                __('How far ahead customers may book. 14 lets them choose any open slot within the next two weeks.', 'pickup'),
+                                __('Default: 14', 'pickup'),
+                            );
                             ?>
                         </tbody>
                     </table>
@@ -235,16 +266,25 @@ final class Settings implements HasHooks
         <?php
     }
 
-    private function numberRow(string $key, string $label, int $value, int $min): void
+    private function numberRow(string $key, string $label, int $value, int $min, string $help = '', string $defaultHint = ''): void
     {
-        $id = 'pickup_' . $key;
+        $id     = 'pickup_' . $key;
+        $helpId = $id . '_help';
         ?>
         <tr>
             <th scope="row">
                 <label for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
             </th>
             <td>
-                <input type="number" min="<?php echo esc_attr((string) $min); ?>" step="1" id="<?php echo esc_attr($id); ?>" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr((string) $value); ?>" class="small-text" />
+                <span class="pickup-number">
+                    <input type="number" min="<?php echo esc_attr((string) $min); ?>" step="1" id="<?php echo esc_attr($id); ?>" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr((string) $value); ?>" class="small-text"<?php echo $help !== '' ? ' aria-describedby="' . esc_attr($helpId) . '"' : ''; ?> />
+                    <?php if ($defaultHint !== '') : ?>
+                        <span class="pickup-default-hint"><?php echo esc_html($defaultHint); ?></span>
+                    <?php endif; ?>
+                </span>
+                <?php if ($help !== '') : ?>
+                    <p class="description pickup-help" id="<?php echo esc_attr($helpId); ?>"><?php echo esc_html($help); ?></p>
+                <?php endif; ?>
             </td>
         </tr>
         <?php
