@@ -8,7 +8,14 @@
  */
 
 .pickup-admin {
-	--pickup-accent: #2271b1;
+	/* Family accent: the storefront's deep marigold, not WP blue, so the
+	   admin and the checkout stub feel like one product. The deep tone is
+	   chosen over the brighter #c77a14 because it is the one that meets
+	   WCAG AA for text on the wp-admin surface:
+	     #a05c09 vs #fff    = 5.21:1  (AA text, AA UI)
+	     #a05c09 vs #f0f0f1 = 4.58:1  (AA text, AA UI)
+	   The bright #c77a14 only reaches 3.37:1 on #fff (UI-only, fails text). */
+	--pickup-accent: #a05c09;
 	--pickup-radius: 10px;
 	--pickup-radius-sm: 6px;
 	--pickup-gap: clamp(1rem, 2vw, 1.5rem);
@@ -26,6 +33,29 @@
 	border: 1px solid var(--pickup-card-border);
 	border-inline-start: 4px solid var(--pickup-accent);
 	border-radius: var(--pickup-radius);
+}
+
+/* Per-control help text: explains the effect of each rule, sits directly
+   under its field, and is wired to the input via aria-describedby. */
+.pickup-help {
+	max-inline-size: 60ch;
+	margin-block: 0.4rem 0;
+	color: var(--pickup-muted);
+}
+
+/* Default-value cue beside each number field, so the sensible starting
+   point is visible without reading the docs. */
+.pickup-number {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+}
+
+.pickup-default-hint {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--pickup-accent);
+	letter-spacing: 0.01em;
 }
 
 .pickup-intro h2 {
@@ -99,6 +129,9 @@
 /* Dark-mode-aware admin. */
 @media (prefers-color-scheme: dark) {
 	.pickup-admin {
+		/* Storefront's dark-scheme marigold; 8.14:1 on the #1e1e1e card
+		   surface — comfortably AA for both text and UI. */
+		--pickup-accent: #f0a64a;
 		--pickup-card-bg: #1e1e1e;
 		--pickup-card-border: #3c434a;
 		--pickup-muted: #a7aaad;

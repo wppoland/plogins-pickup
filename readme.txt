@@ -83,8 +83,6 @@ No. Selections are stored as order meta, so there is nothing extra to maintain.
 == Screenshots ==
 
 1. The pickup location and time-slot fields at checkout.
-2. The Pickup settings screen: locations, opening hours and rules.
-3. Pickup details on the admin order screen.
 
 == Changelog ==
 
