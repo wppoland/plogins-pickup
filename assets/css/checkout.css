@@ -16,8 +16,8 @@
 .pickup-fields {
 	/* Grounded in the pickup-counter world: warm marigold "ready" lamp glow
 	   over deep ink — deliberately NOT WordPress blue. */
-	--pickup-accent: #e08a1e;
-	--pickup-accent-deep: #b9690c;
+	--pickup-accent: #c77a14;
+	--pickup-accent-deep: #a05c09;
 	--pickup-ink: #1d1a16;
 	--pickup-paper: #fbf7ef;
 	--pickup-border: #e4dccb;
