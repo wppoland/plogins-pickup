@@ -43,6 +43,23 @@
 		fields.hidden = ! isLocalPickupSelected();
 	}
 
+	/* ---- The crafted moment: stamp the claim stub on slot select ----- */
+
+	function syncReserved() {
+		var fields = getFields();
+		if ( ! fields ) {
+			return;
+		}
+		var slotEl = fields.querySelector( '[data-pickup-slot]' );
+		var reserved = !! ( slotEl && slotEl.value );
+		// Re-trigger the stamp animation only on a genuine transition.
+		if ( reserved && ! fields.classList.contains( 'is-reserved' ) ) {
+			fields.classList.add( 'is-reserved' );
+		} else if ( ! reserved ) {
+			fields.classList.remove( 'is-reserved' );
+		}
+	}
+
 	/* ---- Live slot loading ------------------------------------------- */
 
 	function loadSlots() {
@@ -113,6 +130,7 @@
 			statusEl.textContent = '';
 			statusEl.classList.remove( 'is-error' );
 		}
+		syncReserved();
 	}
 
 	function renderSlots( slotEl, statusEl, slots ) {
@@ -150,6 +168,8 @@
 			statusEl.textContent = '';
 			statusEl.classList.remove( 'is-error' );
 		}
+
+		syncReserved();
 	}
 
 	/* ---- Wiring ------------------------------------------------------ */
@@ -162,6 +182,7 @@
 
 		var locationEl = fields.querySelector( '[data-pickup-location]' );
 		var dateEl = fields.querySelector( '[data-pickup-date]' );
+		var slotEl = fields.querySelector( '[data-pickup-slot]' );
 
 		if ( locationEl ) {
 			locationEl.addEventListener( 'change', loadSlots );
@@ -169,6 +190,12 @@
 		if ( dateEl ) {
 			dateEl.addEventListener( 'change', loadSlots );
 		}
+		if ( slotEl ) {
+			slotEl.addEventListener( 'change', syncReserved );
+		}
+
+		// Reflect any posted-back / pre-selected slot on load.
+		syncReserved();
 	}
 
 	document.body.addEventListener( 'change', function ( event ) {
