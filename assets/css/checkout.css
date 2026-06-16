@@ -1,19 +1,63 @@
 /**
  * Pickup — checkout fields.
  *
- * Lightweight styling that inherits the theme's form look. No layout shift: the
- * block reserves its space and the slot status uses a fixed-height line.
+ * The block is a collection-counter claim stub: a card with a perforated
+ * tear-edge down one side, the way a left-luggage check or deli ticket looks.
+ * The single crafted moment is confirming the pickup time — the stub gets a
+ * marigold "Reserved" stamp pressed onto it, the warm glow of a "ready for
+ * collection" shelf lamp. Restraint everywhere else: the location and date
+ * inputs inherit the theme.
+ *
+ * Tokens are themeable via --pickup-* with theme-inheriting fallbacks. No
+ * layout shift: the stub reserves its space, the status line is fixed height,
+ * and the stamp is an overlay that never reflows the form.
  */
 
 .pickup-fields {
-	--pickup-accent: #2271b1;
-	--pickup-border: #d5d8dc;
-	--pickup-radius: 10px;
+	/* Grounded in the pickup-counter world: warm marigold "ready" lamp glow
+	   over deep ink — deliberately NOT WordPress blue. */
+	--pickup-accent: #e08a1e;
+	--pickup-accent-deep: #b9690c;
+	--pickup-ink: #1d1a16;
+	--pickup-paper: #fbf7ef;
+	--pickup-border: #e4dccb;
+	--pickup-radius: 12px;
+	--pickup-perf: 9px; /* perforation hole radius rhythm */
 
+	position: relative;
 	margin-block: 1.5rem;
-	padding: clamp(1rem, 3vw, 1.5rem);
+	padding: clamp(1rem, 3vw, 1.6rem);
+	padding-inline-start: clamp(1.4rem, 4vw, 2rem);
+	color: var(--pickup-ink);
+	background: var(--pickup-paper);
 	border: 1px solid var(--pickup-border);
 	border-radius: var(--pickup-radius);
+	/* Perforated tear-edge down the inside-start: punched holes of the
+	   surrounding page colour, like a claim stub torn from its book. */
+	background-image: radial-gradient(
+		circle at calc(var(--pickup-perf) - 2px) center,
+		transparent calc(var(--pickup-perf) - 3px),
+		transparent var(--pickup-perf),
+		var(--pickup-paper) calc(var(--pickup-perf) + 1px)
+	);
+}
+
+/* The actual punched perforation column. */
+.pickup-fields::before {
+	content: "";
+	position: absolute;
+	inset-block: 10px;
+	inset-inline-start: 12px;
+	inline-size: 2px;
+	background-image: radial-gradient(
+		circle at center,
+		var(--pickup-border) 0 2.5px,
+		transparent 3px
+	);
+	background-size: 2px 14px;
+	background-repeat: repeat-y;
+	opacity: 0.9;
+	pointer-events: none;
 }
 
 .pickup-fields[hidden] {
@@ -21,16 +65,41 @@
 }
 
 .pickup-fields__title {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5ch;
 	margin-block: 0 0.25rem;
+	font-variant-caps: small-caps;
+	letter-spacing: 0.02em;
+}
+
+/* A small ticket-stub mark before the title, echoing the claim-check world. */
+.pickup-fields__title::before {
+	content: "";
+	flex: none;
+	inline-size: 0.7em;
+	block-size: 0.7em;
+	border: 2px solid var(--pickup-accent-deep);
+	border-radius: 3px;
+	transform: rotate(-8deg);
 }
 
 .pickup-fields__intro {
 	margin-block: 0 1rem;
-	opacity: 0.8;
+	opacity: 0.78;
 }
 
 .pickup-fields .pickup-input {
 	inline-size: 100%;
+}
+
+/* Give the time-slot select a touch of the stub's warmth so the eye lands on
+   the moment that matters — without shouting over location/date. */
+.pickup-field--slot .pickup-input:focus-visible,
+.pickup-field--slot .pickup-input:focus {
+	outline: 2px solid var(--pickup-accent);
+	outline-offset: 2px;
+	border-color: var(--pickup-accent-deep);
 }
 
 .pickup-field__status {
@@ -46,12 +115,111 @@
 	opacity: 1;
 }
 
-.pickup-fields--empty {
-	border-inline-start: 4px solid #dba617;
+/* ---- The crafted moment: the "Reserved" claim stamp ------------------- */
+
+/* The confirmation line is reserved-height so the stamp never causes CLS. */
+.pickup-fields__claim {
+	display: flex;
+	align-items: center;
+	gap: 1.1rem;
+	min-block-size: 3.4em;
+	margin-block-start: 0.75rem;
+	font-weight: 600;
+	color: var(--pickup-accent-deep);
 }
+
+/* The stamp glyph sits to the left of the claim text. Hidden until a slot is
+   chosen, then pressed onto the stub. Sized so the word fits inside the disc. */
+.pickup-fields__stamp {
+	flex: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 3.4rem;
+	block-size: 3.4rem;
+	padding: 0.3rem;
+	box-sizing: border-box;
+	font-size: 0.5rem;
+	font-weight: 800;
+	line-height: 1.05;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	color: var(--pickup-accent-deep);
+	border: 2px solid var(--pickup-accent-deep);
+	border-radius: 50%;
+	transform: rotate(-12deg) scale(0.6);
+	opacity: 0;
+}
+
+.pickup-fields__claim-text {
+	opacity: 0;
+	transform: translateX(-2px);
+}
+
+/* Reserved state — set by JS when a real slot is selected. */
+.pickup-fields.is-reserved .pickup-fields__stamp {
+	animation: pickup-stamp 420ms cubic-bezier(0.2, 1.4, 0.4, 1) forwards;
+	box-shadow: 0 0 0 0 var(--pickup-accent);
+}
+
+.pickup-fields.is-reserved .pickup-fields__claim-text {
+	animation: pickup-claim-in 260ms ease-out 180ms forwards;
+}
+
+@keyframes pickup-stamp {
+	0% {
+		opacity: 0;
+		transform: rotate(-12deg) scale(1.5);
+	}
+	55% {
+		opacity: 1;
+		transform: rotate(-12deg) scale(0.86);
+		box-shadow: 0 0 0 6px rgba(224, 138, 30, 0.18);
+	}
+	100% {
+		opacity: 1;
+		transform: rotate(-12deg) scale(1);
+		box-shadow: 0 0 0 0 rgba(224, 138, 30, 0);
+	}
+}
+
+@keyframes pickup-claim-in {
+	to {
+		opacity: 0.95;
+		transform: translateX(0);
+	}
+}
+
+.pickup-fields--empty {
+	border-inline-start: 4px solid var(--pickup-accent);
+}
+
+/* ---- Quality floor: reduced motion ----------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	.pickup-fields.is-reserved .pickup-fields__stamp,
+	.pickup-fields.is-reserved .pickup-fields__claim-text {
+		animation: none;
+	}
+	.pickup-fields.is-reserved .pickup-fields__stamp {
+		opacity: 1;
+		transform: rotate(-12deg) scale(1);
+	}
+	.pickup-fields.is-reserved .pickup-fields__claim-text {
+		opacity: 0.95;
+		transform: none;
+	}
+}
+
+/* ---- Quality floor: dark scheme -------------------------------------- */
 
 @media (prefers-color-scheme: dark) {
 	.pickup-fields {
-		--pickup-border: #3c434a;
+		--pickup-accent: #f0a64a;
+		--pickup-accent-deep: #f0a64a;
+		--pickup-ink: #ece6da;
+		--pickup-paper: #211d18;
+		--pickup-border: #4a4234;
 	}
 }
