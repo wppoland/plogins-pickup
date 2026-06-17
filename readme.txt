@@ -84,6 +84,16 @@ No. Selections are stored as order meta, so there is nothing extra to maintain.
 
 1. The pickup location and time-slot fields at checkout.
 
+== External Services ==
+
+Pickup does not connect to any external services. The live time-slot lookup at
+checkout posts to your own site's WordPress AJAX endpoint (`admin-ajax.php`) and
+the slots are calculated on your server from the opening hours you configure. Your
+settings live in the `pickup_settings` option and each order's choice is stored as
+order meta (`_pickup_location`, `_pickup_date`, `_pickup_slot`); pickup details are
+shown by adding them to WooCommerce's own order emails, not by sending any mail of
+their own. No data leaves your site.
+
 == Changelog ==
 
 = 0.1.0 =
