@@ -212,7 +212,7 @@ final class CheckoutFields implements HasHooks
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </select>
-                    <span class="pickup-field__status" data-pickup-status></span>
+                    <span class="pickup-field__status" data-pickup-status role="status" aria-live="polite"></span>
                 </p>
 
                 <p class="pickup-fields__claim" data-pickup-claim aria-live="polite">
