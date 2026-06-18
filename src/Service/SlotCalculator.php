@@ -48,11 +48,35 @@ final class SlotCalculator
             $weekday = (int) $day->format('N');
             $dateKey = $day->format('Y-m-d');
 
+            /**
+             * Filter whether a calendar date is bookable for the location.
+             *
+             * @param bool   $available  Whether the date is available.
+             * @param string $locationId Pickup location id.
+             * @param string $dateKey    Date in Y-m-d format.
+             */
+            if (! apply_filters('pickup/date_available', true, $locationId, $dateKey)) {
+                continue;
+            }
+
             foreach ($windows[$weekday] ?? [] as $window) {
                 foreach ($this->slotsInWindow($dateKey, $window, $minutes, $tz) as $slot) {
                     if ($slot['ts'] < $earliest) {
                         continue;
                     }
+
+                    /**
+                     * Filter whether an individual slot is bookable.
+                     *
+                     * @param bool   $available  Whether the slot is available.
+                     * @param string $locationId Pickup location id.
+                     * @param string $dateKey    Date in Y-m-d format.
+                     * @param string $slotLabel  Slot start time (HH:MM).
+                     */
+                    if (! apply_filters('pickup/slot_available', true, $locationId, $dateKey, $slot['label'])) {
+                        continue;
+                    }
+
                     if ($this->isFull($locationId, $dateKey, $slot['label'])) {
                         continue;
                     }
@@ -87,7 +111,18 @@ final class SlotCalculator
      */
     private function isFull(string $locationId, string $date, string $slot): bool
     {
-        $capacity = max(1, $this->settings->capacity());
+        $default = max(1, $this->settings->capacity());
+
+        /**
+         * Filter the per-slot capacity for a location, date and time.
+         *
+         * @param int    $capacity   Store-wide default capacity.
+         * @param string $locationId Pickup location id.
+         * @param string $date       Date in Y-m-d format.
+         * @param string $slot       Slot start time (HH:MM).
+         */
+        $capacity = (int) apply_filters('pickup/slot_capacity', $default, $locationId, $date, $slot);
+        $capacity = max(1, $capacity);
 
         return $this->bookedCount($locationId, $date, $slot) >= $capacity;
     }

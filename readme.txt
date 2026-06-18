@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,11 @@ shown by adding them to WooCommerce's own order emails, not by sending any mail 
 their own. No data leaves your site.
 
 == Changelog ==
+
+= 0.1.1 =
+* Extension hooks for Pickup Pro: `pickup/booted`, `pickup/slot_capacity`,
+  `pickup/date_available`, `pickup/slot_available`, `pickup/blocked_dates`.
+* Checkout script honours blocked dates passed from the server.
 
 = 0.1.0 =
 * Initial release: pickup location chooser and date/time-slot picker at checkout,
