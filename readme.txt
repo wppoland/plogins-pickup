@@ -1,5 +1,5 @@
 === Pickup - Local Pickup Scheduling for WooCommerce ===
-Contributors: wppoland
+Contributors: motylanogha
 Tags: woocommerce, local pickup, click and collect, scheduling, checkout
 Requires at least: 6.5
 Tested up to: 7.0
