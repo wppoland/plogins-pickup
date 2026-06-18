@@ -33,6 +33,15 @@ emails and account pages, but the in-checkout field UI is the classic one.
 
 Source code and bug reports: https://github.com/wppoland/pickup
 
+= Documentation and links =
+
+* **Documentation** - https://plogins.com/pickup/docs/
+* **Plugin page** - https://plogins.com/pickup/
+* **Source code** - https://github.com/wppoland/pickup
+* **Bug reports and feature requests** - https://github.com/wppoland/pickup/issues
+* **Discussions and questions** - https://github.com/wppoland/pickup/discussions
+
+
 = Features =
 
 * Pickup location chooser at checkout (admin-defined list, enable/disable each).
