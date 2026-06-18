@@ -47,5 +47,12 @@ final class Plugin
                 $service->registerHooks();
             }
         }
+
+        /**
+         * Fires after Pickup has booted and registered its services.
+         *
+         * @param Plugin $plugin Booted plugin instance.
+         */
+        do_action('pickup/booted', $this);
     }
 }

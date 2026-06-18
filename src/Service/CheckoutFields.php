@@ -100,9 +100,11 @@ final class CheckoutFields implements HasHooks
             'ajaxUrl'    => admin_url('admin-ajax.php'),
             'nonce'      => wp_create_nonce(self::NONCE),
             'fieldSlot'  => self::FIELD_SLOT,
+            'blockedDates' => apply_filters('pickup/blocked_dates', [], ''),
             'i18n'       => [
                 'choosePrompt' => __('Select a date to see available times.', 'pickup'),
                 'noSlots'      => __('No times available on this date. Please choose another.', 'pickup'),
+                'blockedDate'  => __('This date is not available for pickup. Please choose another.', 'pickup'),
                 'loading'      => __('Loading times…', 'pickup'),
                 'error'        => __('Could not load times. Please try again.', 'pickup'),
             ],

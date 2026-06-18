@@ -85,6 +85,15 @@
 			return;
 		}
 
+		var blocked = cfg.blockedDates || [];
+		if ( blocked.indexOf( date ) !== -1 ) {
+			resetSlots( slotEl, statusEl, i18n.blockedDate || i18n.noSlots || '' );
+			if ( statusEl ) {
+				statusEl.classList.add( 'is-error' );
+			}
+			return;
+		}
+
 		if ( statusEl ) {
 			statusEl.textContent = i18n.loading || '';
 			statusEl.classList.remove( 'is-error' );
