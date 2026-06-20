@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,10 @@ shown by adding them to WooCommerce's own order emails, not by sending any mail 
 their own. No data leaves your site.
 
 == Changelog ==
+
+= 0.1.2 =
+* `pickup/slot_fee` filter for optional per-slot cart fees or discounts.
+* Cart fee applied at checkout when a priced slot is selected; AJAX slot list includes fee amounts.
 
 = 0.1.1 =
 * Extension hooks for Pickup Pro: `pickup/booted`, `pickup/slot_capacity`,

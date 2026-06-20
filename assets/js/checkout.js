@@ -60,7 +60,39 @@
 		}
 	}
 
-	/* ---- Live slot loading ------------------------------------------- */
+	function formatSlotFee( fee ) {
+		if ( ! fee || Math.abs( fee ) < 0.00001 ) {
+			return '';
+		}
+		var decimals = cfg.decimals != null ? cfg.decimals : 2;
+		var formatted = Math.abs( fee ).toFixed( decimals );
+		return ( fee < 0 ? '-' : '+' ) + ( cfg.currencySymbol || '' ) + formatted;
+	}
+
+	function slotLabel( slot ) {
+		if ( typeof slot === 'string' ) {
+			return slot;
+		}
+		if ( ! slot || ! slot.label ) {
+			return '';
+		}
+		var feeText = formatSlotFee( slot.fee );
+		return feeText ? slot.label + ' (' + feeText + ')' : slot.label;
+	}
+
+	function slotValue( slot ) {
+		if ( typeof slot === 'string' ) {
+			return slot;
+		}
+		return slot && slot.label ? slot.label : '';
+	}
+
+	function triggerCheckoutUpdate() {
+		if ( window.jQuery ) {
+			window.jQuery( 'body' ).trigger( 'update_checkout' );
+		}
+	}
+
 
 	function loadSlots() {
 		var fields = getFields();
@@ -164,10 +196,11 @@
 		slotEl.appendChild( placeholder );
 
 		slots.forEach( function ( slot ) {
+			var value = slotValue( slot );
 			var opt = document.createElement( 'option' );
-			opt.value = slot;
-			opt.textContent = slot;
-			if ( slot === previous ) {
+			opt.value = value;
+			opt.textContent = slotLabel( slot );
+			if ( value === previous ) {
 				opt.selected = true;
 			}
 			slotEl.appendChild( opt );
@@ -200,7 +233,10 @@
 			dateEl.addEventListener( 'change', loadSlots );
 		}
 		if ( slotEl ) {
-			slotEl.addEventListener( 'change', syncReserved );
+			slotEl.addEventListener( 'change', function () {
+				syncReserved();
+				triggerCheckoutUpdate();
+			} );
 		}
 
 		// Reflect any posted-back / pre-selected slot on load.
