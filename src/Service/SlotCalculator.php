@@ -94,6 +94,22 @@ final class SlotCalculator
     }
 
     /**
+     * Optional fee (or discount when negative) for a bookable slot.
+     */
+    public function slotFee(string $locationId, string $dateKey, string $slotLabel): float
+    {
+        /**
+         * Filter the cart fee for a pickup slot.
+         *
+         * @param float  $fee        Default fee (0 = no charge).
+         * @param string $locationId Pickup location id.
+         * @param string $dateKey    Date in Y-m-d format.
+         * @param string $slotLabel  Slot start time (HH:MM).
+         */
+        return (float) apply_filters('pickup/slot_fee', 0.0, $locationId, $dateKey, $slotLabel);
+    }
+
+    /**
      * Validate a chosen date + slot for a location. Returns true only when the
      * slot exists in the live schedule (which already excludes past, lead-time
      * and full slots).

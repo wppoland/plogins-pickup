@@ -28,6 +28,7 @@ final class CheckoutFields implements HasHooks
     private const FIELD_DATE     = 'pickup_date';
     private const FIELD_SLOT     = 'pickup_slot';
     private const NONCE          = 'pickup_checkout';
+    private const SESSION_CHOICE = 'pickup_choice';
 
     public function __construct(
         private readonly SettingsStore $settings,
@@ -47,6 +48,8 @@ final class CheckoutFields implements HasHooks
         add_action('wp_enqueue_scripts', [$this, 'enqueueAssets']);
         add_action('wp_ajax_pickup_slots', [$this, 'ajaxSlots']);
         add_action('wp_ajax_nopriv_pickup_slots', [$this, 'ajaxSlots']);
+        add_action('woocommerce_checkout_update_order_review', [$this, 'syncSessionFromPost']);
+        add_action('woocommerce_cart_calculate_fees', [$this, 'applyCartFee']);
     }
 
     /**
@@ -101,6 +104,8 @@ final class CheckoutFields implements HasHooks
             'nonce'      => wp_create_nonce(self::NONCE),
             'fieldSlot'  => self::FIELD_SLOT,
             'blockedDates' => apply_filters('pickup/blocked_dates', [], ''),
+            'currencySymbol' => get_woocommerce_currency_symbol(),
+            'decimals'   => wc_get_price_decimals(),
             'i18n'       => [
                 'choosePrompt' => __('Select a date to see available times.', 'pickup'),
                 'noSlots'      => __('No times available on this date. Please choose another.', 'pickup'),
@@ -209,7 +214,7 @@ final class CheckoutFields implements HasHooks
                         <?php if ($selDate !== '' && $selLocation !== '') : ?>
                             <?php foreach ($this->calculator->schedule($selLocation)[$selDate] ?? [] as $slot) : ?>
                                 <option value="<?php echo esc_attr($slot); ?>" <?php selected($selSlot, $slot); ?>>
-                                    <?php echo esc_html($slot); ?>
+                                    <?php echo esc_html($this->slotOptionLabel($selLocation, $selDate, $slot)); ?>
                                 </option>
                             <?php endforeach; ?>
                         <?php endif; ?>
@@ -320,7 +325,124 @@ final class CheckoutFields implements HasHooks
         }
 
         $schedule = $this->calculator->schedule($locationId);
+        $slots    = [];
 
-        wp_send_json_success(['slots' => array_values($schedule[$date] ?? [])]);
+        foreach (array_values($schedule[$date] ?? []) as $slot) {
+            $fee     = $this->calculator->slotFee($locationId, $date, $slot);
+            $slots[] = [
+                'label' => $slot,
+                'fee'   => $fee,
+            ];
+        }
+
+        wp_send_json_success(['slots' => $slots]);
+    }
+
+    /**
+     * Keep the customer's in-progress pickup choice in the session so cart fees
+     * can be recalculated during checkout AJAX updates.
+     */
+    public function syncSessionFromPost(mixed $posted): void
+    {
+        unset($posted);
+
+        if (! function_exists('WC') || null === WC()->session) {
+            return;
+        }
+
+        if (! $this->isLocalPickupChosen()) {
+            WC()->session->set(self::SESSION_CHOICE, null);
+            return;
+        }
+
+        $locationId = isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_LOCATION])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- WooCommerce checkout refresh; values are re-validated on submit.
+        $date       = isset($_POST[self::FIELD_DATE]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_DATE])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+        $slot       = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_SLOT])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+
+        if ($locationId === '' || $date === '' || $slot === '') {
+            WC()->session->set(self::SESSION_CHOICE, null);
+            return;
+        }
+
+        WC()->session->set(self::SESSION_CHOICE, [
+            'location' => $locationId,
+            'date'     => $date,
+            'slot'     => $slot,
+        ]);
+    }
+
+    /**
+     * Apply a non-zero slot fee (or discount) to the cart during checkout.
+     */
+    public function applyCartFee(\WC_Cart $cart): void
+    {
+        if (is_admin() && ! wp_doing_ajax()) {
+            return;
+        }
+
+        if (! $this->isLocalPickupChosen() || ! function_exists('WC') || null === WC()->session) {
+            return;
+        }
+
+        $choice = WC()->session->get(self::SESSION_CHOICE);
+
+        if (! is_array($choice)) {
+            return;
+        }
+
+        $locationId = sanitize_text_field((string) ($choice['location'] ?? ''));
+        $date       = sanitize_text_field((string) ($choice['date'] ?? ''));
+        $slot       = sanitize_text_field((string) ($choice['slot'] ?? ''));
+
+        if ($locationId === '' || $date === '' || $slot === '') {
+            return;
+        }
+
+        if (! $this->calculator->isBookable($locationId, $date, $slot)) {
+            return;
+        }
+
+        $fee = $this->calculator->slotFee($locationId, $date, $slot);
+
+        if (abs($fee) < 0.00001) {
+            return;
+        }
+
+        if ($this->feeAlreadyAdded($cart)) {
+            return;
+        }
+
+        $label = __('Pickup slot', 'pickup');
+
+        $cart->add_fee($label, $fee, false);
+    }
+
+    private function feeAlreadyAdded(\WC_Cart $cart): bool
+    {
+        $label = __('Pickup slot', 'pickup');
+
+        foreach ($cart->get_fees() as $fee) {
+            if (isset($fee->name) && $fee->name === $label) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function slotOptionLabel(string $locationId, string $dateKey, string $slotLabel): string
+    {
+        $fee = $this->calculator->slotFee($locationId, $dateKey, $slotLabel);
+
+        if (abs($fee) < 0.00001) {
+            return $slotLabel;
+        }
+
+        return sprintf(
+            /* translators: 1: slot time (HH:MM), 2: formatted fee or discount */
+            __('%1$s (%2$s)', 'pickup'),
+            $slotLabel,
+            wp_strip_all_tags(wc_price($fee)),
+        );
     }
 }
