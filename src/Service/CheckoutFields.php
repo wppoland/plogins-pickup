@@ -172,7 +172,7 @@ final class CheckoutFields implements HasHooks
                             <?php
                             echo esc_html($loc['name']);
                             if ($loc['address'] !== '') {
-                                echo ' — ' . esc_html($loc['address']);
+                                echo ', ' . esc_html($loc['address']);
                             }
                             ?>
                         </option>
@@ -224,7 +224,7 @@ final class CheckoutFields implements HasHooks
 
                 <p class="pickup-fields__claim" data-pickup-claim aria-live="polite">
                     <span class="pickup-fields__stamp" aria-hidden="true"><?php esc_html_e('Reserved', 'pickup'); ?></span>
-                    <span class="pickup-fields__claim-text"><?php esc_html_e('Reserved — your order will be waiting.', 'pickup'); ?></span>
+                    <span class="pickup-fields__claim-text"><?php esc_html_e('Reserved, your order will be waiting.', 'pickup'); ?></span>
                 </p>
         </div>
         <?php
