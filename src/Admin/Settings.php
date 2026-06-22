@@ -108,7 +108,7 @@ final class Settings implements HasHooks
                 <div class="pickup-card">
                     <h2><?php esc_html_e('General', 'pickup'); ?></h2>
                     <p class="description">
-                        <?php esc_html_e('The booking rules that shape which time slots customers can pick. The defaults work for most shops — adjust only if your pickup desk needs tighter or looser timing.', 'pickup'); ?>
+                        <?php esc_html_e('The booking rules that shape which time slots customers can pick. The defaults work for most shops; adjust only if your pickup desk needs tighter or looser timing.', 'pickup'); ?>
                     </p>
                     <table class="form-table" role="presentation">
                         <tbody>
