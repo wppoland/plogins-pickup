@@ -224,7 +224,7 @@ final class CheckoutFields implements HasHooks
 
                 <p class="pickup-fields__claim" data-pickup-claim aria-live="polite">
                     <span class="pickup-fields__stamp" aria-hidden="true"><?php esc_html_e('Reserved', 'pickup'); ?></span>
-                    <span class="pickup-fields__claim-text"><?php esc_html_e('Reserved — your order will be waiting.', 'pickup'); ?></span>
+                    <span class="pickup-fields__claim-text"><?php esc_html_e('Reserved, your order will be waiting.', 'pickup'); ?></span>
                 </p>
         </div>
         <?php
