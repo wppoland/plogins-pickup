@@ -93,7 +93,7 @@ msgstr "Ogólne"
 #: src/Admin/Settings.php:111
 msgid ""
 "The booking rules that shape which time slots customers can pick. The "
-"defaults work for most shops — adjust only if your pickup desk needs tighter "
+"defaults work for most shops, adjust only if your pickup desk needs tighter "
 "or looser timing."
 msgstr ""
 
@@ -335,7 +335,7 @@ msgid "Reserved"
 msgstr ""
 
 #: src/Service/CheckoutFields.php:220
-msgid "Reserved — your order will be waiting."
+msgid "Reserved, your order will be waiting."
 msgstr ""
 
 #: src/Service/CheckoutFields.php:240
