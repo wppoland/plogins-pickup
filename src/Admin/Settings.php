@@ -37,8 +37,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Pickup Scheduling', 'pickup'),
-            __('Pickup', 'pickup'),
+            __('Pickup Scheduling', 'plogins-pickup'),
+            __('Pickup', 'plogins-pickup'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -68,8 +68,8 @@ final class Settings implements HasHooks
 
         wp_localize_script('pickup-admin', 'PickupAdmin', [
             'i18n' => [
-                'remove'      => __('Remove', 'pickup'),
-                'confirmGone' => __('Remove this item?', 'pickup'),
+                'remove'      => __('Remove', 'plogins-pickup'),
+                'confirmGone' => __('Remove this item?', 'plogins-pickup'),
             ],
         ]);
     }
@@ -90,14 +90,14 @@ final class Settings implements HasHooks
 
             <?php if ($saved) : ?>
                 <div class="notice notice-success is-dismissible">
-                    <p><?php esc_html_e('Pickup settings saved.', 'pickup'); ?></p>
+                    <p><?php esc_html_e('Pickup settings saved.', 'plogins-pickup'); ?></p>
                 </div>
             <?php endif; ?>
 
             <div class="pickup-intro">
-                <h2><?php esc_html_e('Let customers book a pickup time', 'pickup'); ?></h2>
+                <h2><?php esc_html_e('Let customers book a pickup time', 'plogins-pickup'); ?></h2>
                 <p>
-                    <?php esc_html_e('When an order uses WooCommerce Local Pickup, shoppers choose a location and a time slot at checkout. Define your locations, weekly opening hours, slot length and capacity below.', 'pickup'); ?>
+                    <?php esc_html_e('When an order uses WooCommerce Local Pickup, shoppers choose a location and a time slot at checkout. Define your locations, weekly opening hours, slot length and capacity below.', 'plogins-pickup'); ?>
                 </p>
             </div>
 
@@ -106,58 +106,58 @@ final class Settings implements HasHooks
                 <?php wp_nonce_field(self::NONCE, '_pickup_nonce'); ?>
 
                 <div class="pickup-card">
-                    <h2><?php esc_html_e('General', 'pickup'); ?></h2>
+                    <h2><?php esc_html_e('General', 'plogins-pickup'); ?></h2>
                     <p class="description">
-                        <?php esc_html_e('The booking rules that shape which time slots customers can pick. The defaults work for most shops, adjust only if your pickup desk needs tighter or looser timing.', 'pickup'); ?>
+                        <?php esc_html_e('The booking rules that shape which time slots customers can pick. The defaults work for most shops, adjust only if your pickup desk needs tighter or looser timing.', 'plogins-pickup'); ?>
                     </p>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <?php esc_html_e('Enable pickup scheduling', 'pickup'); ?>
+                                    <?php esc_html_e('Enable pickup scheduling', 'plogins-pickup'); ?>
                                 </th>
                                 <td>
                                     <label for="pickup_enabled">
                                         <input type="checkbox" id="pickup_enabled" name="enabled" value="1" <?php checked($s->isEnabled(), true); ?> />
-                                        <?php esc_html_e('Show pickup fields when Local Pickup is selected.', 'pickup'); ?>
+                                        <?php esc_html_e('Show pickup fields when Local Pickup is selected.', 'plogins-pickup'); ?>
                                     </label>
                                     <p class="description pickup-help">
-                                        <?php esc_html_e('Turn this off to keep your locations and hours saved but stop showing the time picker at checkout.', 'pickup'); ?>
+                                        <?php esc_html_e('Turn this off to keep your locations and hours saved but stop showing the time picker at checkout.', 'plogins-pickup'); ?>
                                     </p>
                                 </td>
                             </tr>
                             <?php
                             $this->numberRow(
                                 'slot_minutes',
-                                __('Slot length (minutes)', 'pickup'),
+                                __('Slot length (minutes)', 'plogins-pickup'),
                                 $s->slotMinutes(),
                                 5,
-                                __('How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, 10:00 and so on.', 'pickup'),
-                                __('Default: 30', 'pickup'),
+                                __('How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, 10:00 and so on.', 'plogins-pickup'),
+                                __('Default: 30', 'plogins-pickup'),
                             );
                             $this->numberRow(
                                 'capacity',
-                                __('Capacity per slot', 'pickup'),
+                                __('Capacity per slot', 'plogins-pickup'),
                                 $s->capacity(),
                                 1,
-                                __('How many orders may book the same location and time before that slot shows as full and is hidden.', 'pickup'),
-                                __('Default: 5', 'pickup'),
+                                __('How many orders may book the same location and time before that slot shows as full and is hidden.', 'plogins-pickup'),
+                                __('Default: 5', 'plogins-pickup'),
                             );
                             $this->numberRow(
                                 'lead_hours',
-                                __('Lead time (hours)', 'pickup'),
+                                __('Lead time (hours)', 'plogins-pickup'),
                                 $s->leadHours(),
                                 0,
-                                __('The minimum notice before the earliest bookable slot, so staff have time to prepare. 2 hides any slot less than two hours away.', 'pickup'),
-                                __('Default: 2', 'pickup'),
+                                __('The minimum notice before the earliest bookable slot, so staff have time to prepare. 2 hides any slot less than two hours away.', 'plogins-pickup'),
+                                __('Default: 2', 'plogins-pickup'),
                             );
                             $this->numberRow(
                                 'horizon_days',
-                                __('Booking horizon (days)', 'pickup'),
+                                __('Booking horizon (days)', 'plogins-pickup'),
                                 $s->horizonDays(),
                                 1,
-                                __('How far ahead customers may book. 14 lets them choose any open slot within the next two weeks.', 'pickup'),
-                                __('Default: 14', 'pickup'),
+                                __('How far ahead customers may book. 14 lets them choose any open slot within the next two weeks.', 'plogins-pickup'),
+                                __('Default: 14', 'plogins-pickup'),
                             );
                             ?>
                         </tbody>
@@ -165,9 +165,9 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="pickup-card">
-                    <h2><?php esc_html_e('Weekly opening hours', 'pickup'); ?></h2>
+                    <h2><?php esc_html_e('Weekly opening hours', 'plogins-pickup'); ?></h2>
                     <p class="description">
-                        <?php esc_html_e('Set one or more time windows per day using 24-hour HH:MM. Leave a day blank to close it. Slots are generated inside these windows using the slot length above.', 'pickup'); ?>
+                        <?php esc_html_e('Set one or more time windows per day using 24-hour HH:MM. Leave a day blank to close it. Slots are generated inside these windows using the slot length above.', 'plogins-pickup'); ?>
                     </p>
                     <table class="form-table pickup-windows" role="presentation">
                         <tbody>
@@ -182,7 +182,7 @@ final class Settings implements HasHooks
                                             <span class="screen-reader-text">
                                                 <?php
                                                 /* translators: %s: weekday name. */
-                                                echo esc_html(sprintf(__('%s opening time', 'pickup'), $label));
+                                                echo esc_html(sprintf(__('%s opening time', 'plogins-pickup'), $label));
                                                 ?>
                                             </span>
                                             <input type="time" name="windows[<?php echo esc_attr((string) $day); ?>][start]" value="<?php echo esc_attr($entry['start']); ?>" />
@@ -192,7 +192,7 @@ final class Settings implements HasHooks
                                             <span class="screen-reader-text">
                                                 <?php
                                                 /* translators: %s: weekday name. */
-                                                echo esc_html(sprintf(__('%s closing time', 'pickup'), $label));
+                                                echo esc_html(sprintf(__('%s closing time', 'plogins-pickup'), $label));
                                                 ?>
                                             </span>
                                             <input type="time" name="windows[<?php echo esc_attr((string) $day); ?>][end]" value="<?php echo esc_attr($entry['end']); ?>" />
@@ -205,9 +205,9 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="pickup-card">
-                    <h2><?php esc_html_e('Pickup locations', 'pickup'); ?></h2>
+                    <h2><?php esc_html_e('Pickup locations', 'plogins-pickup'); ?></h2>
                     <p class="description">
-                        <?php esc_html_e('Add the places customers can collect from. Disable a location to hide it from checkout without losing its details. At least one enabled location is needed for the checkout fields to appear.', 'pickup'); ?>
+                        <?php esc_html_e('Add the places customers can collect from. Disable a location to hide it from checkout without losing its details. At least one enabled location is needed for the checkout fields to appear.', 'plogins-pickup'); ?>
                     </p>
                     <div class="pickup-locations" data-pickup-locations>
                         <?php
@@ -219,7 +219,7 @@ final class Settings implements HasHooks
                     </div>
                     <p>
                         <button type="button" class="button pickup-add-location" data-pickup-add>
-                            <?php esc_html_e('Add location', 'pickup'); ?>
+                            <?php esc_html_e('Add location', 'plogins-pickup'); ?>
                         </button>
                     </p>
                     <template data-pickup-template>
@@ -227,7 +227,7 @@ final class Settings implements HasHooks
                     </template>
                 </div>
 
-                <?php submit_button(__('Save pickup settings', 'pickup')); ?>
+                <?php submit_button(__('Save pickup settings', 'plogins-pickup')); ?>
             </form>
         </div>
         <?php
@@ -240,26 +240,26 @@ final class Settings implements HasHooks
     {
         ?>
         <fieldset class="pickup-location-row" data-pickup-row>
-            <legend class="screen-reader-text"><?php esc_html_e('Pickup location', 'pickup'); ?></legend>
+            <legend class="screen-reader-text"><?php esc_html_e('Pickup location', 'plogins-pickup'); ?></legend>
             <p class="pickup-location-row__field">
                 <label>
-                    <span><?php esc_html_e('Name', 'pickup'); ?></span>
-                    <input type="text" name="locations[<?php echo esc_attr((string) $index); ?>][name]" value="<?php echo esc_attr($loc['name']); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Downtown store', 'pickup'); ?>" />
+                    <span><?php esc_html_e('Name', 'plogins-pickup'); ?></span>
+                    <input type="text" name="locations[<?php echo esc_attr((string) $index); ?>][name]" value="<?php echo esc_attr($loc['name']); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Downtown store', 'plogins-pickup'); ?>" />
                 </label>
             </p>
             <p class="pickup-location-row__field">
                 <label>
-                    <span><?php esc_html_e('Address', 'pickup'); ?></span>
-                    <input type="text" name="locations[<?php echo esc_attr((string) $index); ?>][address]" value="<?php echo esc_attr($loc['address']); ?>" class="regular-text" placeholder="<?php esc_attr_e('Optional', 'pickup'); ?>" />
+                    <span><?php esc_html_e('Address', 'plogins-pickup'); ?></span>
+                    <input type="text" name="locations[<?php echo esc_attr((string) $index); ?>][address]" value="<?php echo esc_attr($loc['address']); ?>" class="regular-text" placeholder="<?php esc_attr_e('Optional', 'plogins-pickup'); ?>" />
                 </label>
             </p>
             <p class="pickup-location-row__field pickup-location-row__field--toggle">
                 <label>
                     <input type="checkbox" name="locations[<?php echo esc_attr((string) $index); ?>][enabled]" value="1" <?php checked($loc['enabled'], true); ?> />
-                    <?php esc_html_e('Enabled', 'pickup'); ?>
+                    <?php esc_html_e('Enabled', 'plogins-pickup'); ?>
                 </label>
                 <button type="button" class="button-link pickup-remove" data-pickup-remove>
-                    <?php esc_html_e('Remove', 'pickup'); ?>
+                    <?php esc_html_e('Remove', 'plogins-pickup'); ?>
                 </button>
             </p>
         </fieldset>
@@ -296,13 +296,13 @@ final class Settings implements HasHooks
     private function weekdays(): array
     {
         return [
-            1 => __('Monday', 'pickup'),
-            2 => __('Tuesday', 'pickup'),
-            3 => __('Wednesday', 'pickup'),
-            4 => __('Thursday', 'pickup'),
-            5 => __('Friday', 'pickup'),
-            6 => __('Saturday', 'pickup'),
-            7 => __('Sunday', 'pickup'),
+            1 => __('Monday', 'plogins-pickup'),
+            2 => __('Tuesday', 'plogins-pickup'),
+            3 => __('Wednesday', 'plogins-pickup'),
+            4 => __('Thursday', 'plogins-pickup'),
+            5 => __('Friday', 'plogins-pickup'),
+            6 => __('Saturday', 'plogins-pickup'),
+            7 => __('Sunday', 'plogins-pickup'),
         ];
     }
 
@@ -313,14 +313,14 @@ final class Settings implements HasHooks
     public function handleSave(): void
     {
         if (! current_user_can('manage_woocommerce')) {
-            wp_die(esc_html__('You do not have permission to do this.', 'pickup'));
+            wp_die(esc_html__('You do not have permission to do this.', 'plogins-pickup'));
         }
 
         if (
             ! isset($_POST['_pickup_nonce'])
             || ! wp_verify_nonce(sanitize_text_field(wp_unslash((string) $_POST['_pickup_nonce'])), self::NONCE)
         ) {
-            wp_die(esc_html__('Security check failed. Please try again.', 'pickup'));
+            wp_die(esc_html__('Security check failed. Please try again.', 'plogins-pickup'));
         }
 
         $settings = [

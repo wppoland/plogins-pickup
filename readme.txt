@@ -1,11 +1,11 @@
-=== Pickup - Local Pickup Scheduling for WooCommerce ===
+=== Plogins Pickup for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, local pickup, click and collect, scheduling, checkout
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,15 +31,14 @@ The picker lives on the classic checkout. With the block-based Cart and Checkout
 the plugin declares compatibility and saved pickup details still show on the order,
 emails and account pages, but the in-checkout field UI is the classic one.
 
-Source code and bug reports: https://github.com/wppoland/pickup
+Source code and bug reports: https://github.com/wppoland/plogins-pickup
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/pickup/docs/
-* **Plugin page** - https://plogins.com/pickup/
-* **Source code** - https://github.com/wppoland/pickup
-* **Bug reports and feature requests** - https://github.com/wppoland/pickup/issues
-* **Discussions and questions** - https://github.com/wppoland/pickup/discussions
+* **Documentation** - https://plogins.com/plogins-pickup/docs/
+* **Plugin page** - https://plogins.com/plogins-pickup/
+* **Source code** - https://github.com/wppoland/plogins-pickup
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-pickup/issues
 
 
 = Features =
@@ -104,6 +103,9 @@ shown by adding them to WooCommerce's own order emails, not by sending any mail 
 their own. No data leaves your site.
 
 == Changelog ==
+
+= 0.1.3 =
+* Renamed to Plogins Pickup for WooCommerce for a more distinctive plugin name.
 
 = 0.1.2 =
 * `pickup/slot_fee` filter for optional per-slot cart fees or discounts.

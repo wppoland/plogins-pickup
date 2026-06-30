@@ -12,34 +12,34 @@ msgstr ""
 "POT-Creation-Date: 2026-06-16T20:24:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: pickup\n"
+"X-Domain: plogins-pickup\n"
 
 #. Plugin Name of the plugin
-#: pickup.php
+#: plogins-pickup.php
 msgid "Pickup - Local Pickup Scheduling for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: pickup.php
+#: plogins-pickup.php
 msgid "https://plogins.com/pickup/"
 msgstr ""
 
 #. Description of the plugin
-#: pickup.php
+#: plogins-pickup.php
 msgid "Let customers choose a pickup location and time slot at checkout."
 msgstr ""
 
 #. Author of the plugin
-#: pickup.php
+#: plogins-pickup.php
 msgid "WPPoland"
 msgstr ""
 
 #. Author URI of the plugin
-#: pickup.php
+#: plogins-pickup.php
 msgid "https://plogins.com/"
 msgstr ""
 
-#: pickup.php:54
+#: plogins-pickup.php:54
 msgid "Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to be active."
 msgstr ""
 

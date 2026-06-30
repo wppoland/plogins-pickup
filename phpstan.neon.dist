@@ -4,7 +4,7 @@ includes:
 parameters:
     level: 6
     paths:
-        - pickup.php
+        - plogins-pickup.php
         - uninstall.php
         - src
         - config

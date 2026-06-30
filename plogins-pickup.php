@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Pickup - Local Pickup Scheduling for WooCommerce
- * Plugin URI:        https://plogins.com/pickup/
+ * Plugin Name:       Plogins Pickup for WooCommerce
+ * Plugin URI:        https://plogins.com/plogins-pickup/
  * Description:        Let customers choose a pickup location and time slot at checkout.
- * Version:           0.1.2
+ * Version:           0.1.3
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -11,7 +11,7 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       pickup
+ * Text Domain:       plogins-pickup
  * Domain Path:       /languages
  * WC requires at least: 8.0
  *
@@ -24,7 +24,7 @@ namespace Pickup;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '0.1.2';
+const VERSION     = '0.1.3';
 const PLUGIN_FILE = __FILE__;
 
 define('PICKUP_DIR', plugin_dir_path(__FILE__));
@@ -51,7 +51,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to be active.', 'pickup');
+            echo esc_html__('Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to be active.', 'plogins-pickup');
             echo '</p></div>';
         });
         return;

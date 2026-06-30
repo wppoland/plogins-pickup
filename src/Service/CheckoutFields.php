@@ -107,11 +107,11 @@ final class CheckoutFields implements HasHooks
             'currencySymbol' => get_woocommerce_currency_symbol(),
             'decimals'   => wc_get_price_decimals(),
             'i18n'       => [
-                'choosePrompt' => __('Select a date to see available times.', 'pickup'),
-                'noSlots'      => __('No times available on this date. Please choose another.', 'pickup'),
-                'blockedDate'  => __('This date is not available for pickup. Please choose another.', 'pickup'),
-                'loading'      => __('Loading times…', 'pickup'),
-                'error'        => __('Could not load times. Please try again.', 'pickup'),
+                'choosePrompt' => __('Select a date to see available times.', 'plogins-pickup'),
+                'noSlots'      => __('No times available on this date. Please choose another.', 'plogins-pickup'),
+                'blockedDate'  => __('This date is not available for pickup. Please choose another.', 'plogins-pickup'),
+                'loading'      => __('Loading times…', 'plogins-pickup'),
+                'error'        => __('Could not load times. Please try again.', 'plogins-pickup'),
             ],
         ]);
     }
@@ -131,7 +131,7 @@ final class CheckoutFields implements HasHooks
         if ($locations === []) {
             if ($active) {
                 echo '<div class="pickup-fields pickup-fields--empty" role="status">';
-                echo '<p>' . esc_html__('Local pickup is selected but no pickup locations are configured yet. Please contact the store.', 'pickup') . '</p>';
+                echo '<p>' . esc_html__('Local pickup is selected but no pickup locations are configured yet. Please contact the store.', 'plogins-pickup') . '</p>';
                 echo '</div>';
             }
             return;
@@ -147,15 +147,15 @@ final class CheckoutFields implements HasHooks
         $selSlot     = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_SLOT])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- repopulation only.
         ?>
         <div class="pickup-fields" data-pickup-fields<?php echo $active ? '' : ' hidden'; ?>>
-            <h3 class="pickup-fields__title"><?php esc_html_e('Pickup details', 'pickup'); ?></h3>
-            <p class="pickup-fields__intro"><?php esc_html_e('Choose where and when you would like to collect your order.', 'pickup'); ?></p>
+            <h3 class="pickup-fields__title"><?php esc_html_e('Pickup details', 'plogins-pickup'); ?></h3>
+            <p class="pickup-fields__intro"><?php esc_html_e('Choose where and when you would like to collect your order.', 'plogins-pickup'); ?></p>
 
             <?php wp_nonce_field(self::NONCE, '_pickup_nonce'); ?>
 
             <p class="form-row form-row-wide pickup-field pickup-field--location">
                 <label for="<?php echo esc_attr(self::FIELD_LOCATION); ?>">
-                    <?php esc_html_e('Pickup location', 'pickup'); ?>
-                    <abbr class="required" title="<?php esc_attr_e('required', 'pickup'); ?>">*</abbr>
+                    <?php esc_html_e('Pickup location', 'plogins-pickup'); ?>
+                    <abbr class="required" title="<?php esc_attr_e('required', 'plogins-pickup'); ?>">*</abbr>
                 </label>
                 <select
                     name="<?php echo esc_attr(self::FIELD_LOCATION); ?>"
@@ -163,7 +163,7 @@ final class CheckoutFields implements HasHooks
                     class="pickup-input"
                     data-pickup-location
                 >
-                    <option value=""><?php esc_html_e('Select a location…', 'pickup'); ?></option>
+                    <option value=""><?php esc_html_e('Select a location…', 'plogins-pickup'); ?></option>
                     <?php foreach ($locations as $loc) : ?>
                         <option
                             value="<?php echo esc_attr($loc['id']); ?>"
@@ -182,8 +182,8 @@ final class CheckoutFields implements HasHooks
 
             <p class="form-row form-row-first pickup-field pickup-field--date">
                     <label for="<?php echo esc_attr(self::FIELD_DATE); ?>">
-                        <?php esc_html_e('Pickup date', 'pickup'); ?>
-                        <abbr class="required" title="<?php esc_attr_e('required', 'pickup'); ?>">*</abbr>
+                        <?php esc_html_e('Pickup date', 'plogins-pickup'); ?>
+                        <abbr class="required" title="<?php esc_attr_e('required', 'plogins-pickup'); ?>">*</abbr>
                     </label>
                     <input
                         type="date"
@@ -200,8 +200,8 @@ final class CheckoutFields implements HasHooks
 
                 <p class="form-row form-row-last pickup-field pickup-field--slot">
                     <label for="<?php echo esc_attr(self::FIELD_SLOT); ?>">
-                        <?php esc_html_e('Pickup time', 'pickup'); ?>
-                        <abbr class="required" title="<?php esc_attr_e('required', 'pickup'); ?>">*</abbr>
+                        <?php esc_html_e('Pickup time', 'plogins-pickup'); ?>
+                        <abbr class="required" title="<?php esc_attr_e('required', 'plogins-pickup'); ?>">*</abbr>
                     </label>
                     <select
                         name="<?php echo esc_attr(self::FIELD_SLOT); ?>"
@@ -210,7 +210,7 @@ final class CheckoutFields implements HasHooks
                         data-pickup-slot
                         aria-live="polite"
                     >
-                        <option value=""><?php esc_html_e('Select a date first…', 'pickup'); ?></option>
+                        <option value=""><?php esc_html_e('Select a date first…', 'plogins-pickup'); ?></option>
                         <?php if ($selDate !== '' && $selLocation !== '') : ?>
                             <?php foreach ($this->calculator->schedule($selLocation)[$selDate] ?? [] as $slot) : ?>
                                 <option value="<?php echo esc_attr($slot); ?>" <?php selected($selSlot, $slot); ?>>
@@ -223,8 +223,8 @@ final class CheckoutFields implements HasHooks
                 </p>
 
                 <p class="pickup-fields__claim" data-pickup-claim aria-live="polite">
-                    <span class="pickup-fields__stamp" aria-hidden="true"><?php esc_html_e('Reserved', 'pickup'); ?></span>
-                    <span class="pickup-fields__claim-text"><?php esc_html_e('Reserved, your order will be waiting.', 'pickup'); ?></span>
+                    <span class="pickup-fields__stamp" aria-hidden="true"><?php esc_html_e('Reserved', 'plogins-pickup'); ?></span>
+                    <span class="pickup-fields__claim-text"><?php esc_html_e('Reserved, your order will be waiting.', 'plogins-pickup'); ?></span>
                 </p>
         </div>
         <?php
@@ -244,14 +244,14 @@ final class CheckoutFields implements HasHooks
             ! isset($_POST['_pickup_nonce'])
             || ! wp_verify_nonce(sanitize_text_field(wp_unslash((string) $_POST['_pickup_nonce'])), self::NONCE)
         ) {
-            wc_add_notice(__('Your pickup selection could not be verified. Please try again.', 'pickup'), 'error');
+            wc_add_notice(__('Your pickup selection could not be verified. Please try again.', 'plogins-pickup'), 'error');
             return;
         }
 
         $locationId = isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_LOCATION])) : '';
 
         if ($locationId === '' || null === $this->settings->findLocation($locationId)) {
-            wc_add_notice(__('Please choose a valid pickup location.', 'pickup'), 'error');
+            wc_add_notice(__('Please choose a valid pickup location.', 'plogins-pickup'), 'error');
             return;
         }
 
@@ -259,12 +259,12 @@ final class CheckoutFields implements HasHooks
         $slot = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_SLOT])) : '';
 
         if ($date === '' || $slot === '') {
-            wc_add_notice(__('Please choose a pickup date and time.', 'pickup'), 'error');
+            wc_add_notice(__('Please choose a pickup date and time.', 'plogins-pickup'), 'error');
             return;
         }
 
         if (! $this->calculator->isBookable($locationId, $date, $slot)) {
-            wc_add_notice(__('That pickup time is no longer available. Please pick another.', 'pickup'), 'error');
+            wc_add_notice(__('That pickup time is no longer available. Please pick another.', 'plogins-pickup'), 'error');
         }
     }
 
@@ -412,14 +412,14 @@ final class CheckoutFields implements HasHooks
             return;
         }
 
-        $label = __('Pickup slot', 'pickup');
+        $label = __('Pickup slot', 'plogins-pickup');
 
         $cart->add_fee($label, $fee, false);
     }
 
     private function feeAlreadyAdded(\WC_Cart $cart): bool
     {
-        $label = __('Pickup slot', 'pickup');
+        $label = __('Pickup slot', 'plogins-pickup');
 
         foreach ($cart->get_fees() as $fee) {
             if (isset($fee->name) && $fee->name === $label) {
@@ -440,7 +440,7 @@ final class CheckoutFields implements HasHooks
 
         return sprintf(
             /* translators: 1: slot time (HH:MM), 2: formatted fee or discount */
-            __('%1$s (%2$s)', 'pickup'),
+            __('%1$s (%2$s)', 'plogins-pickup'),
             $slotLabel,
             wp_strip_all_tags(wc_price($fee)),
         );
