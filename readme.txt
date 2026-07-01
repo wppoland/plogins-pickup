@@ -88,6 +88,11 @@ Each slot has a capacity. Once the number of orders booked into a location + dat
 
 No. Selections are stored as order meta, so there is nothing extra to maintain.
 
+
+= Does this plugin work on WordPress Multisite? =
+
+Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data.
+
 == Screenshots ==
 
 1. The pickup location and time-slot fields at checkout.
