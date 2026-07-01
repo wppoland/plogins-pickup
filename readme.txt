@@ -95,8 +95,9 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 == Screenshots ==
 
-1. The pickup location and time-slot fields at checkout.
-
+1. On the storefront.
+2. Settings in the WordPress admin.
+3. On a mobile device.
 == External Services ==
 
 Pickup does not connect to any external services. The live time-slot lookup at
