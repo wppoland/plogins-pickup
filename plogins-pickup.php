@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Plogins Pickup for WooCommerce
+ * Plugin Name:       Plogins Pickup - Local Pickup for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-pickup/
  * Description:        Let customers choose a pickup location and time slot at checkout.
  * Version:           0.1.3
