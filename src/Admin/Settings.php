@@ -22,8 +22,15 @@ final class Settings implements HasHooks
     private const PAGE  = 'pickup-settings';
     private const NONCE = 'pickup_save_settings';
 
+    private ?ProUpsell $proUpsell = null;
+
     public function __construct(private readonly SettingsStore $settings)
     {
+    }
+
+    private function proUpsell(): ProUpsell
+    {
+        return $this->proUpsell ??= new ProUpsell();
     }
 
     public function registerHooks(): void
@@ -31,6 +38,7 @@ final class Settings implements HasHooks
         add_action('admin_menu', [$this, 'addMenuPage']);
         add_action('admin_post_pickup_save_settings', [$this, 'handleSave']);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAssets']);
+        $this->proUpsell()->registerHooks();
     }
 
     public function addMenuPage(): void
@@ -88,6 +96,8 @@ final class Settings implements HasHooks
         <div class="wrap pickup-admin">
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 
+            <?php $this->proUpsell()->banner(); ?>
+
             <?php if ($saved) : ?>
                 <div class="notice notice-success is-dismissible">
                     <p><?php esc_html_e('Pickup settings saved.', 'plogins-pickup'); ?></p>
@@ -101,6 +111,7 @@ final class Settings implements HasHooks
                 </p>
             </div>
 
+            <div class="pickup-cols">
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" class="pickup-form">
                 <input type="hidden" name="action" value="pickup_save_settings" />
                 <?php wp_nonce_field(self::NONCE, '_pickup_nonce'); ?>
@@ -229,6 +240,11 @@ final class Settings implements HasHooks
 
                 <?php submit_button(__('Save pickup settings', 'plogins-pickup')); ?>
             </form>
+
+                <?php $this->proUpsell()->aside(); ?>
+            </div>
+
+            <?php $this->proUpsell()->cards(); ?>
         </div>
         <?php
     }
