@@ -5,33 +5,32 @@ msgstr ""
 "Project-Id-Version: Pickup - Local Pickup Scheduling for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pickup\n"
 "POT-Creation-Date: 2026-06-16T20:24:47+00:00\n"
-"PO-Revision-Date: 2026-06-15 00:00+0000\n"
-"Last-Translator: WPPoland <hello@plogins.com>\n"
-"Language-Team: WPPoland <hello@plogins.com>\n"
-"Language: pl_PL\n"
+"PO-Revision-Date: 2026-06-16T20:24:47+00:00\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: plogins-pickup\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
 #: plogins-pickup.php
 msgid "Pickup - Local Pickup Scheduling for WooCommerce"
-msgstr "Pickup - Planowanie odbioru osobistego dla WooCommerce"
+msgstr "Abholung – Lokale Abholplanung für WooCommerce"
 
 #. Plugin URI of the plugin
 #: plogins-pickup.php
 msgid "https://plogins.com/pickup/"
-msgstr "https://plogins.com/pickup/"
+msgstr "https://plogins.com/de/pickup/"
 
 #. Description of the plugin
 #: plogins-pickup.php
 msgid "Let customers choose a pickup location and time slot at checkout."
 msgstr ""
-"Pozwól klientom wybrać miejsce i termin odbioru podczas finalizacji "
-"zamówienia."
+"Lass Kunden an der Kasse einen Abholort und ein Zeitfenster auswählen."
 
 #. Author of the plugin
 #: plogins-pickup.php
@@ -48,32 +47,32 @@ msgid ""
 "Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to be "
 "active."
 msgstr ""
-"Wtyczka Pickup - Planowanie odbioru osobistego dla WooCommerce wymaga "
-"aktywnej wtyczki WooCommerce."
+"Abholung – Für die lokale Abholplanung für WooCommerce muss WooCommerce "
+"aktiv sein."
 
 #: src/Admin/Settings.php:40
 msgid "Pickup Scheduling"
-msgstr "Planowanie odbioru"
+msgstr "Abholplanung"
 
 #: src/Admin/Settings.php:41 src/Service/OrderDisplay.php:81
 msgid "Pickup"
-msgstr "Odbiór"
+msgstr "Abholung"
 
 #: src/Admin/Settings.php:71 src/Admin/Settings.php:262
 msgid "Remove"
-msgstr "Usuń"
+msgstr "Entfernen"
 
 #: src/Admin/Settings.php:72
 msgid "Remove this item?"
-msgstr "Usunąć ten element?"
+msgstr "Dieses Element entfernen?"
 
 #: src/Admin/Settings.php:93
 msgid "Pickup settings saved."
-msgstr "Ustawienia odbioru zostały zapisane."
+msgstr "Abholeinstellungen gespeichert."
 
 #: src/Admin/Settings.php:98
 msgid "Let customers book a pickup time"
-msgstr "Pozwól klientom rezerwować termin odbioru"
+msgstr "Lass Kunden eine Abholzeit buchen"
 
 #: src/Admin/Settings.php:100
 msgid ""
@@ -81,13 +80,13 @@ msgid ""
 "a time slot at checkout. Define your locations, weekly opening hours, slot "
 "length and capacity below."
 msgstr ""
-"Gdy zamówienie korzysta z odbioru osobistego WooCommerce, kupujący wybierają"
-" miejsce i termin podczas finalizacji zamówienia. Poniżej zdefiniuj swoje "
-"lokalizacje, tygodniowe godziny otwarcia, długość terminów i pojemność."
+"Wenn eine Bestellung die lokale Abholung von WooCommerce nutzt, wählen "
+"Käufer beim Bezahlvorgang einen Ort und ein Zeitfenster aus. Definiere unten"
+" deine Standorte, wöchentlichen Öffnungszeiten, Slotlänge und Kapazität."
 
 #: src/Admin/Settings.php:109
 msgid "General"
-msgstr "Ogólne"
+msgstr "Allgemein"
 
 #: src/Admin/Settings.php:111
 msgid ""
@@ -95,95 +94,95 @@ msgid ""
 "defaults work for most shops, adjust only if your pickup desk needs tighter "
 "or looser timing."
 msgstr ""
-"Zasady rezerwacji, które kształtują przedziały czasowe, które klienci mogą "
-"wybrać. Wartości domyślne działają w większości sklepów, dostosuj je tylko "
-"wtedy, gdy miejsce odbioru wymaga bardziej rygorystycznego lub luźniejszego "
-"harmonogramu."
+"Die Buchungsregeln legen fest, welche Zeitfenster Kunden auswählen können. "
+"Die Standardeinstellungen funktionieren für die meisten Geschäfte. Passe sie"
+" nur an, wenn dein Abholschalter ein engeres oder lockereres Timing "
+"benötigt."
 
 #: src/Admin/Settings.php:117
 msgid "Enable pickup scheduling"
-msgstr "Włącz planowanie odbioru"
+msgstr "Abholplanung aktivieren"
 
 #: src/Admin/Settings.php:122
 msgid "Show pickup fields when Local Pickup is selected."
-msgstr "Pokaż pola odbioru, gdy wybrano odbiór osobisty."
+msgstr "Abholfelder anzeigen, wenn lokale Abholung ausgewählt ist."
 
 #: src/Admin/Settings.php:125
 msgid ""
 "Turn this off to keep your locations and hours saved but stop showing the "
 "time picker at checkout."
 msgstr ""
-"Wyłącz tę opcję, aby zachować zapisane lokalizacje i godziny otwarcia, ale "
-"przestań wyświetlać selektor czasu przy kasie."
+"Deaktiviere diese Option, damit deine Standorte und Stunden gespeichert "
+"bleiben, aber die Zeitauswahl an der Kasse nicht mehr angezeigt wird."
 
 #: src/Admin/Settings.php:132
 msgid "Slot length (minutes)"
-msgstr "Długość terminu (minuty)"
+msgstr "Slotlänge (Minuten)"
 
 #: src/Admin/Settings.php:135
 msgid ""
 "How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, "
 "10:00 and so on."
 msgstr ""
-"W jakich odstępach oferowane są godziny odbioru. 30 tworzy terminy o 09:00, "
-"09:30, 10:00 i tak dalej."
+"Wie weit auseinander die Abholzeiten angeboten werden. 30 gibt Slots um "
+"09:00, 09:30, 10:00 und so weiter."
 
 #: src/Admin/Settings.php:136
 msgid "Default: 30"
-msgstr "Wartość domyślna: 30"
+msgstr "Standard: 30"
 
 #: src/Admin/Settings.php:140
 msgid "Capacity per slot"
-msgstr "Pojemność na termin"
+msgstr "Kapazität pro Steckplatz"
 
 #: src/Admin/Settings.php:143
 msgid ""
 "How many orders may book the same location and time before that slot shows "
 "as full and is hidden."
 msgstr ""
-"Ile zamówień może zarezerwować w tej samej lokalizacji i czasie, zanim dane "
-"miejsce będzie widoczne jako zajęte i ukryte."
+"Wie viele Bestellungen können am selben Ort und zur gleichen Zeit gebucht "
+"werden, bevor dieser Slot als voll angezeigt und ausgeblendet wird?"
 
 #: src/Admin/Settings.php:144
 msgid "Default: 5"
-msgstr "Wartość domyślna: 5"
+msgstr "Standard: 5"
 
 #: src/Admin/Settings.php:148
 msgid "Lead time (hours)"
-msgstr "Czas wyprzedzenia (godziny)"
+msgstr "Vorlaufzeit (Stunden)"
 
 #: src/Admin/Settings.php:151
 msgid ""
 "The minimum notice before the earliest bookable slot, so staff have time to "
 "prepare. 2 hides any slot less than two hours away."
 msgstr ""
-"Minimalne powiadomienie przed najwcześniejszym możliwym do rezerwacji "
-"terminem, aby personel miał czas na przygotowanie. 2 ukrywa dowolne miejsce "
-"w odległości mniejszej niż dwie godziny."
+"Die Mindestanmeldung erfolgt vor dem frühesten buchbaren Termin, damit das "
+"Personal Zeit hat, sich vorzubereiten. 2 verbirgt jeden Slot, der weniger "
+"als zwei Stunden entfernt ist."
 
 #: src/Admin/Settings.php:152
 msgid "Default: 2"
-msgstr "Wartość domyślna: 2"
+msgstr "Standard: 2"
 
 #: src/Admin/Settings.php:156
 msgid "Booking horizon (days)"
-msgstr "Horyzont rezerwacji (dni)"
+msgstr "Buchungshorizont (Tage)"
 
 #: src/Admin/Settings.php:159
 msgid ""
 "How far ahead customers may book. 14 lets them choose any open slot within "
 "the next two weeks."
 msgstr ""
-"Jak daleko od przodu klienci mogą dokonać rezerwacji. 14 pozwala im wybrać "
-"dowolny wolny termin w ciągu najbliższych dwóch tygodni."
+"Wie weit im Voraus können Kunden buchen? 14 ermöglicht es ihnen, innerhalb "
+"der nächsten zwei Wochen einen beliebigen freien Platz auszuwählen."
 
 #: src/Admin/Settings.php:160
 msgid "Default: 14"
-msgstr "Wartość domyślna: 14"
+msgstr "Standard: 14"
 
 #: src/Admin/Settings.php:168
 msgid "Weekly opening hours"
-msgstr "Tygodniowe godziny otwarcia"
+msgstr "Wöchentliche Öffnungszeiten"
 
 #: src/Admin/Settings.php:170
 msgid ""
@@ -191,25 +190,25 @@ msgid ""
 "to close it. Slots are generated inside these windows using the slot length "
 "above."
 msgstr ""
-"Ustaw jedno lub więcej okien czasowych na dzień w formacie 24-godzinnym "
-"GG:MM. Pozostaw dzień pusty, aby go zamknąć. Terminy są generowane w obrębie"
-" tych okien zgodnie z powyższą długością terminu."
+"Stelle ein oder mehrere Zeitfenster pro Tag im 24-Stunden-Format HH:MM ein. "
+"Lass einen Tag frei, um es zu schließen. Innerhalb dieser Fenster werden "
+"Slots mit der oben genannten Slotlänge generiert."
 
 #. translators: %s: weekday name.
 #: src/Admin/Settings.php:185
 #, php-format
 msgid "%s opening time"
-msgstr "Godzina otwarcia – %s"
+msgstr "%s Öffnungszeit"
 
 #. translators: %s: weekday name.
 #: src/Admin/Settings.php:195
 #, php-format
 msgid "%s closing time"
-msgstr "Godzina zamknięcia – %s"
+msgstr "%s Schließzeit"
 
 #: src/Admin/Settings.php:208
 msgid "Pickup locations"
-msgstr "Miejsca odbioru"
+msgstr "Abholorte"
 
 #: src/Admin/Settings.php:210
 msgid ""
@@ -217,184 +216,174 @@ msgid ""
 "from checkout without losing its details. At least one enabled location is "
 "needed for the checkout fields to appear."
 msgstr ""
-"Dodaj miejsca, z których klienci mogą odbierać zamówienia. Wyłącz "
-"lokalizację, aby ukryć ją w finalizacji zamówienia bez utraty jej danych. "
-"Aby pola odbioru się pojawiły, potrzebna jest co najmniej jedna włączona "
-"lokalizacja."
+"Füge die Orte hinzu, an denen Kunden abholen können. Deaktiviere einen "
+"Standort, um ihn vor dem Bezahlen auszublenden, ohne seine Details zu "
+"verlieren. Damit die Checkout-Felder angezeigt werden, ist mindestens ein "
+"aktivierter Standort erforderlich."
 
 #: src/Admin/Settings.php:222
 msgid "Add location"
-msgstr "Dodaj lokalizację"
+msgstr "Standort hinzufügen"
 
 #: src/Admin/Settings.php:230
 msgid "Save pickup settings"
-msgstr "Zapisz ustawienia odbioru"
+msgstr "Abholeinstellungen speichern"
 
 #: src/Admin/Settings.php:243 src/Service/CheckoutFields.php:150
 msgid "Pickup location"
-msgstr "Miejsce odbioru"
+msgstr "Abholort"
 
 #: src/Admin/Settings.php:246
 msgid "Name"
-msgstr "Nazwa"
+msgstr "Name"
 
 #: src/Admin/Settings.php:247
 msgid "e.g. Downtown store"
-msgstr "np. Sklep w centrum"
+msgstr "z.B. Laden in der Innenstadt"
 
 #: src/Admin/Settings.php:252
 msgid "Address"
-msgstr "Adres"
+msgstr "Adresse"
 
 #: src/Admin/Settings.php:253
 msgid "Optional"
-msgstr "Opcjonalnie"
+msgstr "Optional"
 
 #: src/Admin/Settings.php:259
 msgid "Enabled"
-msgstr "Włączone"
+msgstr "Ermöglicht"
 
 #: src/Admin/Settings.php:299
 msgid "Monday"
-msgstr "Poniedziałek"
+msgstr "Montag"
 
 #: src/Admin/Settings.php:300
 msgid "Tuesday"
-msgstr "Wtorek"
+msgstr "Dienstag"
 
 #: src/Admin/Settings.php:301
 msgid "Wednesday"
-msgstr "Środa"
+msgstr "Mittwoch"
 
 #: src/Admin/Settings.php:302
 msgid "Thursday"
-msgstr "Czwartek"
+msgstr "Donnerstag"
 
 #: src/Admin/Settings.php:303
 msgid "Friday"
-msgstr "Piątek"
+msgstr "Freitag"
 
 #: src/Admin/Settings.php:304
 msgid "Saturday"
-msgstr "Sobota"
+msgstr "Samstag"
 
 #: src/Admin/Settings.php:305
 msgid "Sunday"
-msgstr "Niedziela"
+msgstr "Sonntag"
 
 #: src/Admin/Settings.php:316
 msgid "You do not have permission to do this."
-msgstr "Nie masz uprawnień do wykonania tej czynności."
+msgstr "Du hast dazu keine Berechtigung."
 
 #: src/Admin/Settings.php:323
 msgid "Security check failed. Please try again."
-msgstr "Weryfikacja zabezpieczeń nie powiodła się. Spróbuj ponownie."
+msgstr "Sicherheitsüberprüfung fehlgeschlagen. Bitte versuche es erneut."
 
 #: src/Service/CheckoutFields.php:104
 msgid "Select a date to see available times."
-msgstr "Wybierz datę, aby zobaczyć dostępne godziny."
+msgstr "Wähle ein Datum aus, um die verfügbaren Zeiten anzuzeigen."
 
 #: src/Service/CheckoutFields.php:105
 msgid "No times available on this date. Please choose another."
-msgstr "Brak dostępnych godzin w tym dniu. Wybierz inny."
+msgstr ""
+"Für dieses Datum sind keine Zeiten verfügbar. Bitte wähle eine andere."
 
 #: src/Service/CheckoutFields.php:106
 msgid "Loading times…"
-msgstr "Wczytywanie godzin…"
+msgstr "Zeiten werden geladen…"
 
 #: src/Service/CheckoutFields.php:107
 msgid "Could not load times. Please try again."
-msgstr "Nie udało się wczytać godzin. Spróbuj ponownie."
+msgstr "Zeiten konnten nicht geladen werden. Bitte versuche es erneut."
 
 #: src/Service/CheckoutFields.php:127
 msgid ""
 "Local pickup is selected but no pickup locations are configured yet. Please "
 "contact the store."
 msgstr ""
-"Wybrano odbiór osobisty, ale nie skonfigurowano jeszcze żadnych miejsc "
-"odbioru. Skontaktuj się ze sklepem."
+"Lokale Abholung ist ausgewählt, aber es sind noch keine Abholorte "
+"konfiguriert. Bitte wende sich an den Shop."
 
 #: src/Service/CheckoutFields.php:143 src/Service/OrderDisplay.php:107
 #: src/Service/OrderDisplay.php:144 src/Service/OrderDisplay.php:152
 msgid "Pickup details"
-msgstr "Szczegóły odbioru"
+msgstr "Details zur Abholung"
 
 #: src/Service/CheckoutFields.php:144
 msgid "Choose where and when you would like to collect your order."
-msgstr "Wybierz, gdzie i kiedy chcesz odebrać swoje zamówienie."
+msgstr "Wähle, wo und wann Sie deine Bestellung abholen möchten."
 
 #: src/Service/CheckoutFields.php:151 src/Service/CheckoutFields.php:179
 #: src/Service/CheckoutFields.php:197
 msgid "required"
-msgstr "wymagane"
+msgstr "erforderlich"
 
 #: src/Service/CheckoutFields.php:159
 msgid "Select a location…"
-msgstr "Wybierz lokalizację…"
+msgstr "Wähle einen Ort aus…"
 
 #: src/Service/CheckoutFields.php:178
 msgid "Pickup date"
-msgstr "Data odbioru"
+msgstr "Abholtermin"
 
 #: src/Service/CheckoutFields.php:196
 msgid "Pickup time"
-msgstr "Godzina odbioru"
+msgstr "Abholzeit"
 
 #: src/Service/CheckoutFields.php:206
 msgid "Select a date first…"
-msgstr "Najpierw wybierz datę…"
+msgstr "Wähle zuerst ein Datum aus…"
 
 #: src/Service/CheckoutFields.php:219
 msgid "Reserved"
-msgstr "Zarezerwowane"
+msgstr "Reserviert"
 
 #: src/Service/CheckoutFields.php:220
 msgid "Reserved, your order will be waiting."
-msgstr "Zarezerwowane, Twoje zamówienie będzie czekać."
+msgstr "Reserviert, deine Bestellung wartet auf Sie."
 
 #: src/Service/CheckoutFields.php:240
 msgid "Your pickup selection could not be verified. Please try again."
-msgstr "Nie udało się zweryfikować wybranego odbioru. Spróbuj ponownie."
+msgstr ""
+"deine Abholauswahl konnte nicht bestätigt werden. Bitte versuche es erneut."
 
 #: src/Service/CheckoutFields.php:247
 msgid "Please choose a valid pickup location."
-msgstr "Wybierz prawidłowe miejsce odbioru."
+msgstr "Bitte wähle einen gültigen Abholort."
 
 #: src/Service/CheckoutFields.php:255
 msgid "Please choose a pickup date and time."
-msgstr "Wybierz datę i godzinę odbioru."
+msgstr "Bitte wähle ein Abholdatum und eine Abholzeit."
 
 #: src/Service/CheckoutFields.php:260
 msgid "That pickup time is no longer available. Please pick another."
-msgstr "Ta godzina odbioru nie jest już dostępna. Wybierz inną."
+msgstr ""
+"Diese Abholzeit ist nicht mehr verfügbar. Bitte wähle ein anderes aus."
 
 #: src/Service/OrderDisplay.php:83 src/Service/OrderDisplay.php:145
 #: src/Service/OrderDisplay.php:154
 msgid "Location:"
-msgstr "Lokalizacja:"
+msgstr "Standort:"
 
 #: src/Service/OrderDisplay.php:88 src/Service/OrderDisplay.php:147
 #: src/Service/OrderDisplay.php:156
 msgid "When:"
-msgstr "Kiedy:"
+msgstr "Wann:"
 
 #: src/Service/OrderDisplay.php:111
 msgid "Location"
-msgstr "Lokalizacja"
+msgstr "Standort"
 
 #: src/Service/OrderDisplay.php:116
 msgid "When"
-msgstr "Kiedy"
-
-#~ msgid ""
-#~ "Slot length sets how often slots repeat (30 means 09:00, 09:30, 10:00…). "
-#~ "Capacity is how many orders may book the same location and time before it is"
-#~ " shown as full. Lead time is the minimum notice before the earliest bookable"
-#~ " slot. Booking horizon is how many days ahead customers may book."
-#~ msgstr ""
-#~ "Długość terminu określa, jak często powtarzają się terminy (30 oznacza "
-#~ "09:00, 09:30, 10:00…). Pojemność to liczba zamówień, które mogą zarezerwować"
-#~ " to samo miejsce i czas, zanim termin zostanie oznaczony jako zajęty. Czas "
-#~ "wyprzedzenia to minimalny okres przed najwcześniejszym dostępnym terminem. "
-#~ "Horyzont rezerwacji to liczba dni do przodu, na które klienci mogą "
-#~ "rezerwować."
+msgstr "Wann"
