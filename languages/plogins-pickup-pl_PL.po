@@ -12,10 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
-"|| n%100>14) ? 1 : 2);\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Domain: plogins-pickup\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
 #: plogins-pickup.php
@@ -82,8 +81,8 @@ msgid ""
 "a time slot at checkout. Define your locations, weekly opening hours, slot "
 "length and capacity below."
 msgstr ""
-"Gdy zamówienie korzysta z odbioru osobistego WooCommerce, kupujący wybierają "
-"miejsce i termin podczas finalizacji zamówienia. Poniżej zdefiniuj swoje "
+"Gdy zamówienie korzysta z odbioru osobistego WooCommerce, kupujący wybierają"
+" miejsce i termin podczas finalizacji zamówienia. Poniżej zdefiniuj swoje "
 "lokalizacje, tygodniowe godziny otwarcia, długość terminów i pojemność."
 
 #: src/Admin/Settings.php:109
@@ -96,6 +95,10 @@ msgid ""
 "defaults work for most shops, adjust only if your pickup desk needs tighter "
 "or looser timing."
 msgstr ""
+"Zasady rezerwacji, które kształtują przedziały czasowe, które klienci mogą "
+"wybrać. Wartości domyślne działają w większości sklepów, dostosuj je tylko "
+"wtedy, gdy miejsce odbioru wymaga bardziej rygorystycznego lub luźniejszego "
+"harmonogramu."
 
 #: src/Admin/Settings.php:117
 msgid "Enable pickup scheduling"
@@ -110,6 +113,8 @@ msgid ""
 "Turn this off to keep your locations and hours saved but stop showing the "
 "time picker at checkout."
 msgstr ""
+"Wyłącz tę opcję, aby zachować zapisane lokalizacje i godziny otwarcia, ale "
+"przestań wyświetlać selektor czasu przy kasie."
 
 #: src/Admin/Settings.php:132
 msgid "Slot length (minutes)"
@@ -120,10 +125,12 @@ msgid ""
 "How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, "
 "10:00 and so on."
 msgstr ""
+"W jakich odstępach oferowane są godziny odbioru. 30 tworzy terminy o 09:00, "
+"09:30, 10:00 i tak dalej."
 
 #: src/Admin/Settings.php:136
 msgid "Default: 30"
-msgstr ""
+msgstr "Wartość domyślna: 30"
 
 #: src/Admin/Settings.php:140
 msgid "Capacity per slot"
@@ -134,10 +141,12 @@ msgid ""
 "How many orders may book the same location and time before that slot shows "
 "as full and is hidden."
 msgstr ""
+"Ile zamówień może zarezerwować w tej samej lokalizacji i czasie, zanim dane "
+"miejsce będzie widoczne jako zajęte i ukryte."
 
 #: src/Admin/Settings.php:144
 msgid "Default: 5"
-msgstr ""
+msgstr "Wartość domyślna: 5"
 
 #: src/Admin/Settings.php:148
 msgid "Lead time (hours)"
@@ -148,10 +157,13 @@ msgid ""
 "The minimum notice before the earliest bookable slot, so staff have time to "
 "prepare. 2 hides any slot less than two hours away."
 msgstr ""
+"Minimalne powiadomienie przed najwcześniejszym możliwym do rezerwacji "
+"terminem, aby personel miał czas na przygotowanie. 2 ukrywa dowolne miejsce "
+"w odległości mniejszej niż dwie godziny."
 
 #: src/Admin/Settings.php:152
 msgid "Default: 2"
-msgstr ""
+msgstr "Wartość domyślna: 2"
 
 #: src/Admin/Settings.php:156
 msgid "Booking horizon (days)"
@@ -162,10 +174,12 @@ msgid ""
 "How far ahead customers may book. 14 lets them choose any open slot within "
 "the next two weeks."
 msgstr ""
+"Jak daleko od przodu klienci mogą dokonać rezerwacji. 14 pozwala im wybrać "
+"dowolny wolny termin w ciągu najbliższych dwóch tygodni."
 
 #: src/Admin/Settings.php:160
 msgid "Default: 14"
-msgstr ""
+msgstr "Wartość domyślna: 14"
 
 #: src/Admin/Settings.php:168
 msgid "Weekly opening hours"
@@ -178,8 +192,8 @@ msgid ""
 "above."
 msgstr ""
 "Ustaw jedno lub więcej okien czasowych na dzień w formacie 24-godzinnym "
-"GG:MM. Pozostaw dzień pusty, aby go zamknąć. Terminy są generowane w obrębie "
-"tych okien zgodnie z powyższą długością terminu."
+"GG:MM. Pozostaw dzień pusty, aby go zamknąć. Terminy są generowane w obrębie"
+" tych okien zgodnie z powyższą długością terminu."
 
 #. translators: %s: weekday name.
 #: src/Admin/Settings.php:185
@@ -332,11 +346,11 @@ msgstr "Najpierw wybierz datę…"
 
 #: src/Service/CheckoutFields.php:219
 msgid "Reserved"
-msgstr ""
+msgstr "Zarezerwowane"
 
 #: src/Service/CheckoutFields.php:220
 msgid "Reserved, your order will be waiting."
-msgstr ""
+msgstr "Zarezerwowane, Twoje zamówienie będzie czekać."
 
 #: src/Service/CheckoutFields.php:240
 msgid "Your pickup selection could not be verified. Please try again."
@@ -374,13 +388,13 @@ msgstr "Kiedy"
 
 #~ msgid ""
 #~ "Slot length sets how often slots repeat (30 means 09:00, 09:30, 10:00…). "
-#~ "Capacity is how many orders may book the same location and time before it "
-#~ "is shown as full. Lead time is the minimum notice before the earliest "
-#~ "bookable slot. Booking horizon is how many days ahead customers may book."
+#~ "Capacity is how many orders may book the same location and time before it is"
+#~ " shown as full. Lead time is the minimum notice before the earliest bookable"
+#~ " slot. Booking horizon is how many days ahead customers may book."
 #~ msgstr ""
 #~ "Długość terminu określa, jak często powtarzają się terminy (30 oznacza "
-#~ "09:00, 09:30, 10:00…). Pojemność to liczba zamówień, które mogą "
-#~ "zarezerwować to samo miejsce i czas, zanim termin zostanie oznaczony jako "
-#~ "zajęty. Czas wyprzedzenia to minimalny okres przed najwcześniejszym "
-#~ "dostępnym terminem. Horyzont rezerwacji to liczba dni do przodu, na które "
-#~ "klienci mogą rezerwować."
+#~ "09:00, 09:30, 10:00…). Pojemność to liczba zamówień, które mogą zarezerwować"
+#~ " to samo miejsce i czas, zanim termin zostanie oznaczony jako zajęty. Czas "
+#~ "wyprzedzenia to minimalny okres przed najwcześniejszym dostępnym terminem. "
+#~ "Horyzont rezerwacji to liczba dni do przodu, na które klienci mogą "
+#~ "rezerwować."
