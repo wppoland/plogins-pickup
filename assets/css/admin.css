@@ -127,17 +127,6 @@
 }
 
 /* Dark-mode-aware admin. */
-@media (prefers-color-scheme: dark) {
-	.pickup-admin {
-		/* Storefront's dark-scheme marigold; 8.14:1 on the #1e1e1e card
-		   surface — comfortably AA for both text and UI. */
-		--pickup-accent: #f0a64a;
-		--pickup-card-bg: #1e1e1e;
-		--pickup-card-border: #3c434a;
-		--pickup-muted: #a7aaad;
-	}
-}
-
 @media (prefers-reduced-motion: no-preference) {
 	.pickup-remove {
 		transition: color 0.15s ease, background-color 0.15s ease;
