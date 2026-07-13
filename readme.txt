@@ -1,4 +1,4 @@
-=== Plogins Pickup - Local Pickup for WooCommerce ===
+=== Pickup - Local Pickup for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, local pickup, click and collect, scheduling, checkout
 Requires at least: 6.5
