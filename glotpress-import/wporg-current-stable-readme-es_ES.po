@@ -8,72 +8,75 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: plogins-i18n\n"
 
-msgid "Requires Plugins: woocommerce"
-msgstr "Requiere complementos: woocommerce"
-
 msgid "Let customers choose a pickup location and time slot at checkout."
-msgstr "Permita que los clientes elijan un lugar de recogida y un horario al finalizar la compra."
+msgstr "Permite que tus clientes elijan un lugar de recogida y una franja horaria al finalizar la compra."
 
 msgid "Pickup adds click-and-collect scheduling to WooCommerce. When an order uses\nWooCommerce <strong>Local Pickup</strong>, the customer chooses a pickup <strong>location</strong> and a\n<strong>date + time slot</strong> right at checkout. The selection is validated, saved to the\norder, and shown in the admin order screen and in the order emails."
-msgstr "La recogida añade programación de hacer clic y recoger a WooCommerce. Cuando una orden utiliza\nWooCommerce <strong>Recogida local</strong>, el cliente elige una <strong>ubicación</strong> de recogida y un\n<strong>fecha + franja horaria</strong> justo al finalizar la compra. La selección se valida, se guarda en el\npedido, y se muestra en la pantalla de pedido del administrador y en los correos electrónicos del pedido."
+msgstr "Pickup añade a WooCommerce la programación de «click and collect». Cuando un pedido usa la\n<strong>Recogida local</strong> de WooCommerce, el cliente elige un <strong>lugar</strong> de recogida y una\n<strong>fecha + franja horaria</strong> justo al finalizar la compra. La selección se valida, se guarda en el\npedido y se muestra en la pantalla de pedidos de la administración y en los correos del pedido."
 
 msgid "Slots are generated from the weekly opening windows you define, using your chosen\nslot length, minimum lead time and booking horizon. Each slot has a capacity: once\na location and time reaches that number of orders, it drops off the list so it\ncannot be booked twice over."
-msgstr "Los espacios se generan a partir de las ventanas de apertura semanales que defines, utilizando tu elección\nduración del espacio, plazo mínimo de entrega y horizonte de reserva. Cada ranura tiene una capacidad: una vez\nuna ubicación y hora alcanza esa cantidad de pedidos, sale de la lista para que\nNo se puede reservar dos veces."
+msgstr "Las franjas se generan a partir de las ventanas de apertura semanales que defines, usando la\nduración de franja, la antelación mínima y el horizonte de reserva que elijas. Cada franja tiene una\ncapacidad: cuando un lugar y una hora alcanzan ese número de pedidos, desaparecen de la lista, así que\nno se pueden reservar dos veces."
 
 msgid "Everything is stored as order meta, so there is no custom database table to\nmaintain. The checkout fields only appear when Local Pickup is selected; for\nevery other shipping method they stay hidden and are never required."
-msgstr "Todo se almacena como meta de pedido, por lo que no hay una tabla de base de datos personalizada para\nmantener. Los campos de pago solo aparecen cuando se selecciona Recogida local; para\nCon cualquier otro método de envío, permanecen ocultos y nunca son necesarios."
+msgstr "Todo se guarda como metadatos del pedido, así que no hay ninguna tabla de base de datos propia que\nmantener. Los campos de la página de pago solo aparecen cuando se elige la Recogida local; con\ncualquier otro método de envío permanecen ocultos y nunca son obligatorios."
 
 msgid "The picker lives on the classic checkout. With the block-based Cart and Checkout\nthe plugin declares compatibility and saved pickup details still show on the order,\nemails and account pages, but the in-checkout field UI is the classic one."
-msgstr "El recolector vive de la caja clásica. Con el carrito y el pago basados en bloques\nel complemento declara compatibilidad y los detalles de recogida guardados aún se muestran en el pedido,\ncorreos electrónicos y páginas de cuentas, pero la interfaz de usuario del campo de pago es la clásica."
+msgstr "El selector vive en la página de pago clásica. Con el Carrito y el Pago basados en bloques el plugin\ndeclara compatibilidad y los datos de recogida guardados siguen mostrándose en el pedido, los correos\ny las páginas de la cuenta, pero la interfaz del campo dentro del pago es la clásica."
 
 msgid "Source code and bug reports: https://github.com/wppoland/plogins-pickup"
 msgstr "Código fuente e informes de errores: https://github.com/wppoland/plogins-pickup"
 
 msgid "* <strong>Documentation</strong> - https://plogins.com/plogins-pickup/docs/\n* <strong>Plugin page</strong> - https://plogins.com/plogins-pickup/\n* <strong>Source code</strong> - https://github.com/wppoland/plogins-pickup\n* <strong>Bug reports and feature requests</strong> - https://github.com/wppoland/plogins-pickup/issues"
-msgstr "* <strong>Documentación</strong> - https://plogins.com/es/plogins-pickup/docs/\n* <strong>Página de complementos</strong> - https://plogins.com/es/plogins-pickup/\n* <strong>Código fuente</strong> - https://github.com/wppoland/plogins-pickup\n* <strong>Informes de errores y solicitudes de funciones</strong> - https://github.com/wppoland/plogins-pickup/issues"
+msgstr "* <strong>Documentación</strong> - https://plogins.com/es/plogins-pickup/docs/\n* <strong>Página del plugin</strong> - https://plogins.com/es/plogins-pickup/\n* <strong>Código fuente</strong> - https://github.com/wppoland/plogins-pickup\n* <strong>Informes de errores y peticiones de funciones</strong> - https://github.com/wppoland/plogins-pickup/issues"
 
 msgid "* Pickup location chooser at checkout (admin-defined list, enable/disable each).\n* Date + time-slot picker driven by your weekly opening hours.\n* Configurable slot length, per-slot capacity, lead time and booking horizon.\n* Times that are full or inside the lead-time window are dropped from the list.\n* The selection is checked again on the server before the order is created.\n* Pickup details shown on the admin order screen, in order emails, and on the\n  customer's order and thank-you pages.\n* Uses your store timezone and WordPress date format when showing the date.\n* No custom tables and no calls to outside services.\n* Ships with a POT file for translation and removes its settings on uninstall.\n* Declares HPOS compatibility and works alongside the Cart and Checkout blocks."
-msgstr "* Selector de ubicación de recogida al finalizar la compra (lista definida por el administrador, habilitar/deshabilitar cada una).\n* Selector de fecha y franja horaria según su horario de apertura semanal.\n* Longitud de ranura configurable, capacidad por ranura, plazo de entrega y horizonte de reserva.\n* Los tiempos que están llenos o dentro del plazo de entrega se eliminan de la lista.\n* La selección se verifica nuevamente en el servidor antes de crear el pedido.\n* Los detalles de recogida se muestran en la pantalla de pedidos del administrador, en los correos electrónicos del pedido y en el\n  pedidos del cliente y páginas de agradecimiento.\n* Utiliza la zona horaria de su tienda y el formato de fecha de WordPress al mostrar la fecha.\n* Sin mesas personalizadas ni llamadas a servicios externos.\n* Se envía con un archivo POT para traducir y elimina tu configuración al desinstalarlo.\n* Declara compatibilidad con HPOS y funciona junto con los bloques Carrito y Pago."
+msgstr "* Selector del lugar de recogida al finalizar la compra (lista definida por la administración, cada uno activable o desactivable).\n* Selector de fecha y franja horaria basado en tus horarios de apertura semanales.\n* Duración de franja, capacidad por franja, antelación y horizonte de reserva configurables.\n* Las horas que están completas o dentro de la ventana de antelación se quitan de la lista.\n* La selección se comprueba de nuevo en el servidor antes de crear el pedido.\n* Los datos de recogida se muestran en la pantalla de pedidos de la administración, en los correos del pedido y en las\n  páginas de pedido y de agradecimiento del cliente.\n* Usa la zona horaria de tu tienda y el formato de fecha de WordPress al mostrar la fecha.\n* Sin tablas propias y sin llamadas a servicios externos.\n* Se distribuye con un archivo POT para la traducción y elimina sus ajustes al desinstalarlo.\n* Declara compatibilidad con HPOS y funciona junto a los bloques de Carrito y Pago."
 
 msgid "1. Upload the plugin to `/wp-content/plugins/pickup`, or install via Plugins → Add New.\n2. Activate it. WooCommerce must be active.\n3. Make sure WooCommerce <strong>Local Pickup<strong> is enabled under WooCommerce → Settings → Shipping. 4. Go to </strong>WooCommerce → Pickup</strong>, add your locations and weekly opening hours, and\n   set the slot length, capacity, lead time and booking horizon."
-msgstr "1. Cargue el complemento en `/wp-content/plugins/pickup`, o instálelo a través de Complementos → Añadir nuevo.\n2. Actívalo. WooCommerce debe estar activo.\n3. Asegúrese de que la <strong>Recogida local<strong> de WooCommerce esté habilitada en WooCommerce → Configuración → Envío. 4. Vaya a </strong>WooCommerce → Recogida</strong>, añade sus ubicaciones y horarios de apertura semanales, y\n   establezca la duración del espacio, la capacidad, el plazo de entrega y el horizonte de reserva."
+msgstr "1. Sube el plugin a `/wp-content/plugins/pickup` o instálalo desde Plugins → Añadir nuevo.\n2. Actívalo. WooCommerce debe estar activo.\n3. Asegúrate de que la <strong>Recogida local</strong> de WooCommerce esté activada en WooCommerce → Ajustes → Envío.\n4. Ve a <strong>WooCommerce → Recogida</strong>, añade tus lugares y tus horarios de apertura semanales, y\n   define la duración de franja, la capacidad, la antelación y el horizonte de reserva."
 
 msgid "Yes. WooCommerce must be installed and active, with a Local Pickup shipping method."
-msgstr "Sí. WooCommerce debe estar instalado y activo, con un método de envío con recogida local."
+msgstr "Sí. WooCommerce debe estar instalado y activo, con un método de envío de Recogida local."
 
 msgid "Only when the customer's chosen shipping method is WooCommerce Local Pickup. For\nall other methods the fields stay hidden and are not required."
-msgstr "Solo cuando el método de envío elegido por el cliente es Recolección local de WooCommerce. Para\nEn todos los demás métodos, los campos permanecen ocultos y no son obligatorios."
+msgstr "Solo cuando el método de envío elegido por el cliente es la Recogida local de WooCommerce. Con\ntodos los demás métodos, los campos permanecen ocultos y no son obligatorios."
 
 msgid "From your weekly opening windows and the slot length. For example, a 09:00–12:00\nwindow with a 30-minute slot length offers 09:00, 09:30, 10:00 and so on."
-msgstr "Desde sus ventanas de apertura semanales y la duración del espacio. Por ejemplo, de 09:00 a 12:00\nLa ventana con una duración de 30 minutos ofrece 09:00, 09:30, 10:00, etc."
+msgstr "A partir de tus ventanas de apertura semanales y la duración de franja. Por ejemplo, una ventana de 09:00–12:00\ncon una duración de franja de 30 minutos ofrece 09:00, 09:30, 10:00, etc."
 
 msgid "Each slot has a capacity. Once the number of orders booked into a location + date\n+ slot reaches that capacity, the slot is no longer offered."
-msgstr "Cada ranura tiene una capacidad. Una vez que el número de pedidos reservados en una ubicación + fecha\n+ el slot alcanza esa capacidad, el slot ya no se ofrece."
+msgstr "Cada franja tiene una capacidad. Cuando el número de pedidos reservados en un lugar + fecha\n+ franja alcanza esa capacidad, la franja deja de ofrecerse."
 
 msgid "No. Selections are stored as order meta, so there is nothing extra to maintain."
-msgstr "No. Las selecciones se almacenan como meta del pedido, por lo que no hay nada adicional que mantener."
+msgstr "No. Las selecciones se guardan como metadatos del pedido, así que no hay nada extra que mantener."
 
 msgid "Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data."
-msgstr "Sí. Este complemento es compatible con WordPress Multisite. Activarlo en red o activarlo en sitios individuales; Cada sitio mantiene su propia configuración y datos."
+msgstr "Sí. Este plugin es compatible con WordPress Multisite. Actívalo para toda la red o en sitios individuales; cada sitio conserva sus propios ajustes y datos."
 
 msgid "1. On the storefront.\n2. Settings in the WordPress admin.\n3. On a mobile device."
-msgstr "1. En el escaparate.\n2. Configuración en el administrador de WordPress.\n3. En un dispositivo móvil."
+msgstr "1. En la tienda.\n2. Ajustes en la administración de WordPress.\n3. En un dispositivo móvil."
 
 msgid "Pickup does not connect to any external services. The live time-slot lookup at\ncheckout posts to your own site's WordPress AJAX endpoint (`admin-ajax.php`) and\nthe slots are calculated on your server from the opening hours you configure. Your\nsettings live in the `pickup_settings` option and each order's choice is stored as\norder meta (`_pickup_location`, `_pickup_date`, `_pickup_slot`); pickup details are\nshown by adding them to WooCommerce's own order emails, not by sending any mail of\ntheir own. No data leaves your site."
-msgstr "La recogida no se conecta a ningún servicio externo. La búsqueda de franjas horarias en vivo en\npagar publicaciones en el punto final AJAX de WordPress de tu propio sitio (`admin-ajax.php`) y\nlos slots se calculan en tu servidor a partir del horario de apertura que configures. tu\nLa configuración se encuentra en la opción `pickup_settings` y la elección de cada pedido se almacena como\nmeta del pedido (`_pickup_location`, `_pickup_date`, `_pickup_slot`); los detalles de recogida son\nse muestra agregándolos a los correos electrónicos de pedidos de WooCommerce, no enviando ningún correo de\nlos suyos propios. Ningún dato sale de tu sitio."
+msgstr "Pickup no se conecta a ningún servicio externo. La consulta en directo de franjas horarias al finalizar la\ncompra envía peticiones al endpoint AJAX de WordPress de tu propio sitio (`admin-ajax.php`), y\nlas franjas se calculan en tu servidor a partir de los horarios de apertura que configures. Tus\najustes viven en la opción `pickup_settings` y la elección de cada pedido se guarda como\nmetadatos del pedido (`_pickup_location`, `_pickup_date`, `_pickup_slot`); los datos de recogida se\nmuestran añadiéndolos a los propios correos de pedido de WooCommerce, no enviando ningún correo\npropio. Ningún dato sale de tu sitio."
+
+msgid "Plogins Pickup includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-pickup`, so WordPress.org language packs can also override or extend these bundled translations."
+msgstr "Plogins Pickup incluye traducciones al polaco, al alemán y al español para la interfaz del plugin. El dominio de texto es `plogins-pickup`, por lo que los paquetes de idioma de WordPress.org también pueden sustituir o ampliar estas traducciones incluidas."
+
+msgid "* Added bundled Polish, German and Spanish translations for the plugin interface."
+msgstr "* Añadidas traducciones al polaco, al alemán y al español para la interfaz del plugin."
 
 msgid "* First stable release."
 msgstr "* Primera versión estable."
 
 msgid "* Renamed to Plogins Pickup for WooCommerce for a more distinctive plugin name."
-msgstr "* Se cambió el nombre a Plogins Pickup para WooCommerce para obtener un nombre de complemento más distintivo."
+msgstr "* Renombrado a Plogins Pickup para WooCommerce para lograr un nombre de plugin más distintivo."
 
 msgid "* `pickup/slot_fee` filter for optional per-slot cart fees or discounts.\n* Cart fee applied at checkout when a priced slot is selected; AJAX slot list includes fee amounts."
-msgstr "* Filtro `pickup/slot_fee` para tarifas o descuentos opcionales por carrito por espacio.\n* La tarifa del carrito se aplica al finalizar la compra cuando se selecciona un espacio con precio; La lista de espacios AJAX incluye montos de tarifas."
+msgstr "* Filtro `pickup/slot_fee` para tarifas o descuentos opcionales por franja en el carrito.\n* Tarifa de carrito aplicada al finalizar la compra cuando se elige una franja con precio; la lista de franjas AJAX incluye los importes de las tarifas."
 
 msgid "* Extension hooks for Pickup Pro: `pickup/booted`, `pickup/slot_capacity`,\n  `pickup/date_available`, `pickup/slot_available`, `pickup/blocked_dates`.\n* Checkout script honours blocked dates passed from the server."
-msgstr "* Ganchos de extensión para Pickup Pro: `pickup/booted`, `pickup/slot_capacity`,\n  `recogida/fecha_disponible`, `recogida/espacio_disponible`, `recogida/fechas_bloqueadas`.\n* El script de pago respeta las fechas bloqueadas transmitidas por el servidor."
+msgstr "* Hooks de extensión para Pickup Pro: `pickup/booted`, `pickup/slot_capacity`,\n  `pickup/date_available`, `pickup/slot_available`, `pickup/blocked_dates`.\n* El script de pago respeta las fechas bloqueadas enviadas desde el servidor."
 
 msgid "* Initial release: pickup location chooser and date/time-slot picker at checkout,\n  weekly opening-hours scheduling with slot length, capacity, lead time and\n  booking horizon, order + email display, and a WooCommerce settings screen."
-msgstr "* Lanzamiento inicial: selector de lugar de recogida y selector de fecha/intervalo horario al finalizar la compra,\n  Programación semanal de horarios de apertura con duración de franjas horarias, capacidad, plazos de entrega y\n  horizonte de reserva, visualización de pedido + correo electrónico y una pantalla de configuración de WooCommerce."
+msgstr "* Versión inicial: selector del lugar de recogida y selector de fecha/franja horaria al finalizar la compra,\n  programación semanal de horarios de apertura con duración de franja, capacidad, antelación y\n  horizonte de reserva, visualización en pedido + correo y una pantalla de ajustes de WooCommerce."
 
