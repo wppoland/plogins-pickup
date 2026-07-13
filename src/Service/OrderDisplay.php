@@ -108,12 +108,12 @@ final class OrderDisplay implements HasHooks
             <table class="woocommerce-table pickup-order-table">
                 <tbody>
                     <tr>
-                        <th><?php esc_html_e('Location', 'plogins-pickup'); ?></th>
+                        <th scope="row"><?php esc_html_e('Location', 'plogins-pickup'); ?></th>
                         <td><?php echo esc_html($data['location']); ?></td>
                     </tr>
                     <?php if ($data['date'] !== '') : ?>
                         <tr>
-                            <th><?php esc_html_e('When', 'plogins-pickup'); ?></th>
+                            <th scope="row"><?php esc_html_e('When', 'plogins-pickup'); ?></th>
                             <td><?php echo esc_html(trim($this->formatDate($data['date']) . ' ' . $data['slot'])); ?></td>
                         </tr>
                     <?php endif; ?>
