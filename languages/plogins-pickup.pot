@@ -40,20 +40,20 @@ msgid "https://plogins.com/"
 msgstr ""
 
 #: plogins-pickup.php:54
-msgid "Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to be active."
+msgid ""
+"Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to be "
+"active."
 msgstr ""
 
 #: src/Admin/Settings.php:40
 msgid "Pickup Scheduling"
 msgstr ""
 
-#: src/Admin/Settings.php:41
-#: src/Service/OrderDisplay.php:81
+#: src/Admin/Settings.php:41 src/Service/OrderDisplay.php:81
 msgid "Pickup"
 msgstr ""
 
-#: src/Admin/Settings.php:71
-#: src/Admin/Settings.php:262
+#: src/Admin/Settings.php:71 src/Admin/Settings.php:262
 msgid "Remove"
 msgstr ""
 
@@ -70,7 +70,10 @@ msgid "Let customers book a pickup time"
 msgstr ""
 
 #: src/Admin/Settings.php:100
-msgid "When an order uses WooCommerce Local Pickup, shoppers choose a location and a time slot at checkout. Define your locations, weekly opening hours, slot length and capacity below."
+msgid ""
+"When an order uses WooCommerce Local Pickup, shoppers choose a location and "
+"a time slot at checkout. Define your locations, weekly opening hours, slot "
+"length and capacity below."
 msgstr ""
 
 #: src/Admin/Settings.php:109
@@ -78,7 +81,10 @@ msgid "General"
 msgstr ""
 
 #: src/Admin/Settings.php:111
-msgid "The booking rules that shape which time slots customers can pick. The defaults work for most shops, adjust only if your pickup desk needs tighter or looser timing."
+msgid ""
+"The booking rules that shape which time slots customers can pick. The "
+"defaults work for most shops, adjust only if your pickup desk needs tighter "
+"or looser timing."
 msgstr ""
 
 #: src/Admin/Settings.php:117
@@ -90,7 +96,9 @@ msgid "Show pickup fields when Local Pickup is selected."
 msgstr ""
 
 #: src/Admin/Settings.php:125
-msgid "Turn this off to keep your locations and hours saved but stop showing the time picker at checkout."
+msgid ""
+"Turn this off to keep your locations and hours saved but stop showing the "
+"time picker at checkout."
 msgstr ""
 
 #: src/Admin/Settings.php:132
@@ -98,7 +106,9 @@ msgid "Slot length (minutes)"
 msgstr ""
 
 #: src/Admin/Settings.php:135
-msgid "How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, 10:00 and so on."
+msgid ""
+"How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, "
+"10:00 and so on."
 msgstr ""
 
 #: src/Admin/Settings.php:136
@@ -110,7 +120,9 @@ msgid "Capacity per slot"
 msgstr ""
 
 #: src/Admin/Settings.php:143
-msgid "How many orders may book the same location and time before that slot shows as full and is hidden."
+msgid ""
+"How many orders may book the same location and time before that slot shows "
+"as full and is hidden."
 msgstr ""
 
 #: src/Admin/Settings.php:144
@@ -122,7 +134,9 @@ msgid "Lead time (hours)"
 msgstr ""
 
 #: src/Admin/Settings.php:151
-msgid "The minimum notice before the earliest bookable slot, so staff have time to prepare. 2 hides any slot less than two hours away."
+msgid ""
+"The minimum notice before the earliest bookable slot, so staff have time to "
+"prepare. 2 hides any slot less than two hours away."
 msgstr ""
 
 #: src/Admin/Settings.php:152
@@ -134,7 +148,9 @@ msgid "Booking horizon (days)"
 msgstr ""
 
 #: src/Admin/Settings.php:159
-msgid "How far ahead customers may book. 14 lets them choose any open slot within the next two weeks."
+msgid ""
+"How far ahead customers may book. 14 lets them choose any open slot within "
+"the next two weeks."
 msgstr ""
 
 #: src/Admin/Settings.php:160
@@ -146,7 +162,10 @@ msgid "Weekly opening hours"
 msgstr ""
 
 #: src/Admin/Settings.php:170
-msgid "Set one or more time windows per day using 24-hour HH:MM. Leave a day blank to close it. Slots are generated inside these windows using the slot length above."
+msgid ""
+"Set one or more time windows per day using 24-hour HH:MM. Leave a day blank "
+"to close it. Slots are generated inside these windows using the slot length "
+"above."
 msgstr ""
 
 #. translators: %s: weekday name.
@@ -166,7 +185,10 @@ msgid "Pickup locations"
 msgstr ""
 
 #: src/Admin/Settings.php:210
-msgid "Add the places customers can collect from. Disable a location to hide it from checkout without losing its details. At least one enabled location is needed for the checkout fields to appear."
+msgid ""
+"Add the places customers can collect from. Disable a location to hide it "
+"from checkout without losing its details. At least one enabled location is "
+"needed for the checkout fields to appear."
 msgstr ""
 
 #: src/Admin/Settings.php:222
@@ -177,8 +199,7 @@ msgstr ""
 msgid "Save pickup settings"
 msgstr ""
 
-#: src/Admin/Settings.php:243
-#: src/Service/CheckoutFields.php:150
+#: src/Admin/Settings.php:243 src/Service/CheckoutFields.php:150
 msgid "Pickup location"
 msgstr ""
 
@@ -255,13 +276,13 @@ msgid "Could not load times. Please try again."
 msgstr ""
 
 #: src/Service/CheckoutFields.php:127
-msgid "Local pickup is selected but no pickup locations are configured yet. Please contact the store."
+msgid ""
+"Local pickup is selected but no pickup locations are configured yet. Please "
+"contact the store."
 msgstr ""
 
-#: src/Service/CheckoutFields.php:143
-#: src/Service/OrderDisplay.php:107
-#: src/Service/OrderDisplay.php:144
-#: src/Service/OrderDisplay.php:152
+#: src/Service/CheckoutFields.php:143 src/Service/OrderDisplay.php:107
+#: src/Service/OrderDisplay.php:144 src/Service/OrderDisplay.php:152
 msgid "Pickup details"
 msgstr ""
 
@@ -269,8 +290,7 @@ msgstr ""
 msgid "Choose where and when you would like to collect your order."
 msgstr ""
 
-#: src/Service/CheckoutFields.php:151
-#: src/Service/CheckoutFields.php:179
+#: src/Service/CheckoutFields.php:151 src/Service/CheckoutFields.php:179
 #: src/Service/CheckoutFields.php:197
 msgid "required"
 msgstr ""
@@ -315,14 +335,12 @@ msgstr ""
 msgid "That pickup time is no longer available. Please pick another."
 msgstr ""
 
-#: src/Service/OrderDisplay.php:83
-#: src/Service/OrderDisplay.php:145
+#: src/Service/OrderDisplay.php:83 src/Service/OrderDisplay.php:145
 #: src/Service/OrderDisplay.php:154
 msgid "Location:"
 msgstr ""
 
-#: src/Service/OrderDisplay.php:88
-#: src/Service/OrderDisplay.php:147
+#: src/Service/OrderDisplay.php:88 src/Service/OrderDisplay.php:147
 #: src/Service/OrderDisplay.php:156
 msgid "When:"
 msgstr ""
@@ -333,4 +351,64 @@ msgstr ""
 
 #: src/Service/OrderDisplay.php:116
 msgid "When"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr ""
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr ""
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
 msgstr ""
