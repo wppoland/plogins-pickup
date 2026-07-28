@@ -198,7 +198,7 @@ final class Settings implements HasHooks
                                             </span>
                                             <input type="time" name="windows[<?php echo esc_attr((string) $day); ?>][start]" value="<?php echo esc_attr($entry['start']); ?>" />
                                         </label>
-                                        <span aria-hidden="true">–</span>
+                                        <span aria-hidden="true">, </span>
                                         <label class="pickup-window">
                                             <span class="screen-reader-text">
                                                 <?php

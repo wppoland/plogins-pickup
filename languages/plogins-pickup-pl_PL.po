@@ -6,16 +6,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pickup\n"
 "POT-Creation-Date: 2026-06-16T20:24:47+00:00\n"
 "PO-Revision-Date: 2026-06-15 00:00+0000\n"
-"Last-Translator: WPPoland <hello@plogins.com>\n"
-"Language-Team: WPPoland <hello@plogins.com>\n"
+"Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
+"Language-Team: Polish <pl@li.org>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
-"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: plogins-pickup\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
 #: plogins-pickup.php
@@ -96,6 +96,10 @@ msgid ""
 "defaults work for most shops, adjust only if your pickup desk needs tighter "
 "or looser timing."
 msgstr ""
+"Zasady rezerwacji, które kształtują przedziały czasowe, które klienci mogą "
+"wybrać. Wartości domyślne działają w większości sklepów, dostosuj je tylko "
+"wtedy, gdy miejsce odbioru wymaga bardziej rygorystycznego lub luźniejszego "
+"harmonogramu."
 
 #: src/Admin/Settings.php:117
 msgid "Enable pickup scheduling"
@@ -110,6 +114,8 @@ msgid ""
 "Turn this off to keep your locations and hours saved but stop showing the "
 "time picker at checkout."
 msgstr ""
+"Wyłącz tę opcję, aby zachować zapisane lokalizacje i godziny otwarcia, ale "
+"przestań wyświetlać selektor czasu przy kasie."
 
 #: src/Admin/Settings.php:132
 msgid "Slot length (minutes)"
@@ -120,10 +126,12 @@ msgid ""
 "How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, "
 "10:00 and so on."
 msgstr ""
+"W jakich odstępach oferowane są godziny odbioru. 30 tworzy terminy o 09:00, "
+"09:30, 10:00 i tak dalej."
 
 #: src/Admin/Settings.php:136
 msgid "Default: 30"
-msgstr ""
+msgstr "Wartość domyślna: 30"
 
 #: src/Admin/Settings.php:140
 msgid "Capacity per slot"
@@ -134,10 +142,12 @@ msgid ""
 "How many orders may book the same location and time before that slot shows "
 "as full and is hidden."
 msgstr ""
+"Ile zamówień może zarezerwować w tej samej lokalizacji i czasie, zanim dane "
+"miejsce będzie widoczne jako zajęte i ukryte."
 
 #: src/Admin/Settings.php:144
 msgid "Default: 5"
-msgstr ""
+msgstr "Wartość domyślna: 5"
 
 #: src/Admin/Settings.php:148
 msgid "Lead time (hours)"
@@ -148,10 +158,13 @@ msgid ""
 "The minimum notice before the earliest bookable slot, so staff have time to "
 "prepare. 2 hides any slot less than two hours away."
 msgstr ""
+"Minimalne powiadomienie przed najwcześniejszym możliwym do rezerwacji "
+"terminem, aby personel miał czas na przygotowanie. 2 ukrywa dowolne miejsce "
+"w odległości mniejszej niż dwie godziny."
 
 #: src/Admin/Settings.php:152
 msgid "Default: 2"
-msgstr ""
+msgstr "Wartość domyślna: 2"
 
 #: src/Admin/Settings.php:156
 msgid "Booking horizon (days)"
@@ -162,10 +175,12 @@ msgid ""
 "How far ahead customers may book. 14 lets them choose any open slot within "
 "the next two weeks."
 msgstr ""
+"Jak daleko od przodu klienci mogą dokonać rezerwacji. 14 pozwala im wybrać "
+"dowolny wolny termin w ciągu najbliższych dwóch tygodni."
 
 #: src/Admin/Settings.php:160
 msgid "Default: 14"
-msgstr ""
+msgstr "Wartość domyślna: 14"
 
 #: src/Admin/Settings.php:168
 msgid "Weekly opening hours"
@@ -185,13 +200,13 @@ msgstr ""
 #: src/Admin/Settings.php:185
 #, php-format
 msgid "%s opening time"
-msgstr "Godzina otwarcia – %s"
+msgstr "Godzina otwarcia, %s"
 
 #. translators: %s: weekday name.
 #: src/Admin/Settings.php:195
 #, php-format
 msgid "%s closing time"
-msgstr "Godzina zamknięcia – %s"
+msgstr "Godzina zamknięcia, %s"
 
 #: src/Admin/Settings.php:208
 msgid "Pickup locations"
@@ -332,11 +347,11 @@ msgstr "Najpierw wybierz datę…"
 
 #: src/Service/CheckoutFields.php:219
 msgid "Reserved"
-msgstr ""
+msgstr "Zarezerwowane"
 
 #: src/Service/CheckoutFields.php:220
 msgid "Reserved, your order will be waiting."
-msgstr ""
+msgstr "Zarezerwowane, Twoje zamówienie będzie czekać."
 
 #: src/Service/CheckoutFields.php:240
 msgid "Your pickup selection could not be verified. Please try again."
@@ -371,6 +386,66 @@ msgstr "Lokalizacja"
 #: src/Service/OrderDisplay.php:116
 msgid "When"
 msgstr "Kiedy"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Wkrótce"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Wkrótce"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr "od %d zł/rok"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "od %1$s%2$d/rok"
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr "Przejdź na PRO"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr "Brak uprawnień."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr "Zrób więcej dzięki %s"
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr "Odrzuć to powiadomienie"
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr "Odblokuj wszystkie funkcje PRO"
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr "jedna licencja, wszystkie funkcje PRO"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
+msgstr "Co dodaje %s"
 
 #~ msgid ""
 #~ "Slot length sets how often slots repeat (30 means 09:00, 09:30, 10:00…). "

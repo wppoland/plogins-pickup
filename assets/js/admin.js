@@ -1,9 +1,9 @@
 /**
- * Pickup — admin settings enhancement (progressive, dependency-free).
+ * Pickup, admin settings enhancement (progressive, dependency-free).
  *
  * Repeatable location rows: add/remove without a page reload.
  *
- * Loaded with `defer`; degrades gracefully — all settings still save with JS off.
+ * Loaded with `defer`; degrades gracefully, all settings still save with JS off.
  */
 ( function () {
 	'use strict';
