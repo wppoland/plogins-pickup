@@ -1,7 +1,7 @@
 <?php
 /**
  * Service wiring. Returns a closure that registers every service in the
- * container as a lazy singleton. Services are thin and self-contained — this
+ * container as a lazy singleton. Services are thin and self-contained, this
  * plugin has no external runtime dependencies.
  *
  * @package Pickup

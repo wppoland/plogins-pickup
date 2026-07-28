@@ -76,7 +76,7 @@ allen anderen Methoden bleiben die Felder ausgeblendet und werden nicht verlangt
 
 = How are time slots generated? =
 
-Aus deinen wöchentlichen Öffnungszeiten und der Zeitfensterlänge. Ein Fenster von 09:00–12:00 Uhr
+Aus deinen wöchentlichen Öffnungszeiten und der Zeitfensterlänge. Ein Fenster von 09:00-12:00 Uhr
 mit einer Zeitfensterlänge von 30 Minuten bietet zum Beispiel 09:00, 09:30, 10:00 und so weiter.
 
 = What stops a slot from being over-booked? =

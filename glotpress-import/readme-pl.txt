@@ -76,7 +76,7 @@ wszystkich innych metodach pola pozostają ukryte i nie są wymagane.
 
 = How are time slots generated? =
 
-Na podstawie tygodniowych godzin otwarcia i długości przedziału. Na przykład okno 09:00–12:00
+Na podstawie tygodniowych godzin otwarcia i długości przedziału. Na przykład okno 09:00-12:00
 przy 30-minutowej długości przedziału daje 09:00, 09:30, 10:00 i tak dalej.
 
 = What stops a slot from being over-booked? =

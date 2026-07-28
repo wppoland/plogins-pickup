@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,7 +76,7 @@ all other methods the fields stay hidden and are not required.
 
 = How are time slots generated? =
 
-From your weekly opening windows and the slot length. For example, a 09:00–12:00
+From your weekly opening windows and the slot length. For example, a 09:00-12:00
 window with a 30-minute slot length offers 09:00, 09:30, 10:00 and so on.
 
 = What stops a slot from being over-booked? =

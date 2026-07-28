@@ -76,7 +76,7 @@ todos los demás métodos, los campos permanecen ocultos y no son obligatorios.
 
 = How are time slots generated? =
 
-A partir de tus ventanas de apertura semanales y la duración de franja. Por ejemplo, una ventana de 09:00–12:00
+A partir de tus ventanas de apertura semanales y la duración de franja. Por ejemplo, una ventana de 09:00-12:00
 con una duración de franja de 30 minutos ofrece 09:00, 09:30, 10:00, etc.
 
 = What stops a slot from being over-booked? =

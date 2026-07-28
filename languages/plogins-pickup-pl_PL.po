@@ -200,13 +200,13 @@ msgstr ""
 #: src/Admin/Settings.php:185
 #, php-format
 msgid "%s opening time"
-msgstr "Godzina otwarcia – %s"
+msgstr "Godzina otwarcia, %s"
 
 #. translators: %s: weekday name.
 #: src/Admin/Settings.php:195
 #, php-format
 msgid "%s closing time"
-msgstr "Godzina zamknięcia – %s"
+msgstr "Godzina zamknięcia, %s"
 
 #: src/Admin/Settings.php:208
 msgid "Pickup locations"
