@@ -12,7 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
+"|| n%100>14) ? 1 : 2);\n"
 "X-Domain: plogins-pickup\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -81,8 +82,8 @@ msgid ""
 "a time slot at checkout. Define your locations, weekly opening hours, slot "
 "length and capacity below."
 msgstr ""
-"Gdy zamówienie korzysta z odbioru osobistego WooCommerce, kupujący wybierają"
-" miejsce i termin podczas finalizacji zamówienia. Poniżej zdefiniuj swoje "
+"Gdy zamówienie korzysta z odbioru osobistego WooCommerce, kupujący wybierają "
+"miejsce i termin podczas finalizacji zamówienia. Poniżej zdefiniuj swoje "
 "lokalizacje, tygodniowe godziny otwarcia, długość terminów i pojemność."
 
 #: src/Admin/Settings.php:109
@@ -192,8 +193,8 @@ msgid ""
 "above."
 msgstr ""
 "Ustaw jedno lub więcej okien czasowych na dzień w formacie 24-godzinnym "
-"GG:MM. Pozostaw dzień pusty, aby go zamknąć. Terminy są generowane w obrębie"
-" tych okien zgodnie z powyższą długością terminu."
+"GG:MM. Pozostaw dzień pusty, aby go zamknąć. Terminy są generowane w obrębie "
+"tych okien zgodnie z powyższą długością terminu."
 
 #. translators: %s: weekday name.
 #: src/Admin/Settings.php:185
@@ -386,15 +387,75 @@ msgstr "Lokalizacja"
 msgid "When"
 msgstr "Kiedy"
 
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Wkrótce"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Wkrótce"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr "od %d zł/rok"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "od %1$s%2$d/rok"
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr "Przejdź na PRO"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr "Brak uprawnień."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr "Zrób więcej dzięki %s"
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr "Odrzuć to powiadomienie"
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr "Odblokuj wszystkie funkcje PRO"
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr "jedna licencja, wszystkie funkcje PRO"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
+msgstr "Co dodaje %s"
+
 #~ msgid ""
 #~ "Slot length sets how often slots repeat (30 means 09:00, 09:30, 10:00…). "
-#~ "Capacity is how many orders may book the same location and time before it is"
-#~ " shown as full. Lead time is the minimum notice before the earliest bookable"
-#~ " slot. Booking horizon is how many days ahead customers may book."
+#~ "Capacity is how many orders may book the same location and time before it "
+#~ "is shown as full. Lead time is the minimum notice before the earliest "
+#~ "bookable slot. Booking horizon is how many days ahead customers may book."
 #~ msgstr ""
 #~ "Długość terminu określa, jak często powtarzają się terminy (30 oznacza "
-#~ "09:00, 09:30, 10:00…). Pojemność to liczba zamówień, które mogą zarezerwować"
-#~ " to samo miejsce i czas, zanim termin zostanie oznaczony jako zajęty. Czas "
-#~ "wyprzedzenia to minimalny okres przed najwcześniejszym dostępnym terminem. "
-#~ "Horyzont rezerwacji to liczba dni do przodu, na które klienci mogą "
-#~ "rezerwować."
+#~ "09:00, 09:30, 10:00…). Pojemność to liczba zamówień, które mogą "
+#~ "zarezerwować to samo miejsce i czas, zanim termin zostanie oznaczony jako "
+#~ "zajęty. Czas wyprzedzenia to minimalny okres przed najwcześniejszym "
+#~ "dostępnym terminem. Horyzont rezerwacji to liczba dni do przodu, na które "
+#~ "klienci mogą rezerwować."
