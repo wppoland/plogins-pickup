@@ -1,5 +1,5 @@
 /**
- * Pickup — admin management screen.
+ * Pickup, admin management screen.
  *
  * A themeable layer over the WordPress settings UI. Tokens live under --pickup-*
  * so the look tunes in one place. Transitions are gated behind
@@ -127,33 +127,22 @@
 }
 
 /* Dark-mode-aware admin. */
-@media (prefers-color-scheme: dark) {
-	.pickup-admin {
-		/* Storefront's dark-scheme marigold; 8.14:1 on the #1e1e1e card
-		   surface — comfortably AA for both text and UI. */
-		--pickup-accent: #f0a64a;
-		--pickup-card-bg: #1e1e1e;
-		--pickup-card-border: #3c434a;
-		--pickup-muted: #a7aaad;
-	}
-}
-
 @media (prefers-reduced-motion: no-preference) {
 	.pickup-remove {
 		transition: color 0.15s ease, background-color 0.15s ease;
 	}
 }
 
-/* ------------------------------------------------------------------
- * PRO upsell — dismissible banner, sidebar promo, "what PRO adds"
+/* ------------------------------------------------------------------ *
+ * PRO upsell, dismissible banner, sidebar promo, "what PRO adds"
  * locked cards. Pure advertising (no disabled inputs), scoped to
- * .pickup-admin, using the plugin's own marigold accent. The buttons
- * use the fixed deep --pickup-pro-cta (#a05c09) so white text clears
- * WCAG AA (5.21:1 on the button) in both colour schemes; the lighter
- * --pickup-accent is decorative only.
+ * .pickup-admin. Reuses the family marigold accent (--pickup-accent),
+ * which meets WCAG AA for white button text on the wp-admin surface.
  * ------------------------------------------------------------------ */
+
 .pickup-admin {
-	--pickup-pro-cta: #a05c09;
+	--pickup-pro-radius: var(--pickup-radius, 10px);
+	--pickup-pro-radius-sm: var(--pickup-radius-sm, 6px);
 	--pickup-pro-gap: 20px;
 }
 
@@ -168,11 +157,11 @@
 	display: flex;
 	align-items: center;
 	gap: 14px;
-	margin: 0 0 var(--pickup-pro-gap);
+	margin: 1em 0 var(--pickup-pro-gap);
 	padding: 12px 16px;
 	border: 1px solid color-mix(in srgb, var(--pickup-accent) 30%, #dcdcde);
 	border-inline-start: 4px solid var(--pickup-accent);
-	border-radius: var(--pickup-radius);
+	border-radius: var(--pickup-pro-radius);
 	background: color-mix(in srgb, var(--pickup-accent) 7%, #fff);
 }
 .pickup-admin .pickup-pro-banner__tag,
@@ -180,26 +169,26 @@
 .pickup-admin .pickup-pro-aside__eyebrow {
 	font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
 }
-.pickup-admin .pickup-pro-banner__tag { flex: 0 0 auto; padding: 2px 8px; border-radius: 999px; color: #fff; background: var(--pickup-pro-cta); }
+.pickup-admin .pickup-pro-banner__tag { flex: 0 0 auto; padding: 2px 8px; border-radius: 999px; color: #fff; background: var(--pickup-accent); }
 .pickup-admin .pickup-pro-banner__text { flex: 1 1 auto; margin: 0; color: #1d2327; }
 .pickup-admin .pickup-pro-banner__sub { margin-inline-start: 4px; color: var(--pickup-muted); }
 .pickup-admin .pickup-pro-banner__price { margin-inline-start: 6px; color: var(--pickup-muted); font-weight: 600; white-space: nowrap; }
 .pickup-admin .pickup-pro-banner__dismiss { flex: 0 0 auto; font-size: 18px; line-height: 1; text-decoration: none; color: var(--pickup-muted); padding: 4px; border-radius: 4px; }
 .pickup-admin .pickup-pro-banner__dismiss:hover { color: #1d2327; background: rgba(0, 0, 0, .05); }
 
-/* Accent CTA buttons (override WP blue with the readable deep marigold) */
+/* Accent CTA buttons (override WP blue with the readable family marigold) */
 .pickup-admin .pickup-pro-banner__cta.button-primary,
 .pickup-admin .pickup-pro-aside__cta.button-primary {
-	background: var(--pickup-pro-cta); border-color: color-mix(in srgb, var(--pickup-pro-cta) 80%, #000); color: #fff; text-shadow: none; box-shadow: none;
+	background: var(--pickup-accent); border-color: color-mix(in srgb, var(--pickup-accent) 80%, #000); color: #fff; text-shadow: none; box-shadow: none;
 }
 .pickup-admin .pickup-pro-banner__cta.button-primary:hover,
-.pickup-admin .pickup-pro-aside__cta.button-primary:hover { background: color-mix(in srgb, var(--pickup-pro-cta) 88%, #000); }
+.pickup-admin .pickup-pro-aside__cta.button-primary:hover { background: color-mix(in srgb, var(--pickup-accent) 88%, #000); }
 
 /* Sidebar promo card */
 .pickup-admin .pickup-pro-aside {
-	background: #fff; border: 1px solid #dcdcde; border-top: 3px solid var(--pickup-accent); border-radius: var(--pickup-radius); padding: 18px 20px; position: sticky; top: 40px;
+	background: #fff; border: 1px solid #dcdcde; border-top: 3px solid var(--pickup-accent); border-radius: var(--pickup-pro-radius); padding: 18px 20px; position: sticky; top: 40px;
 }
-.pickup-admin .pickup-pro-aside__eyebrow { margin: 0 0 4px; color: var(--pickup-pro-cta); }
+.pickup-admin .pickup-pro-aside__eyebrow { margin: 0 0 4px; color: var(--pickup-accent); }
 .pickup-admin .pickup-pro-aside__heading { margin: 0 0 12px; font-size: 16px; line-height: 1.3; }
 .pickup-admin .pickup-pro-aside__list { margin: 0 0 16px; padding: 0; list-style: none; }
 .pickup-admin .pickup-pro-aside__list li { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; color: #1d2327; font-size: 13px; }
@@ -212,8 +201,8 @@
 .pickup-admin .pickup-pro-cards { max-width: 60rem; margin: var(--pickup-pro-gap) 0 0; }
 .pickup-admin .pickup-pro-cards__title { font-size: 15px; margin: 0 0 12px; }
 .pickup-admin .pickup-pro-cards__grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
-.pickup-admin .pickup-pro-card { position: relative; padding: 16px; border: 1px solid #dcdcde; border-radius: var(--pickup-radius-sm); background: color-mix(in srgb, var(--pickup-accent) 3%, #fff); }
-.pickup-admin .pickup-pro-card__badge { position: absolute; top: 12px; inset-inline-end: 12px; padding: 1px 7px; border-radius: 999px; color: var(--pickup-pro-cta); border: 1px solid color-mix(in srgb, var(--pickup-accent) 40%, #fff); }
+.pickup-admin .pickup-pro-card { position: relative; padding: 16px; border: 1px solid #dcdcde; border-radius: var(--pickup-pro-radius-sm); background: color-mix(in srgb, var(--pickup-accent) 3%, #fff); }
+.pickup-admin .pickup-pro-card__badge { position: absolute; top: 12px; inset-inline-end: 12px; padding: 1px 7px; border-radius: 999px; color: var(--pickup-accent); border: 1px solid color-mix(in srgb, var(--pickup-accent) 40%, #fff); }
 .pickup-admin .pickup-pro-card__lock { display: inline-block; margin-bottom: 6px; }
 .pickup-admin .pickup-pro-card__title { margin: 0 0 6px; font-size: 14px; line-height: 1.3; }
 .pickup-admin .pickup-pro-card__desc { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--pickup-muted); }

@@ -1,11 +1,11 @@
-=== Plogins Pickup - Local Pickup for WooCommerce ===
+=== Pickup - Local Pickup for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, local pickup, click and collect, scheduling, checkout
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.3
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,7 +76,7 @@ all other methods the fields stay hidden and are not required.
 
 = How are time slots generated? =
 
-From your weekly opening windows and the slot length. For example, a 09:00–12:00
+From your weekly opening windows and the slot length. For example, a 09:00-12:00
 window with a 30-minute slot length offers 09:00, 09:30, 10:00 and so on.
 
 = What stops a slot from being over-booked? =
@@ -108,7 +108,24 @@ order meta (`_pickup_location`, `_pickup_date`, `_pickup_slot`); pickup details 
 shown by adding them to WooCommerce's own order emails, not by sending any mail of
 their own. No data leaves your site.
 
+== Translations ==
+
+Plogins Pickup includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-pickup`, so WordPress.org language packs can also override or extend these bundled translations.
+
 == Changelog ==
+
+= 1.0.4 =
+* Translations: completed Polish, German and Spanish for the PRO upgrade panel.
+
+= 1.0.3 =
+* Accessibility improvements to the admin and storefront markup.
+* Fixed low-contrast admin headings under an OS dark-mode preference.
+
+= 1.0.2 =
+* Added bundled Polish, German and Spanish translations for the plugin interface.
+
+= 1.0.1 =
+* First stable release.
 
 = 0.1.3 =
 * Renamed to Plogins Pickup for WooCommerce for a more distinctive plugin name.

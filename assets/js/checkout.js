@@ -1,5 +1,5 @@
 /**
- * Pickup — checkout enhancements (progressive, dependency-free).
+ * Pickup, checkout enhancements (progressive, dependency-free).
  *
  * - Shows the pickup fields only when WooCommerce Local Pickup is the active
  *   shipping method (the server still validates regardless of JS).
@@ -192,7 +192,7 @@
 
 		var placeholder = document.createElement( 'option' );
 		placeholder.value = '';
-		placeholder.textContent = '—';
+		placeholder.textContent = '-';
 		slotEl.appendChild( placeholder );
 
 		slots.forEach( function ( slot ) {
