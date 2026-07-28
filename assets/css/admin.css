@@ -1,5 +1,5 @@
 /**
- * Pickup — admin management screen.
+ * Pickup, admin management screen.
  *
  * A themeable layer over the WordPress settings UI. Tokens live under --pickup-*
  * so the look tunes in one place. Transitions are gated behind
@@ -134,7 +134,7 @@
 }
 
 /* ------------------------------------------------------------------ *
- * PRO upsell — dismissible banner, sidebar promo, "what PRO adds"
+ * PRO upsell, dismissible banner, sidebar promo, "what PRO adds"
  * locked cards. Pure advertising (no disabled inputs), scoped to
  * .pickup-admin. Reuses the family marigold accent (--pickup-accent),
  * which meets WCAG AA for white button text on the wp-admin surface.

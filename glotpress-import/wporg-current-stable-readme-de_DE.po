@@ -123,10 +123,10 @@ msgstr ""
 "allen anderen Methoden bleiben die Felder ausgeblendet und werden nicht verlangt."
 
 msgid ""
-"From your weekly opening windows and the slot length. For example, a 09:00–12:00\n"
+"From your weekly opening windows and the slot length. For example, a 09:00-12:00\n"
 "window with a 30-minute slot length offers 09:00, 09:30, 10:00 and so on."
 msgstr ""
-"Aus deinen wöchentlichen Öffnungszeiten und der Zeitfensterlänge. Ein Fenster von 09:00–12:00 Uhr\n"
+"Aus deinen wöchentlichen Öffnungszeiten und der Zeitfensterlänge. Ein Fenster von 09:00-12:00 Uhr\n"
 "mit einer Zeitfensterlänge von 30 Minuten bietet zum Beispiel 09:00, 09:30, 10:00 und so weiter."
 
 msgid ""

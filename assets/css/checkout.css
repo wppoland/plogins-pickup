@@ -1,9 +1,9 @@
 /**
- * Pickup — checkout fields.
+ * Pickup, checkout fields.
  *
  * The block is a collection-counter claim stub: a card with a perforated
  * tear-edge down one side, the way a left-luggage check or deli ticket looks.
- * The single crafted moment is confirming the pickup time — the stub gets a
+ * The single crafted moment is confirming the pickup time, the stub gets a
  * marigold "Reserved" stamp pressed onto it, the warm glow of a "ready for
  * collection" shelf lamp. Restraint everywhere else: the location and date
  * inputs inherit the theme.
@@ -15,7 +15,7 @@
 
 .pickup-fields {
 	/* Grounded in the pickup-counter world: warm marigold "ready" lamp glow
-	   over deep ink — deliberately NOT WordPress blue. */
+	   over deep ink, deliberately NOT WordPress blue. */
 	--pickup-accent: #c77a14;
 	--pickup-accent-deep: #a05c09;
 	--pickup-ink: #1d1a16;
@@ -94,7 +94,7 @@
 }
 
 /* Give the time-slot select a touch of the stub's warmth so the eye lands on
-   the moment that matters — without shouting over location/date. */
+   the moment that matters, without shouting over location/date. */
 .pickup-field--slot .pickup-input:focus-visible,
 .pickup-field--slot .pickup-input:focus {
 	outline: 2px solid var(--pickup-accent);
@@ -157,7 +157,7 @@
 	transform: translateX(-2px);
 }
 
-/* Reserved state — set by JS when a real slot is selected. */
+/* Reserved state, set by JS when a real slot is selected. */
 .pickup-fields.is-reserved .pickup-fields__stamp {
 	animation: pickup-stamp 420ms cubic-bezier(0.2, 1.4, 0.4, 1) forwards;
 	box-shadow: 0 0 0 0 var(--pickup-accent);

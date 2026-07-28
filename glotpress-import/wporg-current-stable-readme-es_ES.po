@@ -124,10 +124,10 @@ msgstr ""
 "todos los demás métodos, los campos permanecen ocultos y no son obligatorios."
 
 msgid ""
-"From your weekly opening windows and the slot length. For example, a 09:00–12:00\n"
+"From your weekly opening windows and the slot length. For example, a 09:00-12:00\n"
 "window with a 30-minute slot length offers 09:00, 09:30, 10:00 and so on."
 msgstr ""
-"A partir de tus ventanas de apertura semanales y la duración de franja. Por ejemplo, una ventana de 09:00–12:00\n"
+"A partir de tus ventanas de apertura semanales y la duración de franja. Por ejemplo, una ventana de 09:00-12:00\n"
 "con una duración de franja de 30 minutos ofrece 09:00, 09:30, 10:00, etc."
 
 msgid ""

@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
  * pickup-location chooser plus a date + time-slot picker on the (classic)
  * checkout, validate the selection, and persist it to the order.
  *
- * All choices are stored as order meta — no custom table — keeping the MVP
+ * All choices are stored as order meta, no custom table, keeping the MVP
  * self-contained. The fields only appear for local-pickup shipping; for every
  * other method they stay hidden and are never required.
  */
@@ -127,7 +127,7 @@ final class CheckoutFields implements HasHooks
         $active    = $this->isLocalPickupChosen();
 
         // Misconfigured store: pickup is enabled but no locations exist. Don't
-        // block checkout — show a gentle notice instead of broken controls.
+        // block checkout, show a gentle notice instead of broken controls.
         if ($locations === []) {
             if ($active) {
                 echo '<div class="pickup-fields pickup-fields--empty" role="status">';
@@ -172,7 +172,7 @@ final class CheckoutFields implements HasHooks
                             <?php
                             echo esc_html($loc['name']);
                             if ($loc['address'] !== '') {
-                                echo ' — ' . esc_html($loc['address']);
+                                echo '-' . esc_html($loc['address']);
                             }
                             ?>
                         </option>
