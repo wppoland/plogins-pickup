@@ -34,8 +34,8 @@ return [
             'pl' => ['title' => 'Blackouty slotów', 'desc' => 'Wyłącz konkretne przedziały czasowe w wybranym dniu lub dla jednej lokalizacji (wdrożone).'],
         ],
         [
-            'en' => ['title' => 'Per-slot pricing', 'desc' => 'Charge a fee or offer a discount for specific pickup slots via pickup/slot_fee (SlotPricing, shipped).'],
-            'pl' => ['title' => 'Cena za slot', 'desc' => 'Nalicz opłatę lub rabat za wybrane terminy odbioru przez hook pickup/slot_fee (SlotPricing, wdrożone).'],
+            'en' => ['title' => 'Per-slot pricing', 'desc' => 'Charge a fee or offer a discount for specific pickup slots (shipped).'],
+            'pl' => ['title' => 'Cena za slot', 'desc' => 'Nalicz opłatę lub rabat za wybrane terminy odbioru (wdrożone).'],
         ],
         [
             'en' => ['title' => 'Calendar export', 'desc' => 'Download booked pickups as an iCalendar (.ics) file per location (shipped).'],
