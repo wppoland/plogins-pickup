@@ -31,14 +31,14 @@ The picker lives on the classic checkout. With the block-based Cart and Checkout
 the plugin declares compatibility and saved pickup details still show on the order,
 emails and account pages, but the in-checkout field UI is the classic one.
 
-Source code and bug reports: https://github.com/wppoland/plogins-pickup
+Source code and bug reports: [github.com/wppoland/plogins-pickup](https://github.com/wppoland/plogins-pickup)
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/plogins-pickup/docs/
-* **Plugin page** - https://plogins.com/plogins-pickup/
-* **Source code** - https://github.com/wppoland/plogins-pickup
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-pickup/issues
+* **Documentation**: [plogins.com/plogins-pickup/docs/](https://plogins.com/plogins-pickup/docs/)
+* **Plugin page**: [plogins.com/plogins-pickup/](https://plogins.com/plogins-pickup/)
+* **Source code**: [github.com/wppoland/plogins-pickup](https://github.com/wppoland/plogins-pickup)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-pickup/issues](https://github.com/wppoland/plogins-pickup/issues)
 
 
 = Features =
