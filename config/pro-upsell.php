@@ -15,7 +15,6 @@ return [
     'sellable'   => true,
     'price_from' => 29,
     'currency'   => 'EUR',
-    'price_pln'  => 129,
     'lead'       => [
         'en' => 'Per-location capacity, blackouts, slot pricing and calendar export ship in the 0.4.0 release.',
         'pl' => 'Pojemność per lokalizacja, blackouty, ceny za slot i eksport do kalendarza są dostępne w wydaniu 0.4.0.',
