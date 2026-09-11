@@ -123,9 +123,22 @@ final class SettingsStore
                 continue;
             }
             $id   = isset($loc['id']) ? (string) $loc['id'] : '';
-            $name = isset($loc['name']) ? (string) $loc['name'] : '';
-            if ($id === '' || $name === '') {
+            $name = isset($loc['name']) ? trim((string) $loc['name']) : '';
+
+            if ($id === '') {
                 continue;
+            }
+
+            // The seed row ships with no name so that the default can be
+            // translated here rather than frozen in English in a config file.
+            // A location the merchant actually added and then blanked is still
+            // dropped, as before: only the untouched seed has a fallback.
+            if ($name === '') {
+                if ($id !== 'main') {
+                    continue;
+                }
+
+                $name = __('Main store', 'plogins-pickup');
             }
             $result[] = [
                 'id'      => $id,
