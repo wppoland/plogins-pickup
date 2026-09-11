@@ -57,10 +57,10 @@ Kod źródłowy i zgłoszenia błędów: https://github.com/wppoland/plogins-pic
 
 == Installation ==
 
-1. Wgraj wtyczkę do `/wp-content/plugins/pickup` lub zainstaluj przez Wtyczki → Dodaj nową.
+1. Wgraj wtyczkę do `/wp-content/plugins/pickup` lub zainstaluj przez Wtyczki > Dodaj nową.
 2. Włącz ją. WooCommerce musi być aktywne.
-3. Upewnij się, że w WooCommerce → Ustawienia → Wysyłka włączona jest metoda WooCommerce <strong>Odbiór osobisty</strong>.
-4. Przejdź do <strong>WooCommerce → Odbiór</strong>, dodaj swoje miejsca odbioru i tygodniowe godziny otwarcia, a następnie
+3. Upewnij się, że w WooCommerce > Ustawienia > Wysyłka włączona jest metoda WooCommerce <strong>Odbiór osobisty</strong>.
+4. Przejdź do <strong>WooCommerce > Odbiór</strong>, dodaj swoje miejsca odbioru i tygodniowe godziny otwarcia, a następnie
    ustaw długość przedziału, pojemność, czas wyprzedzenia i horyzont rezerwacji.
 
 == Frequently Asked Questions ==
