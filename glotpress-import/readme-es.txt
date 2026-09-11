@@ -57,10 +57,10 @@ Código fuente e informes de errores: https://github.com/wppoland/plogins-pickup
 
 == Installation ==
 
-1. Sube el plugin a `/wp-content/plugins/pickup` o instálalo desde Plugins → Añadir nuevo.
+1. Sube el plugin a `/wp-content/plugins/pickup` o instálalo desde Plugins > Añadir nuevo.
 2. Actívalo. WooCommerce debe estar activo.
-3. Asegúrate de que la <strong>Recogida local</strong> de WooCommerce esté activada en WooCommerce → Ajustes → Envío.
-4. Ve a <strong>WooCommerce → Recogida</strong>, añade tus lugares y tus horarios de apertura semanales, y
+3. Asegúrate de que la <strong>Recogida local</strong> de WooCommerce esté activada en WooCommerce > Ajustes > Envío.
+4. Ve a <strong>WooCommerce > Recogida</strong>, añade tus lugares y tus horarios de apertura semanales, y
    define la duración de franja, la capacidad, la antelación y el horizonte de reserva.
 
 == Frequently Asked Questions ==

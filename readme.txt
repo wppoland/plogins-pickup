@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.11
+Stable tag: 1.0.12
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,10 +57,10 @@ Source code and bug reports: [github.com/wppoland/plogins-pickup](https://github
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/pickup`, or install via Plugins → Add New.
+1. Upload the plugin to `/wp-content/plugins/pickup`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be active.
-3. Make sure WooCommerce **Local Pickup** is enabled under WooCommerce → Settings → Shipping.
-4. Go to **WooCommerce → Pickup**, add your locations and weekly opening hours, and
+3. Make sure WooCommerce **Local Pickup** is enabled under WooCommerce > Settings > Shipping.
+4. Go to **WooCommerce > Pickup**, add your locations and weekly opening hours, and
    set the slot length, capacity, lead time and booking horizon.
 
 == Frequently Asked Questions ==
@@ -113,6 +113,10 @@ their own. No data leaves your site.
 Plogins Pickup is fully translatable and ships the `plogins-pickup.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.0.12 =
+* Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
+* Fixed: arrow glyphs in the admin menu paths, and in the strings handed to translators. An arrow inside a translatable string makes the glyph every translator's problem and changes the layout in any locale that drops it.
 
 = 1.0.11 =
 * Fixed: the pickup location a fresh install starts with was named "Main store" in English in every language, and that name is shown to shoppers at checkout. The default is now translated. A location you have renamed yourself is untouched.
