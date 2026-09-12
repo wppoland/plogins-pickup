@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.12
+Stable tag: 1.0.13
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -113,6 +113,10 @@ their own. No data leaves your site.
 Plogins Pickup is fully translatable and ships the `plogins-pickup.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.0.13 =
+* Fixed: picking a pickup time made the cart and the checkout slow, and slower the more orders the shop had. The list of bookable times asked the database once per time slot, measured at 160 separate order queries over the default two week window, and the whole list was rebuilt every time WooCommerce recalculated the cart totals, not only when the shopper changed the date. It now comes from a single grouped query per page load. The same times are offered, with the same capacity and the same order statuses counted.
+* Capacity no longer counts bookings on dates that have already passed. Those dates were never offered for booking, so nothing a shopper can select changes.
 
 = 1.0.12 =
 * Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
