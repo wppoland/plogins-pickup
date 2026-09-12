@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.13
+Stable tag: 1.0.14
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -114,8 +114,12 @@ Plogins Pickup is fully translatable and ships the `plogins-pickup.pot` template
 
 == Changelog ==
 
+= 1.0.14 =
+* Fixed: the booking counts added in 1.0.13 were kept per pickup location only. On a WordPress network, a request that serves more than one site could answer one site's availability with another site's bookings. The counts are now kept per site as well.
+* The booking count asks WooCommerce which order types to count again, the way the lookup did before 1.0.13, instead of counting plain orders only. A stock shop sees no difference, because a refund never carries a pickup time; a shop whose extension registers its own order type has those bookings counted again.
+
 = 1.0.13 =
-* Fixed: picking a pickup time made the cart and the checkout slow, and slower the more orders the shop had. The list of bookable times asked the database once per time slot, measured at 160 separate order queries over the default two week window, and the whole list was rebuilt every time WooCommerce recalculated the cart totals, not only when the shopper changed the date. It now comes from a single grouped query per page load. The same times are offered, with the same capacity and the same order statuses counted.
+* Fixed: picking a pickup time made the cart and the checkout slow, and slower the more orders the shop had. The list of bookable times asked the database once per time slot, so a single page load ran one query for every time slot it offered, and the whole list was rebuilt every time WooCommerce recalculated the cart totals, not only when the shopper changed the date. It now comes from a single grouped query per page load. The same times are offered, with the same capacity and the same order statuses counted.
 * Capacity no longer counts bookings on dates that have already passed. Those dates were never offered for booking, so nothing a shopper can select changes.
 
 = 1.0.12 =

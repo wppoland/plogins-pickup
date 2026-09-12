@@ -9,7 +9,8 @@ declare(strict_types=1);
  *
  * Fails if building the checkout slot grid goes back to asking the database
  * once per candidate slot, if the count stops being memoised for the request,
- * if a second location reuses the first location's counts, if a full slot is
+ * if a second location or a second site on a network reuses the first one's
+ * counts, if a full slot is
  * still offered (or a slot with room is dropped), if the count stops being
  * restricted to the four statuses that hold a booking, if the join stops
  * counting distinct orders, or if the HPOS and legacy table names get crossed.
@@ -45,6 +46,10 @@ $GLOBALS['queries']         = [];
 /** @var int How many times the per-slot order lookup was called. */
 $GLOBALS['wc_get_orders']   = 0;
 $GLOBALS['hpos']            = false;
+/** @var int Current site on the network. */
+$GLOBALS['blog_id']         = 1;
+/** @var list<string> What wc_get_order_types('view-orders') answers. */
+$GLOBALS['order_types']     = ['shop_order', 'shop_order_refund'];
 
 function wp_timezone(): DateTimeZone
 {
@@ -71,6 +76,16 @@ function wc_get_orders(array $args)
     ++$GLOBALS['wc_get_orders'];
 
     return [];
+}
+
+function wc_get_order_types(string $for = ''): array
+{
+    return 'view-orders' === $for ? $GLOBALS['order_types'] : ['shop_order'];
+}
+
+function get_current_blog_id(): int
+{
+    return (int) $GLOBALS['blog_id'];
 }
 
 class Stub_wpdb
@@ -166,6 +181,16 @@ $calc->schedule('branch');
 check('a different location gets its own query', count($GLOBALS['queries']) === 2);
 check('that query asks for that location', str_contains((string) ($GLOBALS['queries'][1] ?? ''), "'branch'"));
 
+// --- The memo is per site, not per process ---------------------------------
+
+$GLOBALS['blog_id'] = 2;
+$calc->bookedCount('main', (string) array_key_first($schedule), '09:00');
+check('another site on the network does not reuse the first site\'s counts', count($GLOBALS['queries']) === 3);
+
+$GLOBALS['blog_id'] = 1;
+$calc->bookedCount('main', (string) array_key_first($schedule), '09:00');
+check('switching back still answers from memory', count($GLOBALS['queries']) === 3);
+
 // --- Capacity still decides what is offered --------------------------------
 
 $firstDate  = (string) array_key_first($schedule);
@@ -200,7 +225,7 @@ foreach (['wc-pending', 'wc-processing', 'wc-on-hold', 'wc-completed'] as $statu
     check("the count is restricted to {$status}", str_contains($sql, "'{$status}'"));
 }
 
-check('the count is restricted to real orders, not refunds', str_contains($sql, "'shop_order'"));
+check('the count keeps the order types wc_get_orders() used', str_contains($sql, "'shop_order', 'shop_order_refund'"));
 check('the count groups by date and slot', str_contains($sql, 'GROUP BY d.meta_value, s.meta_value'));
 check('the count counts distinct orders, not meta rows', str_contains($sql, 'COUNT(DISTINCT'));
 check('the count ignores dates already past', str_contains($sql, "d.meta_value >= '" . gmdate('Y-m-d') . "'"));
@@ -217,7 +242,7 @@ $hposSql = (string) ($GLOBALS['queries'][0] ?? '');
 check('HPOS reads the order meta table', str_contains($hposSql, '`wp_wc_orders_meta`'));
 check('HPOS joins the orders table on its own status column', str_contains($hposSql, '`wp_wc_orders`') && str_contains($hposSql, 'o.`status` IN'));
 check('HPOS joins meta rows on order_id', str_contains($hposSql, 'd.`order_id`'));
-check('HPOS filters on its own type column', str_contains($hposSql, "o.`type` = 'shop_order'"));
+check('HPOS filters on its own type column', str_contains($hposSql, "o.`type` IN ('shop_order', 'shop_order_refund')"));
 
 $GLOBALS['hpos']    = false;
 $GLOBALS['queries'] = [];
@@ -227,7 +252,17 @@ $legacySql = (string) ($GLOBALS['queries'][0] ?? '');
 check('legacy reads postmeta', str_contains($legacySql, '`wp_postmeta`'));
 check('legacy joins posts on post_status', str_contains($legacySql, '`wp_posts`') && str_contains($legacySql, 'o.`post_status` IN'));
 check('legacy joins meta rows on post_id', str_contains($legacySql, 'd.`post_id`'));
-check('legacy filters on post_type', str_contains($legacySql, "o.`post_type` = 'shop_order'"));
+check('legacy filters on post_type', str_contains($legacySql, "o.`post_type` IN ('shop_order', 'shop_order_refund')"));
+
+// A site that registers another order type must widen the count, not be ignored.
+$GLOBALS['order_types'] = ['shop_order', 'shop_order_refund', 'shop_subscription'];
+$GLOBALS['queries']     = [];
+make_calculator()->schedule('main');
+check(
+    'a third registered order type is counted too',
+    str_contains((string) ($GLOBALS['queries'][0] ?? ''), "'shop_order', 'shop_order_refund', 'shop_subscription'"),
+);
+$GLOBALS['order_types'] = ['shop_order', 'shop_order_refund'];
 
 check('nothing in the run fell back to a per-slot order query', $GLOBALS['wc_get_orders'] === 0);
 
