@@ -10,7 +10,7 @@ declare(strict_types=1);
  * Fails if building the checkout slot grid goes back to asking the database
  * once per candidate slot, if the count stops being memoised for the request,
  * if a second location or a second site on a network reuses the first one's
- * counts, if a full slot is
+ * counts or the first one's settings, if a full slot is
  * still offered (or a slot with room is dropped), if the count stops being
  * restricted to the four statuses that hold a booking, if the join stops
  * counting distinct orders, or if the HPOS and legacy table names get crossed.
@@ -50,6 +50,8 @@ $GLOBALS['hpos']            = false;
 $GLOBALS['blog_id']         = 1;
 /** @var list<string> What wc_get_order_types('view-orders') answers. */
 $GLOBALS['order_types']     = ['shop_order', 'shop_order_refund'];
+/** @var array<int, array<string, mixed>> Stored options per site, as a network has. */
+$GLOBALS['options']         = [];
 
 function wp_timezone(): DateTimeZone
 {
@@ -63,7 +65,10 @@ function apply_filters(string $hook, $value, ...$rest)
 
 function get_option(string $key, $default = false)
 {
-    return $default;
+    // Each site on a network has its own options table, so the fake keeps one
+    // store per blog id. Sharing a single array here would let a store that
+    // never re-reads the option pass anyway.
+    return $GLOBALS['options'][$GLOBALS['blog_id']][$key] ?? $default;
 }
 
 function __(string $text, string $domain = 'default'): string
@@ -190,6 +195,40 @@ check('another site on the network does not reuse the first site\'s counts', cou
 $GLOBALS['blog_id'] = 1;
 $calc->bookedCount('main', (string) array_key_first($schedule), '09:00');
 check('switching back still answers from memory', count($GLOBALS['queries']) === 3);
+
+// --- The settings behind the counts are per site too -----------------------
+
+// The counts being per site is only half of it: a slot is offered when the
+// count is under that site's capacity, so settings read on site 1 and reused on
+// site 2 book more people into a slot than site 2 allows.
+$GLOBALS['options'][2] = [\Pickup\Support\SettingsStore::OPTION => ['capacity' => 1]];
+$GLOBALS['rows']       = [
+    ['pickup_date' => (string) array_key_first($schedule), 'pickup_slot' => '09:00', 'booked' => '2'],
+];
+
+$GLOBALS['blog_id'] = 1;
+$network            = make_calculator();
+$sharedDate         = (string) array_key_first($network->schedule('main'));
+
+check(
+    'the site with room left still offers the slot',
+    $network->bookedCount('main', $sharedDate, '09:00') === 2
+        && in_array('09:00', $network->schedule('main')[$sharedDate] ?? [], true),
+);
+
+$GLOBALS['blog_id'] = 2;
+check(
+    'the other site applies its own capacity, not the first site\'s',
+    ! in_array('09:00', $network->schedule('main')[$sharedDate] ?? [], true),
+);
+
+$GLOBALS['blog_id'] = 1;
+check(
+    'switching back reads the first site\'s capacity again',
+    in_array('09:00', $network->schedule('main')[$sharedDate] ?? [], true),
+);
+
+$GLOBALS['options'] = [];
 
 // --- Capacity still decides what is offered --------------------------------
 
