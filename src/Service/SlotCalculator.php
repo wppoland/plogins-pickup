@@ -164,7 +164,8 @@ final class SlotCalculator
      * One grouped query per site + location per request, kept in memory
      * afterwards. The grid asks about every slot across the whole horizon and is
      * rebuilt on every cart total recalculation, so a query per slot meant one
-     * query per offered slot on every single cart or checkout page load.
+     * query for every slot the grid checked, the ones it then dropped as full
+     * included, on every cart or checkout page load.
      *
      * @return array<string, int>
      */
