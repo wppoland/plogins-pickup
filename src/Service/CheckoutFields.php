@@ -172,7 +172,7 @@ final class CheckoutFields implements HasHooks
                             <?php
                             echo esc_html($loc['name']);
                             if ($loc['address'] !== '') {
-                                echo '-' . esc_html($loc['address']);
+                                echo ', ' . esc_html($loc['address']);
                             }
                             ?>
                         </option>
