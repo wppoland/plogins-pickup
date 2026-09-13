@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.15
+Stable tag: 1.0.16
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -113,6 +113,10 @@ their own. No data leaves your site.
 Plogins Pickup is fully translatable and ships the `plogins-pickup.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.0.16 =
+* Fixed: the pickup location dropdown at checkout joined the location name to its address with no spaces, so a shop with an address on file offered "Main store-12 High Street". The two are now separated by a comma and a space. The July punctuation sweep is where the spaces went: it replaced the whole separator rather than only the long dash inside it.
+* Fixed: deleting the plugin from a WordPress network removed the pickup settings from one site only. Uninstall runs once, on whichever site the deletion was started from, so every other site in the network kept its row of locations, opening hours and capacity in the database for good. Uninstall now walks every site in the network.
 
 = 1.0.15 =
 * Fixed: the other half of the network defect 1.0.14 started on. The bookings were counted per site, but the settings each site's slots are built from (capacity, opening hours, locations) were read once per request and then reused after a switch to another site. A request that served two sites could check the second site's bookings against the first site's capacity, so a slot could take more bookings than that site allows. Settings are now read per site as well.
