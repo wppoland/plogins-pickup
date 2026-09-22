@@ -150,7 +150,7 @@ final class SettingsStore
                     continue;
                 }
 
-                $name = __('Main store', 'plogins-pickup');
+                $name = __('Main store', 'prenejo');
             }
             $result[] = [
                 'id'      => $id,

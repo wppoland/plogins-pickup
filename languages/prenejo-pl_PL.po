@@ -14,37 +14,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
-"X-Domain: plogins-pickup\n"
+"X-Domain: prenejo\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
-#: plogins-pickup.php
+#: prenejo.php
 msgid "Pickup - Local Pickup Scheduling for WooCommerce"
 msgstr "Pickup - Planowanie odbioru osobistego dla WooCommerce"
 
 #. Plugin URI of the plugin
-#: plogins-pickup.php
+#: prenejo.php
 msgid "https://plogins.com/pickup/"
 msgstr "https://plogins.com/pickup/"
 
 #. Description of the plugin
-#: plogins-pickup.php
+#: prenejo.php
 msgid "Let customers choose a pickup location and time slot at checkout."
 msgstr ""
 "Pozwól klientom wybrać miejsce i termin odbioru podczas finalizacji "
 "zamówienia."
 
 #. Author of the plugin
-#: plogins-pickup.php
+#: prenejo.php
 msgid "WPPoland"
 msgstr "WPPoland"
 
 #. Author URI of the plugin
-#: plogins-pickup.php
+#: prenejo.php
 msgid "https://plogins.com/"
 msgstr "https://plogins.com/"
 
-#: plogins-pickup.php:54
+#: prenejo.php:54
 msgid ""
 "Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to be "
 "active."

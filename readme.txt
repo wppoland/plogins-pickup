@@ -1,11 +1,11 @@
-=== Plogins Pickup - Local Pickup for WooCommerce ===
+=== Prenejo - Local Pickup for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, local pickup, click and collect, scheduling, checkout
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.16
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Let customers choose a pickup location and time slot at checkout.
 
 == Description ==
 
-Pickup adds click-and-collect scheduling to WooCommerce. When an order uses
+Prenejo adds click-and-collect scheduling to WooCommerce. When an order uses
 WooCommerce **Local Pickup**, the customer chooses a pickup **location** and a
 **date + time slot** right at checkout. The selection is validated, saved to the
 order, and shown in the admin order screen and in the order emails.
@@ -57,7 +57,7 @@ Source code and bug reports: [github.com/wppoland/plogins-pickup](https://github
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/pickup`, or install via Plugins > Add New.
+1. Upload the plugin to `/wp-content/plugins/prenejo`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be active.
 3. Make sure WooCommerce **Local Pickup** is enabled under WooCommerce > Settings > Shipping.
 4. Go to **WooCommerce > Pickup**, add your locations and weekly opening hours, and
@@ -110,9 +110,12 @@ their own. No data leaves your site.
 
 == Translations ==
 
-Plogins Pickup is fully translatable and ships the `plogins-pickup.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
+Prenejo is fully translatable and ships the `prenejo.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.0 =
+* Renamed to Prenejo. The WordPress.org review team asks a plugin name to lead with a distinctive, coined identifier rather than a generic descriptive word. Prenejo is Esperanto for a place to collect from. The text domain follows the name; the stored data, the settings and every hook are unchanged.
 
 = 1.0.16 =
 * Fixed: the pickup location dropdown at checkout joined the location name to its address with no spaces, so a shop with an address on file offered "Main store-12 High Street". The two are now separated by a comma and a space. The July punctuation sweep is where the spaces went: it replaced the whole separator rather than only the long dash inside it.
