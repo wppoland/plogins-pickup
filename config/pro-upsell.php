@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Pickup Pro',
+    'name'       => 'Prenejo Pro',
     'url'        => 'https://plogins.com/plogins-pickup-pro/pricing/',
     'sellable'   => true,
     'price_from' => 29,

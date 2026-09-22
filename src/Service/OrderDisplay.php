@@ -78,14 +78,14 @@ final class OrderDisplay implements HasHooks
         }
         ?>
         <div class="pickup-admin-order">
-            <h3><?php esc_html_e('Pickup', 'plogins-pickup'); ?></h3>
+            <h3><?php esc_html_e('Pickup', 'prenejo'); ?></h3>
             <p>
-                <strong><?php esc_html_e('Location:', 'plogins-pickup'); ?></strong>
+                <strong><?php esc_html_e('Location:', 'prenejo'); ?></strong>
                 <?php echo esc_html($data['location']); ?>
             </p>
             <?php if ($data['date'] !== '') : ?>
                 <p>
-                    <strong><?php esc_html_e('When:', 'plogins-pickup'); ?></strong>
+                    <strong><?php esc_html_e('When:', 'prenejo'); ?></strong>
                     <?php
                     echo esc_html(trim($this->formatDate($data['date']) . ' ' . $data['slot']));
                     ?>
@@ -104,16 +104,16 @@ final class OrderDisplay implements HasHooks
         }
         ?>
         <section class="pickup-order-details woocommerce-order-details">
-            <h2 class="woocommerce-order-details__title"><?php esc_html_e('Pickup details', 'plogins-pickup'); ?></h2>
+            <h2 class="woocommerce-order-details__title"><?php esc_html_e('Pickup details', 'prenejo'); ?></h2>
             <table class="woocommerce-table pickup-order-table">
                 <tbody>
                     <tr>
-                        <th scope="row"><?php esc_html_e('Location', 'plogins-pickup'); ?></th>
+                        <th scope="row"><?php esc_html_e('Location', 'prenejo'); ?></th>
                         <td><?php echo esc_html($data['location']); ?></td>
                     </tr>
                     <?php if ($data['date'] !== '') : ?>
                         <tr>
-                            <th scope="row"><?php esc_html_e('When', 'plogins-pickup'); ?></th>
+                            <th scope="row"><?php esc_html_e('When', 'prenejo'); ?></th>
                             <td><?php echo esc_html(trim($this->formatDate($data['date']) . ' ' . $data['slot'])); ?></td>
                         </tr>
                     <?php endif; ?>
@@ -141,19 +141,19 @@ final class OrderDisplay implements HasHooks
             : '';
 
         if ($plainText) {
-            echo "\n" . esc_html__('Pickup details', 'plogins-pickup') . "\n";
-            echo esc_html__('Location:', 'plogins-pickup') . ' ' . esc_html($data['location']) . "\n";
+            echo "\n" . esc_html__('Pickup details', 'prenejo') . "\n";
+            echo esc_html__('Location:', 'prenejo') . ' ' . esc_html($data['location']) . "\n";
             if ($when !== '') {
-                echo esc_html__('When:', 'plogins-pickup') . ' ' . esc_html($when) . "\n";
+                echo esc_html__('When:', 'prenejo') . ' ' . esc_html($when) . "\n";
             }
             return;
         }
         ?>
-        <h2><?php esc_html_e('Pickup details', 'plogins-pickup'); ?></h2>
+        <h2><?php esc_html_e('Pickup details', 'prenejo'); ?></h2>
         <ul>
-            <li><strong><?php esc_html_e('Location:', 'plogins-pickup'); ?></strong> <?php echo esc_html($data['location']); ?></li>
+            <li><strong><?php esc_html_e('Location:', 'prenejo'); ?></strong> <?php echo esc_html($data['location']); ?></li>
             <?php if ($when !== '') : ?>
-                <li><strong><?php esc_html_e('When:', 'plogins-pickup'); ?></strong> <?php echo esc_html($when); ?></li>
+                <li><strong><?php esc_html_e('When:', 'prenejo'); ?></strong> <?php echo esc_html($when); ?></li>
             <?php endif; ?>
         </ul>
         <?php
