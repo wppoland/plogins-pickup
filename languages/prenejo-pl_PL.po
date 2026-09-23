@@ -20,12 +20,12 @@ msgstr ""
 #. Plugin Name of the plugin
 #: prenejo.php
 msgid "Prenejo - Local Pickup for WooCommerce"
-msgstr ""
+msgstr "Prenejo - odbiór osobisty dla WooCommerce"
 
 #. Plugin URI of the plugin
 #: prenejo.php
 msgid "https://plogins.com/plogins-pickup/"
-msgstr ""
+msgstr "https://plogins.com/plogins-pickup/"
 
 #. Description of the plugin
 #: prenejo.php
@@ -37,16 +37,16 @@ msgstr ""
 #. Author of the plugin
 #: prenejo.php
 msgid "WPPoland.com"
-msgstr ""
+msgstr "WPPoland.com"
 
 #. Author URI of the plugin
 #: prenejo.php
 msgid "https://wppoland.com"
-msgstr ""
+msgstr "https://wppoland.com"
 
 #: prenejo.php:55
 msgid "Prenejo requires WooCommerce to be active."
-msgstr ""
+msgstr "Prenejo wymaga aktywnego WooCommerce."
 
 #: src/Admin/ProUpsell.php:78
 msgid "Wkrótce"
@@ -351,7 +351,7 @@ msgstr "Brak dostępnych godzin w tym dniu. Wybierz inny."
 
 #: src/Service/CheckoutFields.php:112
 msgid "This date is not available for pickup. Please choose another."
-msgstr ""
+msgstr "Ta data nie jest dostępna do odbioru. Wybierz inną."
 
 #: src/Service/CheckoutFields.php:113
 msgid "Loading times…"
@@ -425,13 +425,13 @@ msgstr "Ta godzina odbioru nie jest już dostępna. Wybierz inną."
 
 #: src/Service/CheckoutFields.php:415 src/Service/CheckoutFields.php:422
 msgid "Pickup slot"
-msgstr ""
+msgstr "Termin odbioru"
 
 #. translators: 1: slot time (HH:MM), 2: formatted fee or discount
 #: src/Service/CheckoutFields.php:443
 #, php-format
 msgid "%1$s (%2$s)"
-msgstr ""
+msgstr "%1$s (%2$s)"
 
 #: src/Service/OrderDisplay.php:83 src/Service/OrderDisplay.php:145
 #: src/Service/OrderDisplay.php:154
@@ -453,7 +453,7 @@ msgstr "Kiedy"
 
 #: src/Support/SettingsStore.php:141
 msgid "Main store"
-msgstr ""
+msgstr "Sklep główny"
 
 #~ msgid "Pickup - Local Pickup Scheduling for WooCommerce"
 #~ msgstr "Pickup - Planowanie odbioru osobistego dla WooCommerce"
