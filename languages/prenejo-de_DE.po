@@ -318,7 +318,7 @@ msgstr "Details zur Abholung"
 
 #: src/Service/CheckoutFields.php:144
 msgid "Choose where and when you would like to collect your order."
-msgstr "Wähle, wo und wann Sie deine Bestellung abholen möchten."
+msgstr "Wähle, wo und wann du deine Bestellung abholen möchtest."
 
 #: src/Service/CheckoutFields.php:151 src/Service/CheckoutFields.php:179
 #: src/Service/CheckoutFields.php:197
