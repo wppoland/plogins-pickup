@@ -30,7 +30,7 @@ msgstr "https://plogins.com/es/pickup/"
 #: prenejo.php
 msgid "Let customers choose a pickup location and time slot at checkout."
 msgstr ""
-"Permita que los clientes elijan un lugar de recogida y un horario al "
+"Permite que los clientes elijan un lugar de recogida y un horario al "
 "finalizar la compra."
 
 #. Author of the plugin
@@ -82,7 +82,7 @@ msgid ""
 "length and capacity below."
 msgstr ""
 "Cuando un pedido utiliza la recogida local de WooCommerce, los compradores "
-"eligen una ubicación y un horario al finalizar la compra. Defina sus "
+"eligen una ubicación y un horario al finalizar la compra. Define tus "
 "ubicaciones, horarios de apertura semanales, duración de los espacios y "
 "capacidad a continuación."
 
@@ -98,7 +98,7 @@ msgid ""
 msgstr ""
 "Las reglas de reserva que determinan qué franjas horarias pueden elegir los "
 "clientes. Los valores predeterminados funcionan para la mayoría de las "
-"tiendas, ajústelos solo si su mostrador de recogida necesita un tiempo más "
+"tiendas, ajústalos solo si tu mostrador de recogida necesita un tiempo más "
 "estricto o más flexible."
 
 #: src/Admin/Settings.php:117
@@ -114,8 +114,8 @@ msgid ""
 "Turn this off to keep your locations and hours saved but stop showing the "
 "time picker at checkout."
 msgstr ""
-"Desactive esta opción para mantener sus ubicaciones y horas guardadas, pero "
-"deje de mostrar el selector de hora al finalizar la compra."
+"Desactiva esta opción para mantener tus ubicaciones y horas guardadas, pero "
+"deja de mostrar el selector de hora al finalizar la compra."
 
 #: src/Admin/Settings.php:132
 msgid "Slot length (minutes)"
@@ -192,8 +192,8 @@ msgid ""
 "to close it. Slots are generated inside these windows using the slot length "
 "above."
 msgstr ""
-"Establezca una o más ventanas de tiempo por día usando HH:MM de 24 horas. "
-"Deje un día en blanco para cerrarlo. Las ranuras se generan dentro de estas "
+"Establece una o más ventanas de tiempo por día usando HH:MM de 24 horas. "
+"Deja un día en blanco para cerrarlo. Las ranuras se generan dentro de estas "
 "ventanas utilizando la longitud de la ranura anterior."
 
 #. translators: %s: weekday name.
@@ -218,7 +218,7 @@ msgid ""
 "from checkout without losing its details. At least one enabled location is "
 "needed for the checkout fields to appear."
 msgstr ""
-"Añade los lugares donde los clientes pueden recoger. Deshabilite una "
+"Añade los lugares donde los clientes pueden recoger. Deshabilita una "
 "ubicación para ocultarla del proceso de pago sin perder sus detalles. Se "
 "necesita al menos una ubicación habilitada para que aparezcan los campos de "
 "pago."
@@ -293,7 +293,7 @@ msgstr "El control de seguridad falló. Por favor inténtalo de nuevo."
 
 #: src/Service/CheckoutFields.php:104
 msgid "Select a date to see available times."
-msgstr "Seleccione una fecha para ver los horarios disponibles."
+msgstr "Selecciona una fecha para ver los horarios disponibles."
 
 #: src/Service/CheckoutFields.php:105
 msgid "No times available on this date. Please choose another."
@@ -331,7 +331,7 @@ msgstr "obligatorio"
 
 #: src/Service/CheckoutFields.php:159
 msgid "Select a location…"
-msgstr "Seleccione una ubicación…"
+msgstr "Selecciona una ubicación…"
 
 #: src/Service/CheckoutFields.php:178
 msgid "Pickup date"
@@ -343,7 +343,7 @@ msgstr "hora de recogida"
 
 #: src/Service/CheckoutFields.php:206
 msgid "Select a date first…"
-msgstr "Seleccione una fecha primero..."
+msgstr "Selecciona una fecha primero..."
 
 #: src/Service/CheckoutFields.php:219
 msgid "Reserved"
@@ -360,11 +360,11 @@ msgstr ""
 
 #: src/Service/CheckoutFields.php:247
 msgid "Please choose a valid pickup location."
-msgstr "Elija una ubicación de recogida válida."
+msgstr "Elige una ubicación de recogida válida."
 
 #: src/Service/CheckoutFields.php:255
 msgid "Please choose a pickup date and time."
-msgstr "Elija una fecha y hora de recogida."
+msgstr "Elige una fecha y hora de recogida."
 
 #: src/Service/CheckoutFields.php:260
 msgid "That pickup time is no longer available. Please pick another."
