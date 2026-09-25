@@ -91,7 +91,7 @@ final class Settings implements HasHooks
         $s         = $this->settings;
         $locations = $s->locations();
         $windows   = $s->windows();
-        $saved     = isset($_GET['updated']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only flash flag.
+        $saved     = isset($_GET['updated']) && '1' === sanitize_key(wp_unslash($_GET['updated'])); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only view parameter, validated against the single allowed value.
         ?>
         <div class="wrap pickup-admin">
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
@@ -337,14 +337,14 @@ final class Settings implements HasHooks
 
         $settings = [
             'enabled'      => isset($_POST['enabled']),
-            'slot_minutes' => isset($_POST['slot_minutes']) ? max(5, (int) $_POST['slot_minutes']) : 30,
-            'capacity'     => isset($_POST['capacity']) ? max(1, (int) $_POST['capacity']) : 5,
-            'lead_hours'   => isset($_POST['lead_hours']) ? max(0, (int) $_POST['lead_hours']) : 2,
-            'horizon_days' => isset($_POST['horizon_days']) ? max(1, (int) $_POST['horizon_days']) : 14,
-            // Nested arrays are unslashed here and each scalar is sanitised
-            // inside the helpers (per-field sanitize_text_field / regex / int).
-            'windows'      => $this->sanitizeWindows(isset($_POST['windows']) ? wp_unslash($_POST['windows']) : null), // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sanitised per-field in helper.
-            'locations'    => $this->sanitizeLocations(isset($_POST['locations']) ? wp_unslash($_POST['locations']) : null), // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sanitised per-field in helper.
+            'slot_minutes' => isset($_POST['slot_minutes']) ? max(5, absint(wp_unslash($_POST['slot_minutes']))) : 30,
+            'capacity'     => isset($_POST['capacity']) ? max(1, absint(wp_unslash($_POST['capacity']))) : 5,
+            'lead_hours'   => isset($_POST['lead_hours']) ? absint(wp_unslash($_POST['lead_hours'])) : 2,
+            'horizon_days' => isset($_POST['horizon_days']) ? max(1, absint(wp_unslash($_POST['horizon_days']))) : 14,
+            // Nested arrays are sanitised on read; the helpers then validate
+            // each field (time format, ordering, unique ids).
+            'windows'      => $this->sanitizeWindows(isset($_POST['windows']) ? map_deep(wp_unslash($_POST['windows']), 'sanitize_text_field') : null),
+            'locations'    => $this->sanitizeLocations(isset($_POST['locations']) ? map_deep(wp_unslash($_POST['locations']), 'sanitize_text_field') : null),
         ];
 
         $this->settings->save($settings);
@@ -394,7 +394,7 @@ final class Settings implements HasHooks
                 continue;
             }
 
-            // $raw was already wp_unslash()'d at the call site.
+            // $raw was already unslashed and sanitised at the call site.
             $name = isset($row['name']) ? sanitize_text_field((string) $row['name']) : '';
 
             if ($name === '') {

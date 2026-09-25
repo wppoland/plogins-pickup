@@ -142,9 +142,17 @@ final class CheckoutFields implements HasHooks
         $today   = (new \DateTimeImmutable('now', $tz))->format('Y-m-d');
         $maxDate = (new \DateTimeImmutable('now', $tz))->modify(sprintf('+%d days', $horizon))->format('Y-m-d');
 
-        $selLocation = isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_LOCATION])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- repopulation only; the value is re-validated on submit.
-        $selDate     = isset($_POST[self::FIELD_DATE]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_DATE])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- repopulation only.
-        $selSlot     = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_SLOT])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- repopulation only.
+        // Repopulate a posted-back selection only when it carries our nonce.
+        $verified = isset($_POST['_pickup_nonce'])
+            && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_pickup_nonce'])), self::NONCE);
+
+        $selLocation = $verified && isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_LOCATION])) : '';
+        $selDate     = $verified && isset($_POST[self::FIELD_DATE]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_DATE])) : '';
+        $selSlot     = $verified && isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_SLOT])) : '';
+
+        if (! preg_match('/^\d{4}-\d{2}-\d{2}$/', $selDate)) {
+            $selDate = '';
+        }
         ?>
         <div class="pickup-fields" data-pickup-fields<?php echo $active ? '' : ' hidden'; ?>>
             <h3 class="pickup-fields__title"><?php esc_html_e('Pickup details', 'prenejo'); ?></h3>
@@ -242,21 +250,21 @@ final class CheckoutFields implements HasHooks
 
         if (
             ! isset($_POST['_pickup_nonce'])
-            || ! wp_verify_nonce(sanitize_text_field(wp_unslash((string) $_POST['_pickup_nonce'])), self::NONCE)
+            || ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_pickup_nonce'])), self::NONCE)
         ) {
             wc_add_notice(__('Your pickup selection could not be verified. Please try again.', 'prenejo'), 'error');
             return;
         }
 
-        $locationId = isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_LOCATION])) : '';
+        $locationId = isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_LOCATION])) : '';
 
         if ($locationId === '' || null === $this->settings->findLocation($locationId)) {
             wc_add_notice(__('Please choose a valid pickup location.', 'prenejo'), 'error');
             return;
         }
 
-        $date = isset($_POST[self::FIELD_DATE]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_DATE])) : '';
-        $slot = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_SLOT])) : '';
+        $date = isset($_POST[self::FIELD_DATE]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_DATE])) : '';
+        $slot = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_SLOT])) : '';
 
         if ($date === '' || $slot === '') {
             wc_add_notice(__('Please choose a pickup date and time.', 'prenejo'), 'error');
@@ -279,12 +287,12 @@ final class CheckoutFields implements HasHooks
 
         if (
             ! isset($_POST['_pickup_nonce'])
-            || ! wp_verify_nonce(sanitize_text_field(wp_unslash((string) $_POST['_pickup_nonce'])), self::NONCE)
+            || ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_pickup_nonce'])), self::NONCE)
         ) {
             return;
         }
 
-        $locationId = isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_LOCATION])) : '';
+        $locationId = isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_LOCATION])) : '';
         $location   = $this->settings->findLocation($locationId);
 
         if (null === $location) {
@@ -296,8 +304,8 @@ final class CheckoutFields implements HasHooks
         // the location is later renamed or removed.
         $order->update_meta_data('_pickup_location_name', $location['name']);
 
-        $date = isset($_POST[self::FIELD_DATE]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_DATE])) : '';
-        $slot = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_SLOT])) : '';
+        $date = isset($_POST[self::FIELD_DATE]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_DATE])) : '';
+        $slot = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash($_POST[self::FIELD_SLOT])) : '';
 
         if ($date !== '' && $slot !== '') {
             $order->update_meta_data(self::META_DATE, $date);
@@ -313,8 +321,8 @@ final class CheckoutFields implements HasHooks
     {
         check_ajax_referer(self::NONCE, 'nonce');
 
-        $locationId = isset($_POST['location']) ? sanitize_text_field(wp_unslash((string) $_POST['location'])) : '';
-        $date       = isset($_POST['date']) ? sanitize_text_field(wp_unslash((string) $_POST['date'])) : '';
+        $locationId = isset($_POST['location']) ? sanitize_text_field(wp_unslash($_POST['location'])) : '';
+        $date       = isset($_POST['date']) ? sanitize_text_field(wp_unslash($_POST['date'])) : '';
 
         if ($locationId === '' || $date === '' || ! preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
             wp_send_json_error(['slots' => []]);
@@ -344,8 +352,6 @@ final class CheckoutFields implements HasHooks
      */
     public function syncSessionFromPost(mixed $posted): void
     {
-        unset($posted);
-
         if (! function_exists('WC') || null === WC()->session) {
             return;
         }
@@ -355,9 +361,21 @@ final class CheckoutFields implements HasHooks
             return;
         }
 
-        $locationId = isset($_POST[self::FIELD_LOCATION]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_LOCATION])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- WooCommerce checkout refresh; values are re-validated on submit.
-        $date       = isset($_POST[self::FIELD_DATE]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_DATE])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
-        $slot       = isset($_POST[self::FIELD_SLOT]) ? sanitize_text_field(wp_unslash((string) $_POST[self::FIELD_SLOT])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+        // WooCommerce hands this hook the serialised checkout form (post_data),
+        // which includes our own nonce field; verify it before trusting the rest.
+        $form = [];
+        wp_parse_str(is_string($posted) ? $posted : '', $form);
+
+        $nonce = isset($form['_pickup_nonce']) && is_string($form['_pickup_nonce']) ? sanitize_text_field($form['_pickup_nonce']) : '';
+
+        if (! wp_verify_nonce($nonce, self::NONCE)) {
+            WC()->session->set(self::SESSION_CHOICE, null);
+            return;
+        }
+
+        $locationId = isset($form[self::FIELD_LOCATION]) && is_string($form[self::FIELD_LOCATION]) ? sanitize_text_field($form[self::FIELD_LOCATION]) : '';
+        $date       = isset($form[self::FIELD_DATE]) && is_string($form[self::FIELD_DATE]) ? sanitize_text_field($form[self::FIELD_DATE]) : '';
+        $slot       = isset($form[self::FIELD_SLOT]) && is_string($form[self::FIELD_SLOT]) ? sanitize_text_field($form[self::FIELD_SLOT]) : '';
 
         if ($locationId === '' || $date === '' || $slot === '') {
             WC()->session->set(self::SESSION_CHOICE, null);
