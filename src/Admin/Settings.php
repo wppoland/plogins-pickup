@@ -45,8 +45,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Pickup Scheduling', 'plogins-pickup'),
-            __('Pickup', 'plogins-pickup'),
+            __('Pickup Scheduling', 'prenejo'),
+            __('Pickup', 'prenejo'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -76,8 +76,8 @@ final class Settings implements HasHooks
 
         wp_localize_script('pickup-admin', 'PickupAdmin', [
             'i18n' => [
-                'remove'      => __('Remove', 'plogins-pickup'),
-                'confirmGone' => __('Remove this item?', 'plogins-pickup'),
+                'remove'      => __('Remove', 'prenejo'),
+                'confirmGone' => __('Remove this item?', 'prenejo'),
             ],
         ]);
     }
@@ -91,7 +91,7 @@ final class Settings implements HasHooks
         $s         = $this->settings;
         $locations = $s->locations();
         $windows   = $s->windows();
-        $saved     = isset($_GET['updated']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only flash flag.
+        $saved     = isset($_GET['updated']) && '1' === sanitize_key(wp_unslash($_GET['updated'])); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only view parameter, validated against the single allowed value.
         ?>
         <div class="wrap pickup-admin">
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
@@ -100,14 +100,14 @@ final class Settings implements HasHooks
 
             <?php if ($saved) : ?>
                 <div class="notice notice-success is-dismissible">
-                    <p><?php esc_html_e('Pickup settings saved.', 'plogins-pickup'); ?></p>
+                    <p><?php esc_html_e('Pickup settings saved.', 'prenejo'); ?></p>
                 </div>
             <?php endif; ?>
 
             <div class="pickup-intro">
-                <h2><?php esc_html_e('Let customers book a pickup time', 'plogins-pickup'); ?></h2>
+                <h2><?php esc_html_e('Let customers book a pickup time', 'prenejo'); ?></h2>
                 <p>
-                    <?php esc_html_e('When an order uses WooCommerce Local Pickup, shoppers choose a location and a time slot at checkout. Define your locations, weekly opening hours, slot length and capacity below.', 'plogins-pickup'); ?>
+                    <?php esc_html_e('When an order uses WooCommerce Local Pickup, shoppers choose a location and a time slot at checkout. Define your locations, weekly opening hours, slot length and capacity below.', 'prenejo'); ?>
                 </p>
             </div>
 
@@ -117,58 +117,58 @@ final class Settings implements HasHooks
                 <?php wp_nonce_field(self::NONCE, '_pickup_nonce'); ?>
 
                 <div class="pickup-card">
-                    <h2><?php esc_html_e('General', 'plogins-pickup'); ?></h2>
+                    <h2><?php esc_html_e('General', 'prenejo'); ?></h2>
                     <p class="description">
-                        <?php esc_html_e('The booking rules that shape which time slots customers can pick. The defaults work for most shops, adjust only if your pickup desk needs tighter or looser timing.', 'plogins-pickup'); ?>
+                        <?php esc_html_e('The booking rules that shape which time slots customers can pick. The defaults work for most shops, adjust only if your pickup desk needs tighter or looser timing.', 'prenejo'); ?>
                     </p>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <?php esc_html_e('Enable pickup scheduling', 'plogins-pickup'); ?>
+                                    <?php esc_html_e('Enable pickup scheduling', 'prenejo'); ?>
                                 </th>
                                 <td>
                                     <label for="pickup_enabled">
                                         <input type="checkbox" id="pickup_enabled" name="enabled" value="1" <?php checked($s->isEnabled(), true); ?> />
-                                        <?php esc_html_e('Show pickup fields when Local Pickup is selected.', 'plogins-pickup'); ?>
+                                        <?php esc_html_e('Show pickup fields when Local Pickup is selected.', 'prenejo'); ?>
                                     </label>
                                     <p class="description pickup-help">
-                                        <?php esc_html_e('Turn this off to keep your locations and hours saved but stop showing the time picker at checkout.', 'plogins-pickup'); ?>
+                                        <?php esc_html_e('Turn this off to keep your locations and hours saved but stop showing the time picker at checkout.', 'prenejo'); ?>
                                     </p>
                                 </td>
                             </tr>
                             <?php
                             $this->numberRow(
                                 'slot_minutes',
-                                __('Slot length (minutes)', 'plogins-pickup'),
+                                __('Slot length (minutes)', 'prenejo'),
                                 $s->slotMinutes(),
                                 5,
-                                __('How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, 10:00 and so on.', 'plogins-pickup'),
-                                __('Default: 30', 'plogins-pickup'),
+                                __('How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, 10:00 and so on.', 'prenejo'),
+                                __('Default: 30', 'prenejo'),
                             );
                             $this->numberRow(
                                 'capacity',
-                                __('Capacity per slot', 'plogins-pickup'),
+                                __('Capacity per slot', 'prenejo'),
                                 $s->capacity(),
                                 1,
-                                __('How many orders may book the same location and time before that slot shows as full and is hidden.', 'plogins-pickup'),
-                                __('Default: 5', 'plogins-pickup'),
+                                __('How many orders may book the same location and time before that slot shows as full and is hidden.', 'prenejo'),
+                                __('Default: 5', 'prenejo'),
                             );
                             $this->numberRow(
                                 'lead_hours',
-                                __('Lead time (hours)', 'plogins-pickup'),
+                                __('Lead time (hours)', 'prenejo'),
                                 $s->leadHours(),
                                 0,
-                                __('The minimum notice before the earliest bookable slot, so staff have time to prepare. 2 hides any slot less than two hours away.', 'plogins-pickup'),
-                                __('Default: 2', 'plogins-pickup'),
+                                __('The minimum notice before the earliest bookable slot, so staff have time to prepare. 2 hides any slot less than two hours away.', 'prenejo'),
+                                __('Default: 2', 'prenejo'),
                             );
                             $this->numberRow(
                                 'horizon_days',
-                                __('Booking horizon (days)', 'plogins-pickup'),
+                                __('Booking horizon (days)', 'prenejo'),
                                 $s->horizonDays(),
                                 1,
-                                __('How far ahead customers may book. 14 lets them choose any open slot within the next two weeks.', 'plogins-pickup'),
-                                __('Default: 14', 'plogins-pickup'),
+                                __('How far ahead customers may book. 14 lets them choose any open slot within the next two weeks.', 'prenejo'),
+                                __('Default: 14', 'prenejo'),
                             );
                             ?>
                         </tbody>
@@ -176,9 +176,9 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="pickup-card">
-                    <h2><?php esc_html_e('Weekly opening hours', 'plogins-pickup'); ?></h2>
+                    <h2><?php esc_html_e('Weekly opening hours', 'prenejo'); ?></h2>
                     <p class="description">
-                        <?php esc_html_e('Set one or more time windows per day using 24-hour HH:MM. Leave a day blank to close it. Slots are generated inside these windows using the slot length above.', 'plogins-pickup'); ?>
+                        <?php esc_html_e('Set one or more time windows per day using 24-hour HH:MM. Leave a day blank to close it. Slots are generated inside these windows using the slot length above.', 'prenejo'); ?>
                     </p>
                     <table class="form-table pickup-windows" role="presentation">
                         <tbody>
@@ -193,7 +193,7 @@ final class Settings implements HasHooks
                                             <span class="screen-reader-text">
                                                 <?php
                                                 /* translators: %s: weekday name. */
-                                                echo esc_html(sprintf(__('%s opening time', 'plogins-pickup'), $label));
+                                                echo esc_html(sprintf(__('%s opening time', 'prenejo'), $label));
                                                 ?>
                                             </span>
                                             <input type="time" name="windows[<?php echo esc_attr((string) $day); ?>][start]" value="<?php echo esc_attr($entry['start']); ?>" />
@@ -203,7 +203,7 @@ final class Settings implements HasHooks
                                             <span class="screen-reader-text">
                                                 <?php
                                                 /* translators: %s: weekday name. */
-                                                echo esc_html(sprintf(__('%s closing time', 'plogins-pickup'), $label));
+                                                echo esc_html(sprintf(__('%s closing time', 'prenejo'), $label));
                                                 ?>
                                             </span>
                                             <input type="time" name="windows[<?php echo esc_attr((string) $day); ?>][end]" value="<?php echo esc_attr($entry['end']); ?>" />
@@ -216,9 +216,9 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="pickup-card">
-                    <h2><?php esc_html_e('Pickup locations', 'plogins-pickup'); ?></h2>
+                    <h2><?php esc_html_e('Pickup locations', 'prenejo'); ?></h2>
                     <p class="description">
-                        <?php esc_html_e('Add the places customers can collect from. Disable a location to hide it from checkout without losing its details. At least one enabled location is needed for the checkout fields to appear.', 'plogins-pickup'); ?>
+                        <?php esc_html_e('Add the places customers can collect from. Disable a location to hide it from checkout without losing its details. At least one enabled location is needed for the checkout fields to appear.', 'prenejo'); ?>
                     </p>
                     <div class="pickup-locations" data-pickup-locations>
                         <?php
@@ -230,7 +230,7 @@ final class Settings implements HasHooks
                     </div>
                     <p>
                         <button type="button" class="button pickup-add-location" data-pickup-add>
-                            <?php esc_html_e('Add location', 'plogins-pickup'); ?>
+                            <?php esc_html_e('Add location', 'prenejo'); ?>
                         </button>
                     </p>
                     <template data-pickup-template>
@@ -238,7 +238,7 @@ final class Settings implements HasHooks
                     </template>
                 </div>
 
-                <?php submit_button(__('Save pickup settings', 'plogins-pickup')); ?>
+                <?php submit_button(__('Save pickup settings', 'prenejo')); ?>
             </form>
 
                 <?php $this->proUpsell()->aside(); ?>
@@ -256,26 +256,26 @@ final class Settings implements HasHooks
     {
         ?>
         <fieldset class="pickup-location-row" data-pickup-row>
-            <legend class="screen-reader-text"><?php esc_html_e('Pickup location', 'plogins-pickup'); ?></legend>
+            <legend class="screen-reader-text"><?php esc_html_e('Pickup location', 'prenejo'); ?></legend>
             <p class="pickup-location-row__field">
                 <label>
-                    <span><?php esc_html_e('Name', 'plogins-pickup'); ?></span>
-                    <input type="text" name="locations[<?php echo esc_attr((string) $index); ?>][name]" value="<?php echo esc_attr($loc['name']); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Downtown store', 'plogins-pickup'); ?>" />
+                    <span><?php esc_html_e('Name', 'prenejo'); ?></span>
+                    <input type="text" name="locations[<?php echo esc_attr((string) $index); ?>][name]" value="<?php echo esc_attr($loc['name']); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Downtown store', 'prenejo'); ?>" />
                 </label>
             </p>
             <p class="pickup-location-row__field">
                 <label>
-                    <span><?php esc_html_e('Address', 'plogins-pickup'); ?></span>
-                    <input type="text" name="locations[<?php echo esc_attr((string) $index); ?>][address]" value="<?php echo esc_attr($loc['address']); ?>" class="regular-text" placeholder="<?php esc_attr_e('Optional', 'plogins-pickup'); ?>" />
+                    <span><?php esc_html_e('Address', 'prenejo'); ?></span>
+                    <input type="text" name="locations[<?php echo esc_attr((string) $index); ?>][address]" value="<?php echo esc_attr($loc['address']); ?>" class="regular-text" placeholder="<?php esc_attr_e('Optional', 'prenejo'); ?>" />
                 </label>
             </p>
             <p class="pickup-location-row__field pickup-location-row__field--toggle">
                 <label>
                     <input type="checkbox" name="locations[<?php echo esc_attr((string) $index); ?>][enabled]" value="1" <?php checked($loc['enabled'], true); ?> />
-                    <?php esc_html_e('Enabled', 'plogins-pickup'); ?>
+                    <?php esc_html_e('Enabled', 'prenejo'); ?>
                 </label>
                 <button type="button" class="button-link pickup-remove" data-pickup-remove>
-                    <?php esc_html_e('Remove', 'plogins-pickup'); ?>
+                    <?php esc_html_e('Remove', 'prenejo'); ?>
                 </button>
             </p>
         </fieldset>
@@ -312,13 +312,13 @@ final class Settings implements HasHooks
     private function weekdays(): array
     {
         return [
-            1 => __('Monday', 'plogins-pickup'),
-            2 => __('Tuesday', 'plogins-pickup'),
-            3 => __('Wednesday', 'plogins-pickup'),
-            4 => __('Thursday', 'plogins-pickup'),
-            5 => __('Friday', 'plogins-pickup'),
-            6 => __('Saturday', 'plogins-pickup'),
-            7 => __('Sunday', 'plogins-pickup'),
+            1 => __('Monday', 'prenejo'),
+            2 => __('Tuesday', 'prenejo'),
+            3 => __('Wednesday', 'prenejo'),
+            4 => __('Thursday', 'prenejo'),
+            5 => __('Friday', 'prenejo'),
+            6 => __('Saturday', 'prenejo'),
+            7 => __('Sunday', 'prenejo'),
         ];
     }
 
@@ -329,26 +329,26 @@ final class Settings implements HasHooks
     public function handleSave(): void
     {
         if (! current_user_can('manage_woocommerce')) {
-            wp_die(esc_html__('You do not have permission to do this.', 'plogins-pickup'));
+            wp_die(esc_html__('You do not have permission to do this.', 'prenejo'));
         }
 
         if (
             ! isset($_POST['_pickup_nonce'])
             || ! wp_verify_nonce(sanitize_text_field(wp_unslash((string) $_POST['_pickup_nonce'])), self::NONCE)
         ) {
-            wp_die(esc_html__('Security check failed. Please try again.', 'plogins-pickup'));
+            wp_die(esc_html__('Security check failed. Please try again.', 'prenejo'));
         }
 
         $settings = [
             'enabled'      => isset($_POST['enabled']),
-            'slot_minutes' => isset($_POST['slot_minutes']) ? max(5, (int) $_POST['slot_minutes']) : 30,
-            'capacity'     => isset($_POST['capacity']) ? max(1, (int) $_POST['capacity']) : 5,
-            'lead_hours'   => isset($_POST['lead_hours']) ? max(0, (int) $_POST['lead_hours']) : 2,
-            'horizon_days' => isset($_POST['horizon_days']) ? max(1, (int) $_POST['horizon_days']) : 14,
-            // Nested arrays are unslashed here and each scalar is sanitised
-            // inside the helpers (per-field sanitize_text_field / regex / int).
-            'windows'      => $this->sanitizeWindows(isset($_POST['windows']) ? wp_unslash($_POST['windows']) : null), // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sanitised per-field in helper.
-            'locations'    => $this->sanitizeLocations(isset($_POST['locations']) ? wp_unslash($_POST['locations']) : null), // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sanitised per-field in helper.
+            'slot_minutes' => isset($_POST['slot_minutes']) ? max(5, absint(wp_unslash($_POST['slot_minutes']))) : 30,
+            'capacity'     => isset($_POST['capacity']) ? max(1, absint(wp_unslash($_POST['capacity']))) : 5,
+            'lead_hours'   => isset($_POST['lead_hours']) ? absint(wp_unslash($_POST['lead_hours'])) : 2,
+            'horizon_days' => isset($_POST['horizon_days']) ? max(1, absint(wp_unslash($_POST['horizon_days']))) : 14,
+            // Nested arrays are sanitised on read; the helpers then validate
+            // each field (time format, ordering, unique ids).
+            'windows'      => $this->sanitizeWindows(isset($_POST['windows']) ? map_deep(wp_unslash($_POST['windows']), 'sanitize_text_field') : null),
+            'locations'    => $this->sanitizeLocations(isset($_POST['locations']) ? map_deep(wp_unslash($_POST['locations']), 'sanitize_text_field') : null),
         ];
 
         $this->settings->save($settings);
@@ -398,7 +398,7 @@ final class Settings implements HasHooks
                 continue;
             }
 
-            // $raw was already wp_unslash()'d at the call site.
+            // $raw was already unslashed and sanitised at the call site.
             $name = isset($row['name']) ? sanitize_text_field((string) $row['name']) : '';
 
             if ($name === '') {

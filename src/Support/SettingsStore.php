@@ -17,8 +17,18 @@ final class SettingsStore
 {
     public const OPTION = 'pickup_settings';
 
-    /** @var array<string, mixed>|null */
-    private ?array $cache = null;
+    /**
+     * Settings per site, keyed by blog id.
+     *
+     * One process can serve more than one site on a network (switch_to_blog),
+     * and the container hands out a single store, so the site has to be part of
+     * the key. Held in one slot, a request that switched sites went on building
+     * the second site's slots from the first site's capacity, opening hours and
+     * locations.
+     *
+     * @var array<int, array<string, mixed>>
+     */
+    private array $cache = [];
 
     /**
      * Stored settings merged over packaged defaults.
@@ -27,8 +37,10 @@ final class SettingsStore
      */
     public function all(): array
     {
-        if (is_array($this->cache)) {
-            return $this->cache;
+        $blogId = get_current_blog_id();
+
+        if (isset($this->cache[$blogId])) {
+            return $this->cache[$blogId];
         }
 
         $stored = get_option(self::OPTION, []);
@@ -50,7 +62,7 @@ final class SettingsStore
             $merged['locations'] = $defaults['locations'];
         }
 
-        return $this->cache = $merged;
+        return $this->cache[$blogId] = $merged;
     }
 
     public function isEnabled(): bool
@@ -123,9 +135,22 @@ final class SettingsStore
                 continue;
             }
             $id   = isset($loc['id']) ? (string) $loc['id'] : '';
-            $name = isset($loc['name']) ? (string) $loc['name'] : '';
-            if ($id === '' || $name === '') {
+            $name = isset($loc['name']) ? trim((string) $loc['name']) : '';
+
+            if ($id === '') {
                 continue;
+            }
+
+            // The seed row ships with no name so that the default can be
+            // translated here rather than frozen in English in a config file.
+            // A location the merchant actually added and then blanked is still
+            // dropped, as before: only the untouched seed has a fallback.
+            if ($name === '') {
+                if ($id !== 'main') {
+                    continue;
+                }
+
+                $name = __('Main store', 'prenejo');
             }
             $result[] = [
                 'id'      => $id,
@@ -173,6 +198,6 @@ final class SettingsStore
     public function save(array $settings): void
     {
         update_option(self::OPTION, $settings, false);
-        $this->cache = null;
+        $this->cache = [];
     }
 }

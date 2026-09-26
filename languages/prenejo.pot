@@ -1,0 +1,409 @@
+# Copyright (C) 2026 WPPoland.com
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Prenejo - Local Pickup for WooCommerce 1.0.11\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prenejo\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-11T06:44:36+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: prenejo\n"
+
+#. Plugin Name of the plugin
+#: prenejo.php
+msgid "Prenejo - Local Pickup for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: prenejo.php
+msgid "https://plogins.com/plogins-pickup/"
+msgstr ""
+
+#. Description of the plugin
+#: prenejo.php
+msgid "Let customers choose a pickup location and time slot at checkout."
+msgstr ""
+
+#. Author of the plugin
+#: prenejo.php
+msgid "WPPoland.com"
+msgstr ""
+
+#. Author URI of the plugin
+#: prenejo.php
+msgid "https://wppoland.com"
+msgstr ""
+
+#: prenejo.php:55
+msgid "Prenejo requires WooCommerce to be active."
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr ""
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:84
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:93
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:94
+msgid "Powiadom mnie"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:94
+msgid "Get notified"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:124
+msgid "Permission denied."
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:154
+#, php-format
+msgid "Do more with %s"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:161
+msgid "Dismiss this notice"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:178
+msgid "Unlock every PRO feature"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:191
+msgid "one licence, every PRO feature"
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:210
+#, php-format
+msgid "What %s adds"
+msgstr ""
+
+#: src/Admin/Settings.php:48
+msgid "Pickup Scheduling"
+msgstr ""
+
+#: src/Admin/Settings.php:49
+#: src/Service/OrderDisplay.php:81
+msgid "Pickup"
+msgstr ""
+
+#: src/Admin/Settings.php:79
+#: src/Admin/Settings.php:274
+msgid "Remove"
+msgstr ""
+
+#: src/Admin/Settings.php:80
+msgid "Remove this item?"
+msgstr ""
+
+#: src/Admin/Settings.php:103
+msgid "Pickup settings saved."
+msgstr ""
+
+#: src/Admin/Settings.php:108
+msgid "Let customers book a pickup time"
+msgstr ""
+
+#: src/Admin/Settings.php:110
+msgid "When an order uses WooCommerce Local Pickup, shoppers choose a location and a time slot at checkout. Define your locations, weekly opening hours, slot length and capacity below."
+msgstr ""
+
+#: src/Admin/Settings.php:119
+msgid "General"
+msgstr ""
+
+#: src/Admin/Settings.php:121
+msgid "The booking rules that shape which time slots customers can pick. The defaults work for most shops, adjust only if your pickup desk needs tighter or looser timing."
+msgstr ""
+
+#: src/Admin/Settings.php:127
+msgid "Enable pickup scheduling"
+msgstr ""
+
+#: src/Admin/Settings.php:132
+msgid "Show pickup fields when Local Pickup is selected."
+msgstr ""
+
+#: src/Admin/Settings.php:135
+msgid "Turn this off to keep your locations and hours saved but stop showing the time picker at checkout."
+msgstr ""
+
+#: src/Admin/Settings.php:142
+msgid "Slot length (minutes)"
+msgstr ""
+
+#: src/Admin/Settings.php:145
+msgid "How far apart pickup times are offered. 30 gives slots at 09:00, 09:30, 10:00 and so on."
+msgstr ""
+
+#: src/Admin/Settings.php:146
+msgid "Default: 30"
+msgstr ""
+
+#: src/Admin/Settings.php:150
+msgid "Capacity per slot"
+msgstr ""
+
+#: src/Admin/Settings.php:153
+msgid "How many orders may book the same location and time before that slot shows as full and is hidden."
+msgstr ""
+
+#: src/Admin/Settings.php:154
+msgid "Default: 5"
+msgstr ""
+
+#: src/Admin/Settings.php:158
+msgid "Lead time (hours)"
+msgstr ""
+
+#: src/Admin/Settings.php:161
+msgid "The minimum notice before the earliest bookable slot, so staff have time to prepare. 2 hides any slot less than two hours away."
+msgstr ""
+
+#: src/Admin/Settings.php:162
+msgid "Default: 2"
+msgstr ""
+
+#: src/Admin/Settings.php:166
+msgid "Booking horizon (days)"
+msgstr ""
+
+#: src/Admin/Settings.php:169
+msgid "How far ahead customers may book. 14 lets them choose any open slot within the next two weeks."
+msgstr ""
+
+#: src/Admin/Settings.php:170
+msgid "Default: 14"
+msgstr ""
+
+#: src/Admin/Settings.php:178
+msgid "Weekly opening hours"
+msgstr ""
+
+#: src/Admin/Settings.php:180
+msgid "Set one or more time windows per day using 24-hour HH:MM. Leave a day blank to close it. Slots are generated inside these windows using the slot length above."
+msgstr ""
+
+#. translators: %s: weekday name.
+#: src/Admin/Settings.php:195
+#, php-format
+msgid "%s opening time"
+msgstr ""
+
+#. translators: %s: weekday name.
+#: src/Admin/Settings.php:205
+#, php-format
+msgid "%s closing time"
+msgstr ""
+
+#: src/Admin/Settings.php:218
+msgid "Pickup locations"
+msgstr ""
+
+#: src/Admin/Settings.php:220
+msgid "Add the places customers can collect from. Disable a location to hide it from checkout without losing its details. At least one enabled location is needed for the checkout fields to appear."
+msgstr ""
+
+#: src/Admin/Settings.php:232
+msgid "Add location"
+msgstr ""
+
+#: src/Admin/Settings.php:240
+msgid "Save pickup settings"
+msgstr ""
+
+#: src/Admin/Settings.php:255
+#: src/Service/CheckoutFields.php:157
+msgid "Pickup location"
+msgstr ""
+
+#: src/Admin/Settings.php:258
+msgid "Name"
+msgstr ""
+
+#: src/Admin/Settings.php:259
+msgid "e.g. Downtown store"
+msgstr ""
+
+#: src/Admin/Settings.php:264
+msgid "Address"
+msgstr ""
+
+#: src/Admin/Settings.php:265
+msgid "Optional"
+msgstr ""
+
+#: src/Admin/Settings.php:271
+msgid "Enabled"
+msgstr ""
+
+#: src/Admin/Settings.php:311
+msgid "Monday"
+msgstr ""
+
+#: src/Admin/Settings.php:312
+msgid "Tuesday"
+msgstr ""
+
+#: src/Admin/Settings.php:313
+msgid "Wednesday"
+msgstr ""
+
+#: src/Admin/Settings.php:314
+msgid "Thursday"
+msgstr ""
+
+#: src/Admin/Settings.php:315
+msgid "Friday"
+msgstr ""
+
+#: src/Admin/Settings.php:316
+msgid "Saturday"
+msgstr ""
+
+#: src/Admin/Settings.php:317
+msgid "Sunday"
+msgstr ""
+
+#: src/Admin/Settings.php:328
+msgid "You do not have permission to do this."
+msgstr ""
+
+#: src/Admin/Settings.php:335
+msgid "Security check failed. Please try again."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:110
+msgid "Select a date to see available times."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:111
+msgid "No times available on this date. Please choose another."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:112
+msgid "This date is not available for pickup. Please choose another."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:113
+msgid "Loading times…"
+msgstr ""
+
+#: src/Service/CheckoutFields.php:114
+msgid "Could not load times. Please try again."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:134
+msgid "Local pickup is selected but no pickup locations are configured yet. Please contact the store."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:150
+#: src/Service/OrderDisplay.php:107
+#: src/Service/OrderDisplay.php:144
+#: src/Service/OrderDisplay.php:152
+msgid "Pickup details"
+msgstr ""
+
+#: src/Service/CheckoutFields.php:151
+msgid "Choose where and when you would like to collect your order."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:158
+#: src/Service/CheckoutFields.php:186
+#: src/Service/CheckoutFields.php:204
+msgid "required"
+msgstr ""
+
+#: src/Service/CheckoutFields.php:166
+msgid "Select a location…"
+msgstr ""
+
+#: src/Service/CheckoutFields.php:185
+msgid "Pickup date"
+msgstr ""
+
+#: src/Service/CheckoutFields.php:203
+msgid "Pickup time"
+msgstr ""
+
+#: src/Service/CheckoutFields.php:213
+msgid "Select a date first…"
+msgstr ""
+
+#: src/Service/CheckoutFields.php:226
+msgid "Reserved"
+msgstr ""
+
+#: src/Service/CheckoutFields.php:227
+msgid "Reserved, your order will be waiting."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:247
+msgid "Your pickup selection could not be verified. Please try again."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:254
+msgid "Please choose a valid pickup location."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:262
+msgid "Please choose a pickup date and time."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:267
+msgid "That pickup time is no longer available. Please pick another."
+msgstr ""
+
+#: src/Service/CheckoutFields.php:415
+#: src/Service/CheckoutFields.php:422
+msgid "Pickup slot"
+msgstr ""
+
+#. translators: 1: slot time (HH:MM), 2: formatted fee or discount
+#: src/Service/CheckoutFields.php:443
+#, php-format
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: src/Service/OrderDisplay.php:83
+#: src/Service/OrderDisplay.php:145
+#: src/Service/OrderDisplay.php:154
+msgid "Location:"
+msgstr ""
+
+#: src/Service/OrderDisplay.php:88
+#: src/Service/OrderDisplay.php:147
+#: src/Service/OrderDisplay.php:156
+msgid "When:"
+msgstr ""
+
+#: src/Service/OrderDisplay.php:111
+msgid "Location"
+msgstr ""
+
+#: src/Service/OrderDisplay.php:116
+msgid "When"
+msgstr ""
+
+#: src/Support/SettingsStore.php:141
+msgid "Main store"
+msgstr ""

@@ -48,6 +48,13 @@ final class ProUpsell
     /** Whether to render the promo at all (filterable for white-label builds). */
     public function enabled(): bool
     {
+
+        // Somebody running the paid edition has already bought what this sells.
+        // Only the banner was ever dismissible, so without this the sidebar promo
+        // and the locked cards followed a paying customer around for ever.
+        if (defined('Pickup\\Pro\\VERSION')) {
+            return false;
+        }
         /**
          * Filters whether the Pickup PRO promo is shown on the settings screen.
          *
@@ -75,17 +82,13 @@ final class ProUpsell
     private function priceLabel(): string
     {
         if (! $this->sellable()) {
-            return $this->isPolish() ? __('Wkrótce', 'plogins-pickup') : __('Coming soon', 'plogins-pickup');
+            return $this->isPolish() ? __('Wkrótce', 'prenejo') : __('Coming soon', 'prenejo');
         }
         $d = $this->data();
-        if ($this->isPolish() && ! empty($d['price_pln'])) {
-            /* translators: %d: yearly price in PLN */
-            return sprintf(__('od %d zł/rok', 'plogins-pickup'), (int) $d['price_pln']);
-        }
         if (! empty($d['price_from'])) {
             $cur = ($d['currency'] ?? 'EUR') === 'EUR' ? '€' : (string) $d['currency'] . ' ';
             /* translators: 1: currency symbol, 2: yearly price */
-            return sprintf(__('from %1$s%2$d/yr', 'plogins-pickup'), $cur, (int) $d['price_from']);
+            return sprintf(__('from %1$s%2$d/yr', 'prenejo'), $cur, (int) $d['price_from']);
         }
         return '';
     }
@@ -94,8 +97,8 @@ final class ProUpsell
     private function ctaLabel(): string
     {
         return $this->sellable()
-            ? __('Upgrade to PRO', 'plogins-pickup')
-            : ($this->isPolish() ? __('Powiadom mnie', 'plogins-pickup') : __('Get notified', 'plogins-pickup'));
+            ? __('Upgrade to PRO', 'prenejo')
+            : ($this->isPolish() ? __('Powiadom mnie', 'prenejo') : __('Get notified', 'prenejo'));
     }
 
     /** @return array<int, array{title: string, desc: string}> */
@@ -125,7 +128,7 @@ final class ProUpsell
     public function handleDismiss(): void
     {
         if (! current_user_can('manage_woocommerce')) {
-            wp_die(esc_html__('Permission denied.', 'plogins-pickup'));
+            wp_die(esc_html__('Permission denied.', 'prenejo'));
         }
         check_admin_referer(self::ACTION);
         update_user_meta(get_current_user_id(), self::META, 1);
@@ -143,7 +146,7 @@ final class ProUpsell
         if (! $this->enabled() || $this->bannerDismissed()) {
             return;
         }
-        $name     = (string) ($this->data()['name'] ?? 'Pickup Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Prenejo Pro');
         $price    = $this->priceLabel();
         $subtitle = implode(', ', array_slice(array_map(
             static fn (array $f): string => $f['title'],
@@ -155,31 +158,36 @@ final class ProUpsell
             <p class="pickup-pro-banner__text">
                 <strong><?php
                 /* translators: %s: PRO edition name */
-                printf(esc_html__('Do more with %s', 'plogins-pickup'), esc_html($name)); ?></strong>
+                printf(esc_html__('Do more with %s', 'prenejo'), esc_html($name)); ?></strong>
                 <?php if ($subtitle !== '') : ?><span class="pickup-pro-banner__sub"><?php echo esc_html($subtitle); ?></span><?php endif; ?>
                 <?php if ($price !== '') : ?><span class="pickup-pro-banner__price"><?php echo esc_html($price); ?></span><?php endif; ?>
             </p>
             <a class="button button-primary pickup-pro-banner__cta" href="<?php echo esc_url($this->url()); ?>" target="_blank" rel="noopener noreferrer">
                 <?php echo esc_html($this->ctaLabel()); ?>
             </a>
-            <a class="pickup-pro-banner__dismiss" href="<?php echo esc_url($this->dismissUrl()); ?>" aria-label="<?php esc_attr_e('Dismiss this notice', 'plogins-pickup'); ?>">&times;</a>
+            <a class="pickup-pro-banner__dismiss" href="<?php echo esc_url($this->dismissUrl()); ?>" aria-label="<?php esc_attr_e('Dismiss this notice', 'prenejo'); ?>">&times;</a>
         </div>
         <?php
     }
 
     /** Sidebar promo panel (sits in the settings two-column layout). */
+    /**
+     * The sidebar promo follows the banner's dismissal. Without that, dismissing
+     * the banner left a full-height advert on the screen for good, which is not
+     * what Guideline 11 means by used with moderation.
+     */
     public function aside(): void
     {
-        if (! $this->enabled()) {
+        if (! $this->enabled() || $this->bannerDismissed()) {
             return;
         }
-        $name     = (string) ($this->data()['name'] ?? 'Pickup Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Prenejo Pro');
         $price    = $this->priceLabel();
         $features = $this->features();
         ?>
         <aside class="pickup-card pickup-pro-aside" aria-labelledby="pickup-pro-aside-h">
             <p class="pickup-pro-aside__eyebrow"><?php echo esc_html($name); ?></p>
-            <h2 id="pickup-pro-aside-h" class="pickup-pro-aside__heading"><?php esc_html_e('Unlock every PRO feature', 'plogins-pickup'); ?></h2>
+            <h2 id="pickup-pro-aside-h" class="pickup-pro-aside__heading"><?php esc_html_e('Unlock every PRO feature', 'prenejo'); ?></h2>
             <ul class="pickup-pro-aside__list">
                 <?php foreach ($features as $f) : ?>
                     <li>
@@ -192,7 +200,7 @@ final class ProUpsell
                 <?php echo esc_html($this->ctaLabel()); ?>
             </a>
             <?php if ($price !== '') : ?>
-                <p class="pickup-pro-aside__price"><?php echo esc_html($price); ?><?php if ($this->sellable()) : ?> · <?php esc_html_e('one licence, every PRO feature', 'plogins-pickup'); ?><?php endif; ?></p>
+                <p class="pickup-pro-aside__price"><?php echo esc_html($price); ?><?php if ($this->sellable()) : ?> · <?php esc_html_e('one licence, every PRO feature', 'prenejo'); ?><?php endif; ?></p>
             <?php endif; ?>
         </aside>
         <?php
@@ -205,13 +213,13 @@ final class ProUpsell
             return;
         }
         $features = $this->features();
-        $name     = (string) ($this->data()['name'] ?? 'Pickup Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Prenejo Pro');
         ?>
         <section class="pickup-pro-cards" aria-labelledby="pickup-pro-cards-h">
             <h2 id="pickup-pro-cards-h" class="pickup-pro-cards__title">
                 <?php
                 /* translators: %s: PRO edition name */
-                printf(esc_html__('What %s adds', 'plogins-pickup'), esc_html($name)); ?>
+                printf(esc_html__('What %s adds', 'prenejo'), esc_html($name)); ?>
             </h2>
             <div class="pickup-pro-cards__grid">
                 <?php foreach ($features as $f) : ?>

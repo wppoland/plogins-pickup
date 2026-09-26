@@ -57,10 +57,10 @@ Quellcode und Fehlerberichte: https://github.com/wppoland/plogins-pickup
 
 == Installation ==
 
-1. Lade das Plugin nach `/wp-content/plugins/pickup` hoch oder installiere es über Plugins → Installieren.
+1. Lade das Plugin nach `/wp-content/plugins/pickup` hoch oder installiere es über Plugins > Installieren.
 2. Aktiviere es. WooCommerce muss aktiv sein.
-3. Stelle sicher, dass die WooCommerce-Methode <strong>Abholung vor Ort</strong> unter WooCommerce → Einstellungen → Versand aktiviert ist.
-4. Gehe zu <strong>WooCommerce → Abholung</strong>, füge deine Abholorte und wöchentlichen Öffnungszeiten hinzu und
+3. Stelle sicher, dass die WooCommerce-Methode <strong>Abholung vor Ort</strong> unter WooCommerce > Einstellungen > Versand aktiviert ist.
+4. Gehe zu <strong>WooCommerce > Abholung</strong>, füge deine Abholorte und wöchentlichen Öffnungszeiten hinzu und
    lege Zeitfensterlänge, Kapazität, Vorlaufzeit und Buchungshorizont fest.
 
 == Frequently Asked Questions ==
