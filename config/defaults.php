@@ -39,7 +39,11 @@ return [
     'locations'    => [
         [
             'id'      => 'main',
-            'name'    => 'Main store',
+            // Blank on purpose: a literal here can never reach the .pot, so it
+            // would print English at checkout in every shop that has not yet
+            // renamed this seed row. SettingsStore::locations() supplies the
+            // translated name when it is empty.
+            'name'    => '',
             'address' => '',
             'enabled' => true,
         ],
