@@ -397,7 +397,7 @@ msgstr "Reserviert"
 
 #: src/Service/CheckoutFields.php:235
 msgid "Reserved, your order will be waiting."
-msgstr "Reserviert, deine Bestellung wartet auf Sie."
+msgstr "Reserviert, deine Bestellung wartet auf dich."
 
 #: src/Service/CheckoutFields.php:255
 msgid "Your pickup selection could not be verified. Please try again."
