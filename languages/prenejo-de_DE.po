@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pickup - Local Pickup Scheduling for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prenejo\n"
-"POT-Creation-Date: 2026-09-11T06:44:36+00:00\n"
+"POT-Creation-Date: 2026-10-05T11:15:19+00:00\n"
 "PO-Revision-Date: 2026-06-16T20:24:47+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -19,82 +19,75 @@ msgstr ""
 #. Plugin Name of the plugin
 #: prenejo.php
 msgid "Prenejo - Local Pickup for WooCommerce"
-msgstr ""
+msgstr "Prenejo - Lokale Abholung für WooCommerce"
 
 #. Plugin URI of the plugin
 #: prenejo.php
 msgid "https://plogins.com/plogins-pickup/"
-msgstr ""
+msgstr "https://plogins.com/plogins-pickup/"
 
 #. Description of the plugin
 #: prenejo.php
 msgid "Let customers choose a pickup location and time slot at checkout."
-msgstr "Lass Kunden an der Kasse einen Abholort und ein Zeitfenster auswählen."
+msgstr ""
+"Lass Kunden an der Kasse einen Abholort und ein Zeitfenster auswählen."
 
 #. Author of the plugin
 #: prenejo.php
 msgid "WPPoland.com"
-msgstr ""
+msgstr "WPPoland.com"
 
 #. Author URI of the plugin
 #: prenejo.php
 msgid "https://wppoland.com"
-msgstr ""
+msgstr "https://wppoland.com"
 
 #: prenejo.php:55
 msgid "Prenejo requires WooCommerce to be active."
-msgstr ""
+msgstr "Prenejo benötigt ein aktives WooCommerce."
 
-#: src/Admin/ProUpsell.php:78
-msgid "Wkrótce"
-msgstr "Demnächst"
-
-#: src/Admin/ProUpsell.php:78
+#: src/Admin/ProUpsell.php:85
 msgid "Coming soon"
 msgstr "Demnächst"
 
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:84
+#: src/Admin/ProUpsell.php:91
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr "ab %1$s%2$d/Jahr"
 
-#: src/Admin/ProUpsell.php:93
+#: src/Admin/ProUpsell.php:100
 msgid "Upgrade to PRO"
 msgstr "Auf PRO upgraden"
 
-#: src/Admin/ProUpsell.php:94
-msgid "Powiadom mnie"
-msgstr "Benachrichtige mich"
-
-#: src/Admin/ProUpsell.php:94
+#: src/Admin/ProUpsell.php:101
 msgid "Get notified"
 msgstr "Benachrichtige mich"
 
-#: src/Admin/ProUpsell.php:124
+#: src/Admin/ProUpsell.php:131
 msgid "Permission denied."
 msgstr "Zugriff verweigert."
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:154
+#: src/Admin/ProUpsell.php:161
 #, php-format
 msgid "Do more with %s"
 msgstr "Mehr erreichen mit %s"
 
-#: src/Admin/ProUpsell.php:161
+#: src/Admin/ProUpsell.php:168
 msgid "Dismiss this notice"
 msgstr "Diesen Hinweis ausblenden"
 
-#: src/Admin/ProUpsell.php:178
+#: src/Admin/ProUpsell.php:190
 msgid "Unlock every PRO feature"
 msgstr "Alle PRO-Funktionen freischalten"
 
-#: src/Admin/ProUpsell.php:191
+#: src/Admin/ProUpsell.php:203
 msgid "one licence, every PRO feature"
 msgstr "eine Lizenz, alle PRO-Funktionen"
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:210
+#: src/Admin/ProUpsell.php:222
 #, php-format
 msgid "What %s adds"
 msgstr "Was %s ergänzt"
@@ -130,8 +123,8 @@ msgid ""
 "length and capacity below."
 msgstr ""
 "Wenn eine Bestellung die lokale Abholung von WooCommerce nutzt, wählen "
-"Käufer beim Bezahlvorgang einen Ort und ein Zeitfenster aus. Definiere unten "
-"deine Standorte, wöchentlichen Öffnungszeiten, Slotlänge und Kapazität."
+"Käufer beim Bezahlvorgang einen Ort und ein Zeitfenster aus. Definiere unten"
+" deine Standorte, wöchentlichen Öffnungszeiten, Slotlänge und Kapazität."
 
 #: src/Admin/Settings.php:119
 msgid "General"
@@ -144,8 +137,9 @@ msgid ""
 "or looser timing."
 msgstr ""
 "Die Buchungsregeln legen fest, welche Zeitfenster Kunden auswählen können. "
-"Die Standardeinstellungen funktionieren für die meisten Geschäfte. Passe sie "
-"nur an, wenn dein Abholschalter ein engeres oder lockereres Timing benötigt."
+"Die Standardeinstellungen funktionieren für die meisten Geschäfte. Passe sie"
+" nur an, wenn dein Abholschalter ein engeres oder lockereres Timing "
+"benötigt."
 
 #: src/Admin/Settings.php:127
 msgid "Enable pickup scheduling"
@@ -277,7 +271,7 @@ msgstr "Standort hinzufügen"
 msgid "Save pickup settings"
 msgstr "Abholeinstellungen speichern"
 
-#: src/Admin/Settings.php:255 src/Service/CheckoutFields.php:157
+#: src/Admin/Settings.php:255 src/Service/CheckoutFields.php:165
 msgid "Pickup location"
 msgstr "Abholort"
 
@@ -343,11 +337,13 @@ msgstr "Wähle ein Datum aus, um die verfügbaren Zeiten anzuzeigen."
 
 #: src/Service/CheckoutFields.php:111
 msgid "No times available on this date. Please choose another."
-msgstr "Für dieses Datum sind keine Zeiten verfügbar. Bitte wähle eine andere."
+msgstr ""
+"Für dieses Datum sind keine Zeiten verfügbar. Bitte wähle eine andere."
 
 #: src/Service/CheckoutFields.php:112
 msgid "This date is not available for pickup. Please choose another."
 msgstr ""
+"Dieses Datum ist für die Abholung nicht verfügbar. Bitte wähle ein anderes."
 
 #: src/Service/CheckoutFields.php:113
 msgid "Loading times…"
@@ -365,70 +361,71 @@ msgstr ""
 "Lokale Abholung ist ausgewählt, aber es sind noch keine Abholorte "
 "konfiguriert. Bitte wende sich an den Shop."
 
-#: src/Service/CheckoutFields.php:150 src/Service/OrderDisplay.php:107
+#: src/Service/CheckoutFields.php:158 src/Service/OrderDisplay.php:107
 #: src/Service/OrderDisplay.php:144 src/Service/OrderDisplay.php:152
 msgid "Pickup details"
 msgstr "Details zur Abholung"
 
-#: src/Service/CheckoutFields.php:151
+#: src/Service/CheckoutFields.php:159
 msgid "Choose where and when you would like to collect your order."
 msgstr "Wähle, wo und wann du deine Bestellung abholen möchtest."
 
-#: src/Service/CheckoutFields.php:158 src/Service/CheckoutFields.php:186
-#: src/Service/CheckoutFields.php:204
+#: src/Service/CheckoutFields.php:166 src/Service/CheckoutFields.php:194
+#: src/Service/CheckoutFields.php:212
 msgid "required"
 msgstr "erforderlich"
 
-#: src/Service/CheckoutFields.php:166
+#: src/Service/CheckoutFields.php:174
 msgid "Select a location…"
 msgstr "Wähle einen Ort aus…"
 
-#: src/Service/CheckoutFields.php:185
+#: src/Service/CheckoutFields.php:193
 msgid "Pickup date"
 msgstr "Abholtermin"
 
-#: src/Service/CheckoutFields.php:203
+#: src/Service/CheckoutFields.php:211
 msgid "Pickup time"
 msgstr "Abholzeit"
 
-#: src/Service/CheckoutFields.php:213
+#: src/Service/CheckoutFields.php:221
 msgid "Select a date first…"
 msgstr "Wähle zuerst ein Datum aus…"
 
-#: src/Service/CheckoutFields.php:226
+#: src/Service/CheckoutFields.php:234
 msgid "Reserved"
 msgstr "Reserviert"
 
-#: src/Service/CheckoutFields.php:227
+#: src/Service/CheckoutFields.php:235
 msgid "Reserved, your order will be waiting."
 msgstr "Reserviert, deine Bestellung wartet auf Sie."
 
-#: src/Service/CheckoutFields.php:247
+#: src/Service/CheckoutFields.php:255
 msgid "Your pickup selection could not be verified. Please try again."
 msgstr ""
 "deine Abholauswahl konnte nicht bestätigt werden. Bitte versuche es erneut."
 
-#: src/Service/CheckoutFields.php:254
+#: src/Service/CheckoutFields.php:262
 msgid "Please choose a valid pickup location."
 msgstr "Bitte wähle einen gültigen Abholort."
 
-#: src/Service/CheckoutFields.php:262
+#: src/Service/CheckoutFields.php:270
 msgid "Please choose a pickup date and time."
 msgstr "Bitte wähle ein Abholdatum und eine Abholzeit."
 
-#: src/Service/CheckoutFields.php:267
+#: src/Service/CheckoutFields.php:275
 msgid "That pickup time is no longer available. Please pick another."
-msgstr "Diese Abholzeit ist nicht mehr verfügbar. Bitte wähle ein anderes aus."
-
-#: src/Service/CheckoutFields.php:415 src/Service/CheckoutFields.php:422
-msgid "Pickup slot"
 msgstr ""
+"Diese Abholzeit ist nicht mehr verfügbar. Bitte wähle ein anderes aus."
+
+#: src/Service/CheckoutFields.php:433 src/Service/CheckoutFields.php:440
+msgid "Pickup slot"
+msgstr "Abholzeitfenster"
 
 #. translators: 1: slot time (HH:MM), 2: formatted fee or discount
-#: src/Service/CheckoutFields.php:443
+#: src/Service/CheckoutFields.php:461
 #, php-format
 msgid "%1$s (%2$s)"
-msgstr ""
+msgstr "%1$s (%2$s)"
 
 #: src/Service/OrderDisplay.php:83 src/Service/OrderDisplay.php:145
 #: src/Service/OrderDisplay.php:154
@@ -448,9 +445,15 @@ msgstr "Standort"
 msgid "When"
 msgstr "Wann"
 
-#: src/Support/SettingsStore.php:141
+#: src/Support/SettingsStore.php:153
 msgid "Main store"
-msgstr ""
+msgstr "Hauptgeschäft"
+
+#~ msgid "Wkrótce"
+#~ msgstr "Demnächst"
+
+#~ msgid "Powiadom mnie"
+#~ msgstr "Benachrichtige mich"
 
 #~ msgid "Pickup - Local Pickup Scheduling for WooCommerce"
 #~ msgstr "Abholung, Lokale Abholplanung für WooCommerce"
@@ -465,11 +468,11 @@ msgstr ""
 #~ msgstr "https://plogins.com/"
 
 #~ msgid ""
-#~ "Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to "
-#~ "be active."
+#~ "Pickup - Local Pickup Scheduling for WooCommerce requires WooCommerce to be "
+#~ "active."
 #~ msgstr ""
-#~ "Abholung, Für die lokale Abholplanung für WooCommerce muss WooCommerce "
-#~ "aktiv sein."
+#~ "Abholung, Für die lokale Abholplanung für WooCommerce muss WooCommerce aktiv"
+#~ " sein."
 
 #, php-format
 #~ msgid "od %d zł/rok"
