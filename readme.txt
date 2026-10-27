@@ -55,6 +55,32 @@ Source code and bug reports: [github.com/wppoland/plogins-pickup](https://github
 * Ships with a POT file for translation and removes its settings on uninstall.
 * Declares HPOS compatibility and works alongside the Cart and Checkout blocks.
 
+== Prenejo Pro ==
+
+Prenejo Pro is a separate paid plugin that extends Prenejo.
+
+Included in Prenejo:
+
+* Location chooser at checkout
+* Date + time-slot picker
+* Configurable rules
+* Live availability
+* Live availability via AJAX
+
+Prenejo Pro adds:
+
+* Per-location capacity
+* Blackout dates
+* Slot blackouts
+* Per-slot pricing
+* Calendar export
+
+The free edition is not a trial and its features stay available without a time limit.
+
+* **Prenejo Pro** - [plogins.com/plogins-pickup-pro/](https://plogins.com/plogins-pickup-pro/)
+* **Compare editions and pricing** - [plogins.com/plogins-pickup-pro/pricing/](https://plogins.com/plogins-pickup-pro/pricing/)
+* **PRO documentation** - [plogins.com/plogins-pickup-pro/docs/](https://plogins.com/plogins-pickup-pro/docs/)
+
 == Installation ==
 
 1. Upload the plugin to `/wp-content/plugins/prenejo`, or install via Plugins > Add New.
