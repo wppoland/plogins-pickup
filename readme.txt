@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,14 +31,14 @@ The picker lives on the classic checkout. With the block-based Cart and Checkout
 the plugin declares compatibility and saved pickup details still show on the order,
 emails and account pages, but the in-checkout field UI is the classic one.
 
-Source code and bug reports: [github.com/wppoland/plogins-pickup](https://github.com/wppoland/plogins-pickup)
+Source code and bug reports: [github.com/wppoland/prenejo](https://github.com/wppoland/prenejo)
 
 = Documentation and links =
 
-* **Documentation**: [plogins.com/plogins-pickup/docs/](https://plogins.com/plogins-pickup/docs/)
-* **Plugin page**: [plogins.com/plogins-pickup/](https://plogins.com/plogins-pickup/)
-* **Source code**: [github.com/wppoland/plogins-pickup](https://github.com/wppoland/plogins-pickup)
-* **Bug reports and feature requests**: [github.com/wppoland/plogins-pickup/issues](https://github.com/wppoland/plogins-pickup/issues)
+* **Documentation**: [plogins.com/prenejo/docs/](https://plogins.com/prenejo/docs/)
+* **Plugin page**: [plogins.com/prenejo/](https://plogins.com/prenejo/)
+* **Source code**: [github.com/wppoland/prenejo](https://github.com/wppoland/prenejo)
+* **Bug reports and feature requests**: [github.com/wppoland/prenejo/issues](https://github.com/wppoland/prenejo/issues)
 
 
 = Features =
@@ -77,9 +77,9 @@ Prenejo Pro adds:
 
 The free edition is not a trial and its features stay available without a time limit.
 
-* **Prenejo Pro** - [plogins.com/plogins-pickup-pro/](https://plogins.com/plogins-pickup-pro/)
-* **Compare editions and pricing** - [plogins.com/plogins-pickup-pro/pricing/](https://plogins.com/plogins-pickup-pro/pricing/)
-* **PRO documentation** - [plogins.com/plogins-pickup-pro/docs/](https://plogins.com/plogins-pickup-pro/docs/)
+* **Prenejo Pro** - [plogins.com/prenejo-pro/](https://plogins.com/prenejo-pro/)
+* **Compare editions and pricing** - [plogins.com/prenejo-pro/pricing/](https://plogins.com/prenejo-pro/pricing/)
+* **PRO documentation** - [plogins.com/prenejo-pro/docs/](https://plogins.com/prenejo-pro/docs/)
 
 == Installation ==
 
@@ -139,6 +139,9 @@ their own. No data leaves your site.
 Prenejo is fully translatable and ships the `prenejo.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.4 =
+* Links point at the new plogins.com address and the renamed GitHub repository.
 
 = 1.1.3 =
 * The upgrade notice's "Coming soon" and "Get notified" labels are English source strings for every language; Polish sites used to get their own Polish source text, which translators in other languages then saw untranslated.

@@ -4,14 +4,14 @@
  * scripts/gen-pro-upsell.mjs. The admin upsell renders this; curate the
  * feature list to fit this plugin's settings screen (do not invent features).
  *
- * @package plogins-pickup-pro
+ * @package prenejo-pro
  */
 
 defined('ABSPATH') || exit;
 
 return [
     'name'       => 'Prenejo Pro',
-    'url'        => 'https://plogins.com/plogins-pickup-pro/pricing/',
+    'url'        => 'https://plogins.com/prenejo-pro/pricing/',
     'sellable'   => true,
     'price_from' => 29,
     'currency'   => 'EUR',
