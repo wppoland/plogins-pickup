@@ -23,8 +23,8 @@ msgstr "Prenejo - Lokale Abholung für WooCommerce"
 
 #. Plugin URI of the plugin
 #: prenejo.php
-msgid "https://plogins.com/plogins-pickup/"
-msgstr "https://plogins.com/plogins-pickup/"
+msgid "https://plogins.com/prenejo/"
+msgstr "https://plogins.com/prenejo/"
 
 #. Description of the plugin
 #: prenejo.php

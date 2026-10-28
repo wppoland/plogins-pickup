@@ -21,7 +21,7 @@ msgstr ""
 
 #. Plugin URI of the plugin
 #: prenejo.php
-msgid "https://plogins.com/plogins-pickup/"
+msgid "https://plogins.com/prenejo/"
 msgstr ""
 
 #. Description of the plugin
