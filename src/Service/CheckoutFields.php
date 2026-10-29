@@ -273,6 +273,20 @@ final class CheckoutFields implements HasHooks
 
         if (! $this->calculator->isBookable($locationId, $date, $slot)) {
             wc_add_notice(__('That pickup time is no longer available. Please pick another.', 'prenejo'), 'error');
+            return;
+        }
+
+        // The slot fee is read from the session, which only the order review
+        // refresh wrote. A checkout posted with a different slot than the last
+        // refresh saved the new slot at the old slot's fee. This hook runs
+        // before WooCommerce recalculates the totals, so the fee follows the
+        // slot that is actually ordered.
+        if (function_exists('WC') && null !== WC()->session) {
+            WC()->session->set(self::SESSION_CHOICE, [
+                'location' => $locationId,
+                'date'     => $date,
+                'slot'     => $slot,
+            ]);
         }
     }
 
