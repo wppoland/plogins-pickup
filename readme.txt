@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,9 @@ Prenejo is fully translatable and ships the `prenejo.pot` template. Translations
 
 == Changelog ==
 
+= 1.1.5 =
+* Security (low): the pickup slot fee now follows the slot submitted with the order. A shopper could post a paid slot at checkout after the order review had last refreshed on a free one and skip the slot fee.
+
 = 1.1.4 =
 * Links point at the new plogins.com address and the renamed GitHub repository.
 
@@ -222,3 +225,8 @@ Prenejo is fully translatable and ships the `prenejo.pot` template. Translations
 * Initial release: pickup location chooser and date/time-slot picker at checkout,
   weekly opening-hours scheduling with slot length, capacity, lead time and
   booking horizon, order + email display, and a WooCommerce settings screen.
+
+== Upgrade Notice ==
+
+= 1.1.5 =
+Security release. Only stores that charge a fee for some pickup slots are exposed. Update, nothing else to do.
